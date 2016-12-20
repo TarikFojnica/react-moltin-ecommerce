@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import logo from './logo.svg';
 import './App.css';
 import moltin from './moltin';
+import 'semantic-ui-css/semantic.min.css'
 
 class App extends Component {
 	state = {
@@ -23,12 +24,29 @@ class App extends Component {
 			let images = result.images.map(function(image, imageID) {
 				return (
 					<img src={image.url.http} key={imageID}/>
+
 				)
 			});
 			return (
 				<div key={id}>
 					{images}
-					<h3 className="uk-panel-title">{result.title}</h3>
+					<div className="ui card" key={id}>
+						<div className="content">
+							<a className="header">{result.title}</a>
+							<div className="meta">
+								<span className="date">Joined in 2013</span>
+							</div>
+							<div className="description">
+								Kristy is an art director living in New York.
+							</div>
+						</div>
+						<div className="extra content">
+							<a>
+								<i className="user icon" />
+								22 Friends
+							</a>
+						</div>
+					</div>
 				</div>
 			);
 		});

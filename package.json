@@ -6,9 +6,11 @@
     "react-scripts": "0.8.4"
   },
   "dependencies": {
+    "gulp": "^3.9.1",
     "moltin": "^1.0.4",
     "react": "^15.4.1",
-    "react-dom": "^15.4.1"
+    "react-dom": "^15.4.1",
+    "semantic-ui-css": "^2.2.4"
   },
   "scripts": {
     "start": "react-scripts start",
