@@ -25,9 +25,11 @@ class App extends React.Component {
 		return (
 			<div className="app-container">
 				<Header />
-				<div className="ui container">
-					<div className="ui grid">
-						<Spotlight articles={this.state.data}/>
+				<div className="spotlight-container">
+					<div className="ui container">
+						<div className="ui grid">
+							<Spotlight articles={this.state.data}/>
+						</div>
 					</div>
 				</div>
 			</div>
