@@ -4,7 +4,6 @@ import './App.css';
 import moltin from './moltin';
 
 class App extends Component {
-
 	state = {
 		data: [],
 	};
