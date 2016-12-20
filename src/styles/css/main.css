@@ -1,4 +1,7 @@
 header {
   margin-bottom: 2em !important; }
 
+.spotlight-element .ui.card {
+  width: 100%; }
+
 /*# sourceMappingURL=main.css.map */
