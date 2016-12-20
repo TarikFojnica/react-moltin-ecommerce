@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
-import logo from './logo.svg';
-import './App.css';
-import moltin from './moltin';
+import logo from '../logo.svg';
+import '../App.css';
+import moltin from '../vendor/moltin';
 import 'semantic-ui-css/semantic.min.css'
 
 class App extends Component {
@@ -19,18 +19,13 @@ class App extends Component {
 	}
 
   render() {
-		console.log(this.state.data[0]);
 		let allItems = this.state.data.map(function(result, id) {
-			let images = result.images.map(function(image, imageID) {
-				return (
-					<img src={image.url.http} key={imageID}/>
-
-				)
-			});
 			return (
-				<div key={id}>
-					{images}
+				<div key={id} className="column">
 					<div className="ui card" key={id}>
+						<div className="image">
+							<img src={result.images[0].url.http} />
+						</div>
 						<div className="content">
 							<a className="header">{result.title}</a>
 							<div className="meta">
@@ -52,16 +47,12 @@ class App extends Component {
 		});
 
 		return (
-      <div className="App">
-        <div className="App-header">
-          <img src={logo} className="App-logo" alt="logo" />
-          <h2>Welcome to React {}</h2>
-					<button>Log me</button>
-        </div>
-        <p className="App-intro">
-          To get started, edit <code>src/App.js</code> and save to reload.
-        </p>
-				{allItems}
+      <div className="ui container">
+				<div className="ui grid">
+					<div className="three column row">
+						{allItems}
+					</div>
+				</div>
       </div>
     );
   }
