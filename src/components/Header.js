@@ -11,6 +11,7 @@ export default class Header extends React.Component {
 						</div>
 						<a href="#" className="item">Bow Ties</a>
 						<a href="#" className="item">Bags</a>
+						<a href="#" className="item right floated">Cart</a>
 					</div>
 				</div>
 			</header>
