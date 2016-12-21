@@ -14,18 +14,15 @@ export default class Spotlight extends React.Component {
 						</div>
 						<div className="content">
 							<a className="header">{result.title}</a>
-							<div className="description">
-								Kristy is an art director living in New York.
+							<div className="price">
 							</div>
 						</div>
 						<div className="extra content text-center">
-							<div className="ui vertical animated button">
-								<Link to={`/product/${result.id}`}>
-									<div className="hidden content">Add To Cart</div>
-									<div className="visible content">
-										<i className="shop icon"></i>
-									</div>
-								</Link>
+							<div className="ui buttons">
+								<button className="ui button"><i className="add to cart icon"></i>Add to Cart</button>
+
+								<div className="or"></div>
+								<Link className="ui button brown" to={`/product/${result.id}`}>Details</Link>
 							</div>
 						</div>
 					</div>

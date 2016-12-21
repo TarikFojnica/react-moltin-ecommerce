@@ -2,10 +2,9 @@ import React from 'react'
 import moltin from '../vendor/moltin';
 
 export default class Product extends React.Component {
-	// state.id stands for the current url id
 	state = {
 		product: [],
-		id: this.props.location.pathname.replace('/product/', ''),
+		id: this.props.location.pathname.replace('/product/', ''), // remove string '/product/' from the url
 		loaded: false
 	};
 
@@ -20,9 +19,6 @@ export default class Product extends React.Component {
 	}
 
 	render() {
-		console.log(this.props.location.pathname);
-		console.log(this.state.id);
-
 		return (
 			<div className="product-container">
 				<div className="ui container">

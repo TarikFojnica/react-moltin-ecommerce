@@ -32,7 +32,6 @@ header {
 			}
 
 			.button {
-				min-width: 150px;
 			}
 		}
 	}
@@ -40,4 +39,10 @@ header {
 
 .product-container {
 	margin-top: 4em;
+}
+
+footer {
+	.footer {
+		padding: 4em 0 3em 0 !important;
+	}
 }
