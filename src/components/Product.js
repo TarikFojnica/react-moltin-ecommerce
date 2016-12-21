@@ -2,8 +2,10 @@ import React from 'react'
 import moltin from '../vendor/moltin';
 
 export default class Product extends React.Component {
+	// state.id stands for the current url id
 	state = {
 		product: [],
+		id: this.props.location.pathname.replace('/product/', ''),
 		loaded: false
 	};
 
@@ -12,12 +14,14 @@ export default class Product extends React.Component {
 
 		moltin.Authenticate(function() {
 			_this.setState({
-				product: moltin.Product.Get('1409707278864483046')
+				product: moltin.Product.Get(_this.state.id)
 			})
 		});
 	}
 
 	render() {
+		console.log(this.props.location.pathname);
+		console.log(this.state.id);
 
 		return (
 			<div className="product-container">

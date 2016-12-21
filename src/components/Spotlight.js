@@ -4,6 +4,7 @@ import {Link} from 'react-router'
 export default class Spotlight extends React.Component {
 
 	render() {
+		// Create allItems function from the props we get from Home component
 		let allItems = this.props.articles.map(function(result, id) {
 			return (
 				<div key={id} className="column spotlight-element">
