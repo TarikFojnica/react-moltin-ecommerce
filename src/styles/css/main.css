@@ -91,7 +91,14 @@ header .item span {
     /* stops bg color from leaking outside the border: */ }
 
 .product-container {
-  margin-top: 4em; }
+  margin: 6em 0 3em 0; }
+  .product-container .preview-image {
+    width: 100%;
+    height: 400px;
+    overflow: hidden;
+    background-position: center;
+    background-size: 100% auto;
+    background-repeat: no-repeat; }
 
 footer .footer {
   padding: 4em 0 3em 0 !important; }

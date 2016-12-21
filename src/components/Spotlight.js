@@ -3,9 +3,13 @@ import {Link} from 'react-router'
 
 export default class Spotlight extends React.Component {
 
+	handleClick = () => {
+		console.log('this is:', this);
+	}
+
 	render() {
 		// Create allItems function from the props we get from Home component
-		let allItems = this.props.articles.map(function(result, id) {
+		let allItems = this.props.articles.map((result, id) => {
 			return (
 				<div key={id} className="column spotlight-element">
 					<div className="ui card" key={id}>
@@ -19,7 +23,7 @@ export default class Spotlight extends React.Component {
 						</div>
 						<div className="extra content text-center">
 							<div className="ui buttons">
-								<button className="ui button"><i className="add to cart icon"></i>Add to Cart</button>
+								<button onClick={this.handleClick} className="ui button"><i className="add to cart icon"></i>Add to Cart</button>
 
 								<div className="or"></div>
 								<Link className="ui button brown" to={`/product/${result.id}`}>Details</Link>
@@ -34,9 +38,13 @@ export default class Spotlight extends React.Component {
 			<div className="spotlight-container">
 				<div className="ui container">
 					<div className="ui grid">
+
 						<div className="three column row">
 							{allItems}
 						</div>
+						<button>
+							Click me
+						</button>
 					</div>
 				</div>
 			</div>

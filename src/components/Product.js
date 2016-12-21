@@ -25,25 +25,23 @@ export default class Product extends React.Component {
 	}
 
 	render() {
-		console.log(this.state.product.images[0].url.http)
-		{/*let image =  this.state.product.images.map(function(result, id) {*/}
-		// 	return(
-		// 		<div>
-		// 			{result}
-		// 		</div>
-		// 	)
-		// });
+		const backgroundImage = {
+			backgroundImage: 'url(' + this.state.product.images[0].url.http + ')',
+		};
 
 		return (
 			<div className="product-container">
 				<div className="ui container">
 					<div className="ui grid">
 						<div className="eight wide column">
-							<div className="preview-image">
-								<img src={this.state.product.images[0].url.http} alt=""/>
+							<div className="preview-image" style={backgroundImage}>
 							</div>
 						</div>
-						<div className="eight wide column">abc</div>
+						<div className="eight wide column">
+							<h1>{this.state.product.title}</h1>
+							<p>{this.state.product.description}</p>
+							<button className="ui button"><i className="add to cart icon"></i>Add to Cart</button>
+						</div>
 					</div>
 				</div>
 			</div>
