@@ -1,4 +1,5 @@
-import React from 'react'
+import React from 'react';
+import {Link} from 'react-router'
 
 export default class Spotlight extends React.Component {
 
@@ -18,10 +19,12 @@ export default class Spotlight extends React.Component {
 						</div>
 						<div className="extra content text-center">
 							<div className="ui vertical animated button">
-								<div className="hidden content">Add To Cart</div>
-								<div className="visible content">
-									<i className="shop icon"></i>
-								</div>
+								<Link to={`/product/`}>
+									<div className="hidden content">Add To Cart</div>
+									<div className="visible content">
+										<i className="shop icon"></i>
+									</div>
+								</Link>
 							</div>
 						</div>
 					</div>

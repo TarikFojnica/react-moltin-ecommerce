@@ -10,9 +10,13 @@ header {
 
 .spotlight-container {
 	margin-top: 1em;
-	background-color: #fcff81;
+	background-color: #dfe7f2;
 	background-image: url("https://www.transparenttextures.com/patterns/candyhole.png");
 	/* This is mostly intended for prototyping; please download the pattern and re-host for production environments. Thank you! */
+
+	.row {
+		margin: 5em 0 4em 0;
+	}
 }
 
 .spotlight-element {
@@ -28,4 +32,8 @@ header {
 			}
 		}
 	}
+}
+
+.product-container {
+	margin-top: 4em;
 }

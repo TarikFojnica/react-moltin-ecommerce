@@ -4,7 +4,7 @@ import '../styles/css/main.css';
 import moltin from '../vendor/moltin';
 import 'semantic-ui-css/semantic.min.css';
 import Header from './Header';
-import Spotlight from './Spotlight'
+import Footer from './Footer'
 
 class Layout extends React.Component {
 	state = {
@@ -28,9 +28,7 @@ class Layout extends React.Component {
 
 				<div className="app-content">{this.props.children}</div>
 
-				<footer>
-					<h1>This is footer</h1>
-				</footer>
+				<Footer/>
 			</div>
 		);
 	}

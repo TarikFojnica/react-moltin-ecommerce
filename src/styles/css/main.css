@@ -68,9 +68,11 @@ header .item span {
 
 .spotlight-container {
   margin-top: 1em;
-  background-color: #fcff81;
+  background-color: #dfe7f2;
   background-image: url("https://www.transparenttextures.com/patterns/candyhole.png");
   /* This is mostly intended for prototyping; please download the pattern and re-host for production environments. Thank you! */ }
+  .spotlight-container .row {
+    margin: 5em 0 4em 0; }
 
 .spotlight-element .ui.card {
   width: 100%;
@@ -84,5 +86,8 @@ header .item span {
   text-align: center; }
   .spotlight-element .ui.card .button {
     min-width: 150px; }
+
+.product-container {
+  margin-top: 4em; }
 
 /*# sourceMappingURL=main.css.map */
