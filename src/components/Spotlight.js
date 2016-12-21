@@ -1,11 +1,18 @@
 import React from 'react';
 import {Link} from 'react-router'
+import moltin from '../vendor/moltin';
 
 export default class Spotlight extends React.Component {
 
-	handleClick = () => {
-		console.log('this is:', this);
-	}
+	addToCart = () => {
+		moltin.Authenticate(function() {
+			moltin.Cart.Insert('1409707278864483046', '1', null, function(cart) {
+				console.log('a', cart);
+			}, function(error) {
+				console.log('b', error);
+			});
+		});
+	};
 
 	render() {
 		// Create allItems function from the props we get from Home component
@@ -23,7 +30,7 @@ export default class Spotlight extends React.Component {
 						</div>
 						<div className="extra content text-center">
 							<div className="ui buttons">
-								<button onClick={this.handleClick} className="ui button"><i className="add to cart icon"></i>Add to Cart</button>
+								<button onClick={this.addToCart} className="ui button"><i className="add to cart icon"></i>Add to Cart</button>
 
 								<div className="or"></div>
 								<Link className="ui button brown" to={`/product/${result.id}`}>Details</Link>
@@ -42,9 +49,6 @@ export default class Spotlight extends React.Component {
 						<div className="three column row">
 							{allItems}
 						</div>
-						<button>
-							Click me
-						</button>
 					</div>
 				</div>
 			</div>
