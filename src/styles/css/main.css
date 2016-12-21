@@ -66,13 +66,25 @@
 header .item span {
   margin-right: .3em; }
 
-.spotlight-container {
-  margin-top: 1em;
-  background-color: #dfe7f2;
-  background-image: url("https://www.transparenttextures.com/patterns/candyhole.png");
-  /* This is mostly intended for prototyping; please download the pattern and re-host for production environments. Thank you! */ }
-  .spotlight-container .row {
-    margin: 5em 0 4em 0; }
+.home-intro {
+  padding: 5em 0 4em 0;
+  background-color: #dfe7f2; }
+  .home-intro .cover {
+    background-image: url("http://commercecdn.com/1409010996323811624/341618e1-39f3-44ea-bab4-beb833df193e.jpeg");
+    background-repeat: no-repeat;
+    background-size: 100% auto;
+    background-position: center; }
+    .home-intro .cover .cover-inner {
+      padding: 2em;
+      color: #fff;
+      height: 400px;
+      background-color: rgba(0, 0, 0, 0.7); }
+      .home-intro .cover .cover-inner .content {
+        width: 500px; }
+  .home-intro .spotlight-container {
+    margin-top: 1em; }
+    .home-intro .spotlight-container .row {
+      margin: 2em 0; }
 
 .spotlight-element .ui.card {
   width: 100%;

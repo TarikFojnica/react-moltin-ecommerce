@@ -21,7 +21,7 @@ export default class Cart extends React.Component {
 
 		return (
 			<div className="cart">
-
+				a
 			</div>
 		);
 	}

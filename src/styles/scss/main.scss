@@ -8,14 +8,35 @@ header {
 	}
 }
 
-.spotlight-container {
-	margin-top: 1em;
+.home-intro {
+	padding: 5em 0 4em 0;
 	background-color: #dfe7f2;
-	background-image: url("https://www.transparenttextures.com/patterns/candyhole.png");
-	/* This is mostly intended for prototyping; please download the pattern and re-host for production environments. Thank you! */
 
-	.row {
-		margin: 5em 0 4em 0;
+	
+	.cover {
+		background-image: url("http://commercecdn.com/1409010996323811624/341618e1-39f3-44ea-bab4-beb833df193e.jpeg");
+		background-repeat: no-repeat;
+		background-size: 100% auto;
+		background-position: center;
+	
+		.cover-inner {
+			padding: 2em;
+			color: #fff;
+			height: 400px;
+			background-color: rgba(0,0,0,.7);
+
+			.content {
+				width: 500px;
+			}
+		}
+	}
+
+	.spotlight-container {
+		margin-top: 1em;
+
+		.row {
+			margin: 2em 0;
+		}
 	}
 }
 

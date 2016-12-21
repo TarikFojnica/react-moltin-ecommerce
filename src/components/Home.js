@@ -3,6 +3,7 @@ import '../styles/css/main.css';
 import moltin from '../vendor/moltin';
 import 'semantic-ui-css/semantic.min.css';
 import Spotlight from './Spotlight'
+import Cover from './Cover'
 
 class Home extends React.Component {
 	state = {
@@ -21,7 +22,10 @@ class Home extends React.Component {
 
 	render() {
 		return (
-			<Spotlight articles={this.state.data}/>
+			<div className="home-intro">
+				<Cover/>
+				<Spotlight articles={this.state.data}/>
+			</div>
 		);
 	}
 }

@@ -8,6 +8,13 @@ export default class Spotlight extends React.Component {
 		moltin.Authenticate(function() {
 			moltin.Cart.Insert('1409707278864483046', '1', null, function(cart) {
 				console.log('a', cart);
+
+				moltin.Cart.Contents(function(items) {
+					console.log(items);
+				}, function(error) {
+					// Something went wrong...
+				});
+
 			}, function(error) {
 				console.log('b', error);
 			});
