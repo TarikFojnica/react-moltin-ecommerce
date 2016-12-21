@@ -68,7 +68,8 @@ header .item span {
 
 .home-intro {
   padding: 5em 0 4em 0;
-  background-color: #dfe7f2; }
+  background-color: #dfe7f2;
+  background-image: url("https://www.transparenttextures.com/patterns/candyhole.png"); }
   .home-intro .cover {
     background-image: url("http://commercecdn.com/1409010996323811624/341618e1-39f3-44ea-bab4-beb833df193e.jpeg");
     background-repeat: no-repeat;
@@ -104,9 +105,18 @@ header .item span {
 
 .product-container {
   margin: 6em 0 3em 0; }
+  .product-container .product-details {
+    -webkit-box-shadow: 0 0 15px 2px rgba(0, 0, 0, 0.1);
+    -moz-box-shadow: 0 0 15px 2px rgba(0, 0, 0, 0.1);
+    box-shadow: 0 0 15px 2px rgba(0, 0, 0, 0.1);
+    padding: 1.2em; }
+    .product-container .product-details h1 {
+      font-weight: 300;
+      text-transform: uppercase;
+      font-size: 1.7em; }
   .product-container .preview-image {
     width: 100%;
-    height: 400px;
+    height: 500px;
     overflow: hidden;
     background-position: center;
     background-size: 100% auto;

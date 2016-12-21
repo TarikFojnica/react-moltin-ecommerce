@@ -36,11 +36,11 @@ export default class Spotlight extends React.Component {
 							</div>
 						</div>
 						<div className="extra content text-center">
-							<div className="ui buttons">
-								<button onClick={this.addToCart} className="ui button"><i className="add to cart icon"></i>Add to Cart</button>
+							<div className="small ui buttons">
+								<button onClick={this.addToCart} className="ui button blue"><i className="add to cart icon"></i>Add to Cart</button>
 
 								<div className="or"></div>
-								<Link className="ui button brown" to={`/product/${result.id}`}>Details</Link>
+								<Link className="ui button" to={`/product/${result.id}`}>Details</Link>
 							</div>
 						</div>
 					</div>
