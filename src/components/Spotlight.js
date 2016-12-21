@@ -17,7 +17,7 @@ export default class Spotlight extends React.Component {
 							</div>
 						</div>
 						<div className="extra content text-center">
-							<div className="ui vertical animated button" tabindex="0">
+							<div className="ui vertical animated button">
 								<div className="hidden content">Add To Cart</div>
 								<div className="visible content">
 									<i className="shop icon"></i>

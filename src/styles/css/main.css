@@ -68,8 +68,8 @@ header .item span {
 
 .spotlight-container {
   margin-top: 1em;
-  background-color: #ffffff;
-  background-image: url("https://www.transparenttextures.com/patterns/back-pattern.png");
+  background-color: #fcff81;
+  background-image: url("https://www.transparenttextures.com/patterns/candyhole.png");
   /* This is mostly intended for prototyping; please download the pattern and re-host for production environments. Thank you! */ }
 
 .spotlight-element .ui.card {
@@ -78,9 +78,9 @@ header .item span {
   border-radius: 0 !important;
   background-clip: padding-box;
   /* stops bg color from leaking outside the border: */
-  -webkit-box-shadow: 0 0 15px 2px rgba(0, 0, 0, 0.2);
-  -moz-box-shadow: 0 0 15px 2px rgba(0, 0, 0, 0.2);
-  box-shadow: 0 0 15px 2px rgba(0, 0, 0, 0.2);
+  -webkit-box-shadow: 0 0 15px 2px rgba(0, 0, 0, 0.1);
+  -moz-box-shadow: 0 0 15px 2px rgba(0, 0, 0, 0.1);
+  box-shadow: 0 0 15px 2px rgba(0, 0, 0, 0.1);
   text-align: center; }
   .spotlight-element .ui.card .button {
     min-width: 150px; }
