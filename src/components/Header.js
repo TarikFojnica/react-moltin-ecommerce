@@ -6,7 +6,7 @@ export default class Header extends React.Component {
 			<header>
 				<div className="ui fixed menu">
 					<div className="ui container">
-						<a href="#" className="header item">
+						<a href="/" className="header item">
 							KanMer
 						</a>
 						<a href="#" className="item">Home</a>
