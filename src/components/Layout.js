@@ -6,7 +6,7 @@ import 'semantic-ui-css/semantic.min.css';
 import Header from './Header';
 import Spotlight from './Spotlight'
 
-class App extends React.Component {
+class Layout extends React.Component {
 	state = {
 		data: [],
 		loaded: false
@@ -21,20 +21,19 @@ class App extends React.Component {
 		});
 	}
 
-  render() {
+	render() {
 		return (
 			<div className="app-container">
 				<Header />
-				<div className="spotlight-container">
-					<div className="ui container">
-						<div className="ui grid">
-							<Spotlight articles={this.state.data}/>
-						</div>
-					</div>
-				</div>
+
+				<div className="app-content">{this.props.children}</div>
+
+				<footer>
+					<h1>This is footer</h1>
+				</footer>
 			</div>
-    );
-  }
+		);
+	}
 }
 
-export default App;
+export default Layout;
