@@ -1,5 +1,6 @@
 import React from 'react'
 import moltin from '../vendor/moltin';
+import events from '../vendor/pub-sub'
 
 export default class Cart extends React.Component {
 	state = {
@@ -9,19 +10,20 @@ export default class Cart extends React.Component {
 	componentDidMount() {
 		let _this = this;
 
-		moltin.Authenticate(function() {
-			_this.setState({
-				currentCart: moltin.Cart.Contents(),
-			})
+		events.subscribe('ADD_TO_CART', function(obj) {
+			moltin.Authenticate(function() {
+				_this.setState({
+					currentCart: moltin.Cart.Contents(),
+				})
+			});
 		});
 	}
 
 	render() {
-		console.log(this.state.currentCart);
 
 		return (
 			<div className="cart">
-				a
+				<h1>{this.state.currentCart.total_items}</h1>
 			</div>
 		);
 	}

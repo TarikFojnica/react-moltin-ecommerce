@@ -1,6 +1,7 @@
 import React from 'react';
 import {Link} from 'react-router'
 import moltin from '../vendor/moltin';
+import events from '../vendor/pub-sub'
 
 export default class Spotlight extends React.Component {
 
@@ -8,6 +9,7 @@ export default class Spotlight extends React.Component {
 		moltin.Authenticate(function() {
 			moltin.Cart.Insert('1409707278864483046', '1', null, function(cart) {
 				console.log('a', cart);
+				events.publish('ADD_TO_CART');
 
 				moltin.Cart.Contents(function(items) {
 					console.log(items);
