@@ -50,7 +50,7 @@ header {
 	}
 }
 
-.spotlight-element {
+.product-list-element {
 	margin-bottom: 1em !important;
 
 	.ui {
@@ -64,6 +64,47 @@ header {
 
 			.image {
 				@include border-radius(0);
+				position: relative;
+
+				&:hover {
+					.extra.content {
+						display: block;
+					}
+				}
+
+				.extra.content {
+
+					display: none;
+					position: absolute;
+					bottom: 0;
+					width: 100%;
+					height: 100%;
+					background-color: rgba(0,0,0,.4);
+					@include gradient-vertical(rgba(0,0,0,0), rgba(0,0,0,.9));
+					padding: 1em;
+
+					.buttons-container {
+						position: absolute;
+						bottom: 0;
+						left: 0;
+						width: 100%;
+						padding: 1em;
+
+						.button {
+							width: 70%;
+							margin-bottom: 1em;
+							@include border-radius(0);
+							border-color: rgba(0,0,0,.8) !important;
+						}
+					}
+				}
+			}
+
+			&:hover {
+				.extra.content {
+					@include hover-fade(.3s);
+					display: block;
+				}
 			}
 		}
 	}

@@ -32,22 +32,21 @@ export default class Spotlight extends React.Component {
 		// Create allItems function from the props we get from Home component
 		let allItems = this.props.articles.map((result, id) => {
 			return (
-				<div key={id} className="column spotlight-element">
+				<div key={id} className="column product-list-element">
 					<div className="ui card" key={id}>
 						<div className="image">
 							<img src={result.images[0].url.http} />
+
+							<div className="extra content text-center">
+								<div className="buttons-container">
+									<button onClick={() => { this.addToCart(id)}} className={`ui inverted button ${this.state.clickedId === id ? 'loading' : ''}`}><i className="add to cart icon"></i>Add to Cart</button>
+									<Link className="ui inverted button" to={`/product/${result.id}`}>Details</Link>
+								</div>
+							</div>
 						</div>
 						<div className="content">
 							<a className="header">{result.title}</a>
 							<div className="price">
-							</div>
-						</div>
-						<div className="extra content text-center">
-							<div className="small ui buttons">
-								<button onClick={() => { this.addToCart(id)}} className={`ui button blue ${this.state.clickedId === id ? 'loading' : ''}`}><i className="add to cart icon"></i>Add to Cart</button>
-
-								<div className="or"></div>
-								<Link className="ui button" to={`/product/${result.id}`}>Details</Link>
 							</div>
 						</div>
 					</div>

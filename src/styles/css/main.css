@@ -94,9 +94,9 @@ header {
       .home-intro .cover .cover-inner .content {
         width: 500px; }
 
-.spotlight-element {
+.product-list-element {
   margin-bottom: 1em !important; }
-  .spotlight-element .ui.card {
+  .product-list-element .ui.card {
     width: 100%;
     -webkit-border-radius: 0 !important;
     border-radius: 0 !important;
@@ -105,11 +105,48 @@ header {
     border: none;
     text-align: center;
     box-shadow: none; }
-    .spotlight-element .ui.card .image {
+    .product-list-element .ui.card .image {
       -webkit-border-radius: 0 !important;
       border-radius: 0 !important;
       background-clip: padding-box;
-      /* stops bg color from leaking outside the border: */ }
+      /* stops bg color from leaking outside the border: */
+      position: relative; }
+      .product-list-element .ui.card .image:hover .extra.content {
+        display: block; }
+      .product-list-element .ui.card .image .extra.content {
+        display: none;
+        position: absolute;
+        bottom: 0;
+        width: 100%;
+        height: 100%;
+        background-color: rgba(0, 0, 0, 0.4);
+        background-image: -webkit-linear-gradient(top, transparent 0%, rgba(0, 0, 0, 0.9) 100%);
+        background-image: -o-linear-gradient(top, transparent 0%, rgba(0, 0, 0, 0.9) 100%);
+        background-image: linear-gradient(to bottom, transparent 0%, rgba(0, 0, 0, 0.9) 100%);
+        background-repeat: repeat-x;
+        filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#00000000', endColorstr='#E6000000', GradientType=0);
+        padding: 1em; }
+        .product-list-element .ui.card .image .extra.content .buttons-container {
+          position: absolute;
+          bottom: 0;
+          left: 0;
+          width: 100%;
+          padding: 1em; }
+          .product-list-element .ui.card .image .extra.content .buttons-container .button {
+            width: 70%;
+            margin-bottom: 1em;
+            -webkit-border-radius: 0 !important;
+            border-radius: 0 !important;
+            background-clip: padding-box;
+            /* stops bg color from leaking outside the border: */
+            border-color: rgba(0, 0, 0, 0.8) !important; }
+    .product-list-element .ui.card:hover .extra.content {
+      -o-transition: 0.3s;
+      -ms-transition: 0.3s;
+      -moz-transition: 0.3s;
+      -webkit-transition: 0.3s;
+      transition: 0.3s;
+      display: block; }
 
 .product-container {
   padding: 0 1em; }
