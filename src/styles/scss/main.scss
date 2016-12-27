@@ -1,19 +1,24 @@
 @import "modules/mixins";
 
 header {
-	.item {
-		span {
-			margin-right: .3em;
+	border-bottom: 1px solid rgba(0,0,0,.1);
+
+	.ui.secondary.menu {
+		.header {
+			&.item {
+				text-transform: uppercase;
+				margin: .8em 0;
+				span {
+					margin-right: .3em;
+				}
+			}
 		}
 	}
 }
 
 .home-intro {
-	padding: 5em 0 4em 0;
-	background-color: #dfe7f2;
-	background-image: url("https://www.transparenttextures.com/patterns/candyhole.png");
+	padding: 0;
 
-	
 	.cover {
 		background-image: url("http://commercecdn.com/1409010996323811624/341618e1-39f3-44ea-bab4-beb833df193e.jpeg");
 		background-repeat: no-repeat;
@@ -46,14 +51,12 @@ header {
 		&.card {
 			width: 100%;
 			@include border-radius(0);
-			@include box-shadow(0, 0, 15px, 2px, rgba(0,0,0,.1));
+			//@include box-shadow(0, 0, 15px, 2px, rgba(0,0,0,.1));
+			border: none;
 			text-align: center;
 
 			.image {
 				@include border-radius(0);
-			}
-
-			.button {
 			}
 		}
 	}

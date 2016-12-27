@@ -63,13 +63,16 @@
     -o-transform: rotate(359deg);
     -ms-transform: rotate(359deg);
     transform: rotate(359deg); } }
-header .item span {
-  margin-right: .3em; }
+header {
+  border-bottom: 1px solid rgba(0, 0, 0, 0.1); }
+  header .ui.secondary.menu .header.item {
+    text-transform: uppercase;
+    margin: .8em 0; }
+    header .ui.secondary.menu .header.item span {
+      margin-right: .3em; }
 
 .home-intro {
-  padding: 5em 0 4em 0;
-  background-color: #dfe7f2;
-  background-image: url("https://www.transparenttextures.com/patterns/candyhole.png"); }
+  padding: 0; }
   .home-intro .cover {
     background-image: url("http://commercecdn.com/1409010996323811624/341618e1-39f3-44ea-bab4-beb833df193e.jpeg");
     background-repeat: no-repeat;
@@ -93,9 +96,7 @@ header .item span {
   border-radius: 0 !important;
   background-clip: padding-box;
   /* stops bg color from leaking outside the border: */
-  -webkit-box-shadow: 0 0 15px 2px rgba(0, 0, 0, 0.1);
-  -moz-box-shadow: 0 0 15px 2px rgba(0, 0, 0, 0.1);
-  box-shadow: 0 0 15px 2px rgba(0, 0, 0, 0.1);
+  border: none;
   text-align: center; }
   .spotlight-element .ui.card .image {
     -webkit-border-radius: 0 !important;

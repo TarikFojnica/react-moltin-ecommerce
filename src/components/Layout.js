@@ -11,7 +11,18 @@ class Layout extends React.Component {
 			<div className="app-container">
 				<Header />
 
-				<div className="app-content">{this.props.children}</div>
+				<div className="ui container">
+					<div className="ui grid">
+						<div className="three wide column">
+
+						</div>
+
+						<div className="thirteen wide column">
+							<div className="app-content">{this.props.children}</div>
+						</div>
+
+					</div>
+				</div>
 
 				<Footer/>
 			</div>
