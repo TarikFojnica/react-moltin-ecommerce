@@ -12,7 +12,7 @@ class Layout extends React.Component {
 			<div className="app-container">
 				<Header />
 
-				<div className="ui container">
+				<div className="ui container fluid">
 					<div className="ui grid">
 						<div className="three wide column">
 							<Sidebar/>

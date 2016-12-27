@@ -3,7 +3,7 @@ import React from 'react'
 export default class Categories extends React.Component {
 	render() {
 		return (
-			<div className="ui form">
+			<div className="ui form sidebar-element">
 				<div className="grouped fields">
 					<label>CATEGORIES</label>
 					<div className="field">

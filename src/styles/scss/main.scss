@@ -2,6 +2,8 @@
 
 header {
 	border-bottom: 1px solid rgba(0,0,0,.1);
+	margin-bottom: 2em;
+	padding: 0 1em;
 
 	.ui.secondary.menu {
 		.header {
@@ -17,7 +19,7 @@ header {
 }
 
 .home-intro {
-	padding: 0;
+	padding: 0 1em;
 
 	.cover {
 		background-image: url("http://commercecdn.com/1409010996323811624/341618e1-39f3-44ea-bab4-beb833df193e.jpeg");
@@ -38,11 +40,7 @@ header {
 	}
 
 	.spotlight-container {
-		margin-top: 1em;
 
-		.row {
-			margin: 2em 0;
-		}
 	}
 }
 
@@ -83,6 +81,13 @@ header {
 		background-position: center;
 		background-size: 100% auto;
 		background-repeat: no-repeat;
+	}
+}
+
+.sidebar {
+	padding: 0 1em;
+	.sidebar-element {
+		margin-bottom: 1em;
 	}
 }
 

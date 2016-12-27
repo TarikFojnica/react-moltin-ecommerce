@@ -64,7 +64,9 @@
     -ms-transform: rotate(359deg);
     transform: rotate(359deg); } }
 header {
-  border-bottom: 1px solid rgba(0, 0, 0, 0.1); }
+  border-bottom: 1px solid rgba(0, 0, 0, 0.1);
+  margin-bottom: 2em;
+  padding: 0 1em; }
   header .ui.secondary.menu .header.item {
     text-transform: uppercase;
     margin: .8em 0; }
@@ -72,7 +74,7 @@ header {
       margin-right: .3em; }
 
 .home-intro {
-  padding: 0; }
+  padding: 0 1em; }
   .home-intro .cover {
     background-image: url("http://commercecdn.com/1409010996323811624/341618e1-39f3-44ea-bab4-beb833df193e.jpeg");
     background-repeat: no-repeat;
@@ -85,10 +87,6 @@ header {
       background-color: rgba(0, 0, 0, 0.7); }
       .home-intro .cover .cover-inner .content {
         width: 500px; }
-  .home-intro .spotlight-container {
-    margin-top: 1em; }
-    .home-intro .spotlight-container .row {
-      margin: 2em 0; }
 
 .spotlight-element .ui.card {
   width: 100%;
@@ -122,6 +120,11 @@ header {
     background-position: center;
     background-size: 100% auto;
     background-repeat: no-repeat; }
+
+.sidebar {
+  padding: 0 1em; }
+  .sidebar .sidebar-element {
+    margin-bottom: 1em; }
 
 footer .footer {
   padding: 4em 0 3em 0 !important; }
