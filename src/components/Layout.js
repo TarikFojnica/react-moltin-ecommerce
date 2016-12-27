@@ -3,6 +3,7 @@ import '../styles/css/main.css';
 import 'semantic-ui-css/semantic.min.css';
 import Header from './Header';
 import Footer from './Footer'
+import Sidebar from './Sidebar'
 
 class Layout extends React.Component {
 
@@ -14,7 +15,7 @@ class Layout extends React.Component {
 				<div className="ui container">
 					<div className="ui grid">
 						<div className="three wide column">
-
+							<Sidebar/>
 						</div>
 
 						<div className="thirteen wide column">
