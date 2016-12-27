@@ -5,7 +5,7 @@ export default class Categories extends React.Component {
 		return (
 			<div className="ui form sidebar-element">
 				<div className="grouped fields">
-					<label>CATEGORIES</label>
+					<h4>CATEGORIES</h4>
 					<div className="field">
 						<div className="ui checkbox">
 							<input type="checkbox" name="checkbox"></input>

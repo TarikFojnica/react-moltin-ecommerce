@@ -1,18 +1,24 @@
 @import "modules/mixins";
 
+.content-container {
+	border-left: 1px solid rgba(0,0,0,.1);
+}
+
+.no-padding-top {
+	padding-top: 0 !important;
+}
+
 header {
 	border-bottom: 1px solid rgba(0,0,0,.1);
 	margin-bottom: 2em;
 	padding: 0 1em;
 
 	.ui.secondary.menu {
-		.header {
-			&.item {
-				text-transform: uppercase;
-				margin: .8em 0;
-				span {
-					margin-right: .3em;
-				}
+		.item {
+			text-transform: uppercase;
+			margin: .8em 0;
+			span {
+				margin-right: .3em;
 			}
 		}
 	}
@@ -45,6 +51,8 @@ header {
 }
 
 .spotlight-element {
+	margin-bottom: 1em !important;
+
 	.ui {
 		&.card {
 			width: 100%;
@@ -52,6 +60,7 @@ header {
 			//@include box-shadow(0, 0, 15px, 2px, rgba(0,0,0,.1));
 			border: none;
 			text-align: center;
+			box-shadow: none;
 
 			.image {
 				@include border-radius(0);
@@ -61,8 +70,7 @@ header {
 }
 
 .product-container {
-	margin: 6em 0 3em 0;
-
+	padding: 0 1em;
 	.product-details {
 		@include box-shadow(0, 0, 15px, 2px, rgba(0,0,0,.1));
 		padding: 1.2em;
@@ -88,6 +96,15 @@ header {
 	padding: 0 1em;
 	.sidebar-element {
 		margin-bottom: 1em;
+		
+		h4 {
+			text-transform: uppercase;
+		}
+	}
+	
+	.sidebar-cart {
+		background-color: rgba(0,0,0,.1);
+		padding: 1em;
 	}
 }
 

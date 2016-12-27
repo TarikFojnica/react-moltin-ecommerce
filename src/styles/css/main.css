@@ -63,14 +63,20 @@
     -o-transform: rotate(359deg);
     -ms-transform: rotate(359deg);
     transform: rotate(359deg); } }
+.content-container {
+  border-left: 1px solid rgba(0, 0, 0, 0.1); }
+
+.no-padding-top {
+  padding-top: 0 !important; }
+
 header {
   border-bottom: 1px solid rgba(0, 0, 0, 0.1);
   margin-bottom: 2em;
   padding: 0 1em; }
-  header .ui.secondary.menu .header.item {
+  header .ui.secondary.menu .item {
     text-transform: uppercase;
     margin: .8em 0; }
-    header .ui.secondary.menu .header.item span {
+    header .ui.secondary.menu .item span {
       margin-right: .3em; }
 
 .home-intro {
@@ -88,22 +94,25 @@ header {
       .home-intro .cover .cover-inner .content {
         width: 500px; }
 
-.spotlight-element .ui.card {
-  width: 100%;
-  -webkit-border-radius: 0 !important;
-  border-radius: 0 !important;
-  background-clip: padding-box;
-  /* stops bg color from leaking outside the border: */
-  border: none;
-  text-align: center; }
-  .spotlight-element .ui.card .image {
+.spotlight-element {
+  margin-bottom: 1em !important; }
+  .spotlight-element .ui.card {
+    width: 100%;
     -webkit-border-radius: 0 !important;
     border-radius: 0 !important;
     background-clip: padding-box;
-    /* stops bg color from leaking outside the border: */ }
+    /* stops bg color from leaking outside the border: */
+    border: none;
+    text-align: center;
+    box-shadow: none; }
+    .spotlight-element .ui.card .image {
+      -webkit-border-radius: 0 !important;
+      border-radius: 0 !important;
+      background-clip: padding-box;
+      /* stops bg color from leaking outside the border: */ }
 
 .product-container {
-  margin: 6em 0 3em 0; }
+  padding: 0 1em; }
   .product-container .product-details {
     -webkit-box-shadow: 0 0 15px 2px rgba(0, 0, 0, 0.1);
     -moz-box-shadow: 0 0 15px 2px rgba(0, 0, 0, 0.1);
@@ -125,6 +134,11 @@ header {
   padding: 0 1em; }
   .sidebar .sidebar-element {
     margin-bottom: 1em; }
+    .sidebar .sidebar-element h4 {
+      text-transform: uppercase; }
+  .sidebar .sidebar-cart {
+    background-color: rgba(0, 0, 0, 0.1);
+    padding: 1em; }
 
 footer .footer {
   padding: 4em 0 3em 0 !important; }

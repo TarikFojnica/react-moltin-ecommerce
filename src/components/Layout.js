@@ -14,11 +14,11 @@ class Layout extends React.Component {
 
 				<div className="ui container fluid">
 					<div className="ui grid">
-						<div className="three wide column">
+						<div className="four wide column no-padding-top">
 							<Sidebar/>
 						</div>
 
-						<div className="thirteen wide column">
+						<div className="twelve wide column content-container no-padding-top">
 							<div className="app-content">{this.props.children}</div>
 						</div>
 
