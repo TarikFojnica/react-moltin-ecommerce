@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 import '../styles/css/main.css';
 import moltin from '../vendor/moltin';
 import 'semantic-ui-css/semantic.min.css';
-import Spotlight from './Spotlight'
+import ProductList from './ProductList'
 
 class Home extends React.Component {
 	state = {
@@ -22,7 +22,7 @@ class Home extends React.Component {
 	render() {
 		return (
 			<div className="home-intro">
-				<Spotlight articles={this.state.data}/>
+				<ProductList articles={this.state.data}/>
 			</div>
 		);
 	}

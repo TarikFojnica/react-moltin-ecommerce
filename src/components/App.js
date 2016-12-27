@@ -4,7 +4,7 @@ import '../styles/css/main.css';
 import moltin from '../vendor/moltin';
 import 'semantic-ui-css/semantic.min.css';
 import Header from './Header';
-import Spotlight from './Spotlight'
+import Spotlight from './ProductList'
 
 class App extends React.Component {
 	state = {

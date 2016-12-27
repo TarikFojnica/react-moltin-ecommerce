@@ -25,6 +25,8 @@ export default class Product extends React.Component {
 	}
 
 	render() {
+		console.log(this.state.product)
+
 		const backgroundImage = {
 			backgroundImage: 'url(' + this.state.product.images[0].url.http + ')',
 		};
