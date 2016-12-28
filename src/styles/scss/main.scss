@@ -184,9 +184,18 @@ header {
 	padding: 0 1em;
 	.sidebar-element {
 		margin-bottom: 1em;
+		position: relative;
 		
 		h4 {
 			text-transform: uppercase;
+			padding-right: 1.5em;
+		}
+
+		.button {
+			position: absolute;
+			top: .5em;
+			right: .5em;
+			font-weight: 700 !important;
 		}
 	}
 	
@@ -196,6 +205,10 @@ header {
 
 		.header {
 			font-size: 1em !important;
+		}
+
+		.ui.tiny.image {
+			width: 45px;
 		}
 
 		.extra {

@@ -2,6 +2,7 @@ import React from 'react'
 import events from '../vendor/pub-sub'
 import moltin from '../vendor/moltin'
 import _ from 'lodash/object'
+import {Link} from 'react-router'
 
 export default class SidebarCart extends React.Component {
 	state = {
@@ -63,9 +64,8 @@ export default class SidebarCart extends React.Component {
 
 		return (
 			<div className="sidebar-cart sidebar-element">
-				<h4>In Cart <i className="in cart icon"></i></h4>
+				<h4>In Cart <i className="in cart icon"></i></h4><Link to="/" className="ui button basic teal mini">Checkout</Link>
 				<div className="ui items">
-					<p>No items in cart</p>
 					{preparedCartContents}
 				</div>
 			</div>

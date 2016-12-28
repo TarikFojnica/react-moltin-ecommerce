@@ -194,14 +194,23 @@ header {
 .sidebar {
   padding: 0 1em; }
   .sidebar .sidebar-element {
-    margin-bottom: 1em; }
+    margin-bottom: 1em;
+    position: relative; }
     .sidebar .sidebar-element h4 {
-      text-transform: uppercase; }
+      text-transform: uppercase;
+      padding-right: 1.5em; }
+    .sidebar .sidebar-element .button {
+      position: absolute;
+      top: .5em;
+      right: .5em;
+      font-weight: 700 !important; }
   .sidebar .sidebar-cart {
     background-color: rgba(0, 0, 0, 0.1);
     padding: 1em; }
     .sidebar .sidebar-cart .header {
       font-size: 1em !important; }
+    .sidebar .sidebar-cart .ui.tiny.image {
+      width: 45px; }
     .sidebar .sidebar-cart .extra {
       font-size: 1.2em !important;
       color: lightseagreen !important;
