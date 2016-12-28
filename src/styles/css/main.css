@@ -124,11 +124,11 @@ header {
         width: 100%;
         height: 100%;
         background-color: rgba(0, 0, 0, 0.4);
-        background-image: -webkit-linear-gradient(top, transparent 0%, rgba(0, 0, 0, 0.9) 100%);
-        background-image: -o-linear-gradient(top, transparent 0%, rgba(0, 0, 0, 0.9) 100%);
-        background-image: linear-gradient(to bottom, transparent 0%, rgba(0, 0, 0, 0.9) 100%);
+        background-image: -webkit-linear-gradient(top, rgba(255, 255, 255, 0.5) 0%, lightseagreen 100%);
+        background-image: -o-linear-gradient(top, rgba(255, 255, 255, 0.5) 0%, lightseagreen 100%);
+        background-image: linear-gradient(to bottom, rgba(255, 255, 255, 0.5) 0%, lightseagreen 100%);
         background-repeat: repeat-x;
-        filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#00000000', endColorstr='#E6000000', GradientType=0);
+        filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#80FFFFFF', endColorstr='#FF20B2AA', GradientType=0);
         padding: 1em; }
         .product-list-element .ui.card .image .extra.content .buttons-container {
           position: absolute;
