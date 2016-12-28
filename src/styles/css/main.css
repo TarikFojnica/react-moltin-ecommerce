@@ -177,6 +177,12 @@ header {
       font-weight: 300;
       text-transform: uppercase;
       font-size: 1.7em; }
+    .product-container .product-details .price {
+      font-size: 1.4em;
+      display: block;
+      text-align: center;
+      font-weight: 700;
+      margin-bottom: .4em; }
   .product-container .preview-image {
     width: 100%;
     height: 600px;

@@ -35,15 +35,16 @@ export default class Product extends React.Component {
 			<div className="product-container">
 				<div className="ui container">
 					<div className="ui grid">
-						<div className="ten wide column">
+						<div className="nine wide column">
 							<div className="preview-image" style={backgroundImage}>
 							</div>
 						</div>
-						<div className="six wide column">
+						<div className="seven wide column">
 							<div className="product-details">
 								<h1>{this.state.product.title}</h1>
 								<p>{this.state.product.description}</p>
-								<button className="ui button blue"><i className="add to cart icon"></i>Add to Cart</button>
+								<span className="price"><i className="euro icon"></i>{this.state.product.sale_price}</span>
+								<button className="fluid ui button teal"><i className="add to cart icon"></i>Add to Cart</button>
 							</div>
 						</div>
 					</div>
