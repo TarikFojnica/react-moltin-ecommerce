@@ -1,11 +1,12 @@
 import React from 'react'
 import events from '../vendor/pub-sub'
 import moltin from '../vendor/moltin'
+import _ from 'lodash/object'
 
 export default class SidebarCart extends React.Component {
 	state = {
 		currentCart : {
-			total_items: null
+			total_items: null,
 		}
 	};
 
@@ -36,15 +37,37 @@ export default class SidebarCart extends React.Component {
 	}
 
 	render() {
-		console.log(this.state.currentCart);
-
-		let allItems = this.state.currentCart.map((result, id) => {
-
+		console.log(this.state.currentCart.contents);
+		let cartContents = _.values(this.state.currentCart.contents);
+		let preparedCartContents = cartContents.map((result, id) => {
+			return(
+				<div className="item" key={id}>
+					<div className="ui tiny image">
+						<img src={result.images[0].url.http} />
+					</div>
+					<div className="content">
+						<span className="header">{result.name}</span>
+						<div className="extra">
+							<i className="euro icon"></i>{result.sale_price}
+						</div>
+					</div>
+				</div>
+			)
 		});
+
+		console.log(cartContents);
+
+		// let cartContentsVisible = cartContents.map((result, id) => {
+		// 	console.log(result)
+		// });
+
 		return (
 			<div className="sidebar-cart sidebar-element">
 				<h4>In Cart <i className="in cart icon"></i></h4>
 				<p>No items in cart</p>
+				<div className="ui items">
+					{preparedCartContents}
+				</div>
 			</div>
 		);
 	}

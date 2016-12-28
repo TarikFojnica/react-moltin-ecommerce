@@ -200,6 +200,8 @@ header {
   .sidebar .sidebar-cart {
     background-color: rgba(0, 0, 0, 0.1);
     padding: 1em; }
+    .sidebar .sidebar-cart .header {
+      font-size: 1em; }
 
 footer .footer {
   padding: 4em 0 3em 0 !important; }
