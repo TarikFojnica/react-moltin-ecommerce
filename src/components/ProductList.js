@@ -37,7 +37,7 @@ export default class Spotlight extends React.Component {
 						<div className="image">
 							<img src={result.images[0].url.http} />
 
-							<div className="extra content text-center">
+							<div className="extra content">
 								<div className="buttons-container">
 									<button onClick={() => { this.addToCart(id)}} className={`ui inverted button ${this.state.clickedId === id ? 'loading' : ''}`}><i className="add to cart icon"></i>Add to Cart</button>
 									<Link className="ui inverted button" to={`/product/${result.id}`}>Details</Link>
@@ -45,9 +45,10 @@ export default class Spotlight extends React.Component {
 							</div>
 						</div>
 						<div className="content">
-							<a className="header">{result.title}</a>
+							<span className="header">{result.title}</span>
+							<span className="sub">Collection Name</span>
 							<div className="price">
-								{result.sale_price}
+								<span><i className="euro icon"></i>{result.sale_price}</span>
 							</div>
 						</div>
 					</div>

@@ -79,7 +79,9 @@ header {
     header .ui.secondary.menu .item span {
       margin-right: .3em; }
     header .ui.secondary.menu .item.bordered {
-      border: 1px solid rgba(0, 0, 0, 0.1); }
+      border: 1px solid lightseagreen;
+      color: lightseagreen;
+      font-weight: 700; }
 
 .home-intro {
   padding: 0 1em; }
@@ -144,6 +146,27 @@ header {
             border-color: rgba(0, 0, 0, 0.8) !important; }
     .product-list-element .ui.card:hover .extra.content {
       display: block; }
+    .product-list-element .ui.card .content {
+      position: relative;
+      padding-right: 3em; }
+      .product-list-element .ui.card .content .header {
+        text-align: left;
+        text-transform: uppercase; }
+      .product-list-element .ui.card .content .sub {
+        color: grey;
+        text-align: left;
+        display: block;
+        font-style: italic; }
+      .product-list-element .ui.card .content .price {
+        position: absolute;
+        top: .85em;
+        right: 0; }
+        .product-list-element .ui.card .content .price span {
+          font-size: 1.2em;
+          font-weight: 600;
+          color: lightseagreen; }
+          .product-list-element .ui.card .content .price span i {
+            margin-right: 0; }
 
 .product-container {
   padding: 0 1em; }
@@ -158,7 +181,7 @@ header {
     width: 100%;
     height: 600px;
     overflow: hidden;
-    background-position: center;
+    background-position: top;
     background-size: 100% auto;
     background-repeat: no-repeat; }
 

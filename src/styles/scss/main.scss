@@ -22,7 +22,9 @@ header {
 			}
 
 			&.bordered {
-				border: 1px solid rgba(0,0,0,.1);
+				border: 1px solid lightseagreen;
+				color: lightseagreen;
+				font-weight: 700;
 			}
 		}
 	}
@@ -109,6 +111,39 @@ header {
 					display: block;
 				}
 			}
+
+			.content {
+				position: relative;
+				padding-right: 3em;
+				
+				.header {
+					text-align: left;
+					text-transform: uppercase;
+				}
+				
+				.sub {
+					color: grey;
+					text-align: left;
+					display: block;
+					font-style: italic;
+				}
+
+				.price {
+					position: absolute;
+					top: .85em;
+					right: 0;
+
+					span {
+						font-size: 1.2em;
+						font-weight: 600;
+						color: lightseagreen;
+
+						i {
+							margin-right: 0;
+						}
+					}
+				}
+			}
 		}
 	}
 }
@@ -131,7 +166,7 @@ header {
 		width: 100%;
 		height: 600px;
 		overflow: hidden;
-		background-position: center;
+		background-position: top;
 		background-size: 100% auto;
 		background-repeat: no-repeat;
 	}
