@@ -20,12 +20,12 @@ export default class Product extends React.Component {
 		moltin.Authenticate(function() {
 			_this.setState({
 				product: moltin.Product.Get(_this.state.id),
-			})
+			});
 		});
 	}
 
 	render() {
-		console.log(this.state.product)
+		console.log(this.state.product);
 
 		const backgroundImage = {
 			backgroundImage: 'url(' + this.state.product.images[0].url.http + ')',

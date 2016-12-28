@@ -15,7 +15,7 @@ export default class Spotlight extends React.Component {
 		});
 
 		moltin.Authenticate(function() {
-			moltin.Cart.Insert('1409707278864483046', '1', null, function(cart) {
+			moltin.Cart.Insert('1409703837899424485', '1', null, function(cart) {
 				console.log('a', cart);
 				events.publish('ADD_TO_CART');
 				_this.setState({
@@ -23,7 +23,7 @@ export default class Spotlight extends React.Component {
 				})
 
 			}, function(error) {
-				console.log('b', error);
+				console.log(error);
 			});
 		});
 	};
@@ -47,6 +47,7 @@ export default class Spotlight extends React.Component {
 						<div className="content">
 							<a className="header">{result.title}</a>
 							<div className="price">
+								{result.sale_price}
 							</div>
 						</div>
 					</div>
