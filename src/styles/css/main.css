@@ -201,7 +201,13 @@ header {
     background-color: rgba(0, 0, 0, 0.1);
     padding: 1em; }
     .sidebar .sidebar-cart .header {
-      font-size: 1em; }
+      font-size: 1em !important; }
+    .sidebar .sidebar-cart .extra {
+      font-size: 1.2em !important;
+      color: lightseagreen !important;
+      font-weight: 700; }
+      .sidebar .sidebar-cart .extra i {
+        margin-right: 0 !important; }
 
 footer .footer {
   padding: 4em 0 3em 0 !important; }

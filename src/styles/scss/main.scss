@@ -195,7 +195,17 @@ header {
 		padding: 1em;
 
 		.header {
-			font-size: 1em;
+			font-size: 1em !important;
+		}
+
+		.extra {
+			font-size: 1.2em !important;
+			color: lightseagreen !important;
+			font-weight: 700;
+
+			i {
+				margin-right: 0 !important;
+			}
 		}
 	}
 }

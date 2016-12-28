@@ -64,8 +64,8 @@ export default class SidebarCart extends React.Component {
 		return (
 			<div className="sidebar-cart sidebar-element">
 				<h4>In Cart <i className="in cart icon"></i></h4>
-				<p>No items in cart</p>
 				<div className="ui items">
+					<p>No items in cart</p>
 					{preparedCartContents}
 				</div>
 			</div>
