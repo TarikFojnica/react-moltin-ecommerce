@@ -3,12 +3,12 @@ import moltin from '../vendor/moltin';
 
 export default class Product extends React.Component {
 	state = {
-		id: this.props.location.pathname.replace('/product/', ''), // remove string '/product/' from the url
+		id: this.props.location.pathname.replace('/product/', ''), // remove string '/product/' from the url and use the id only
 		loaded: false,
 		product: {
 			images: [
 				{
-					url: '' // Not sure why, but can't access the images array otherwise. Maybe will investigate. Maybe.
+					url: ''
 				}
 			]
 		}
@@ -25,11 +25,11 @@ export default class Product extends React.Component {
 	}
 
 	render() {
-		console.log(this.state.product);
-
 		const backgroundImage = {
 			backgroundImage: 'url(' + this.state.product.images[0].url.http + ')',
 		};
+
+		console.log('abc');
 
 		return (
 			<div className="product-container">

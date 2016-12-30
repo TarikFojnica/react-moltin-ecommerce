@@ -62,10 +62,6 @@ export default class SidebarCart extends React.Component {
 
 		console.log(cartContents);
 
-		// let cartContentsVisible = cartContents.map((result, id) => {
-		// 	console.log(result)
-		// });
-
 		return (
 			<div className="sidebar-cart sidebar-element">
 				<h4>In Cart <i className="in cart icon"></i></h4><Link to="/" className="ui button basic teal mini">Checkout</Link>
