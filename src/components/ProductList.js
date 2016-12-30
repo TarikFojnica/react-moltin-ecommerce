@@ -5,13 +5,15 @@ import events from '../vendor/pub-sub'
 
 export default class Spotlight extends React.Component {
 	state = {
-		clickedId: ''
+		clickedId: '',
+		adding: false
 	};
 
 	addToCart = (clicked) => {
 		let _this = this;
 		this.setState({
-			clickedId: clicked
+			clickedId: clicked,
+			adding: true
 		});
 
 		moltin.Authenticate(function() {
@@ -19,7 +21,8 @@ export default class Spotlight extends React.Component {
 				console.log('a', cart);
 				events.publish('ADD_TO_CART');
 				_this.setState({
-					clickedId : ''
+					clickedId : '',
+					adding: false
 				})
 
 			}, function(error) {
@@ -39,7 +42,7 @@ export default class Spotlight extends React.Component {
 
 							<div className="extra content">
 								<div className="buttons-container">
-									<button onClick={() => { this.addToCart(id)}} className={`ui inverted button ${this.state.clickedId === id ? 'loading' : ''}`}><i className="add to cart icon"></i>Add to Cart</button>
+									<button onClick={() => { this.addToCart(id)}} className={`ui inverted button ${this.state.adding ? 'disabled' : '' }`}><i className="add to cart icon"></i>Add to Cart</button>
 									<Link className="ui inverted button" to={`/product/${result.id}`}>Details</Link>
 								</div>
 							</div>
