@@ -2,7 +2,8 @@ import React, { Component } from 'react';
 import '../styles/css/main.css';
 import moltin from '../vendor/moltin';
 import 'semantic-ui-css/semantic.min.css';
-import ProductList from './ProductList'
+import ProductList from './ProductList';
+import Cover from './Cover'
 
 class Home extends React.Component {
 	state = {
@@ -22,7 +23,8 @@ class Home extends React.Component {
 	render() {
 		return (
 			<div className="home-intro">
-				<ProductList articles={this.state.data}/>
+				<Cover/>
+				<ProductList products={this.state.data}/>
 			</div>
 		);
 	}

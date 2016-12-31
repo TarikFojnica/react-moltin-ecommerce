@@ -29,7 +29,7 @@ export default class Product extends React.Component {
 			backgroundImage: 'url(' + this.state.product.images[0].url.http + ')',
 		};
 
-		console.log('abc');
+		console.log(this.state.product);
 
 		return (
 			<div className="product-container">
