@@ -5,8 +5,18 @@ import events from '../vendor/pub-sub'
 export default class Cover extends React.Component {
 	state = {
 		products: null,
-		featured_category: '1415212879321235847',
-		length: 0
+		lastProduct : {
+			featured_large : {
+				value: '',
+				data : {
+					url : {
+						http: '',
+						https: ''
+					}
+				}
+			},
+		},
+		featured_category: '1415212879321235847', // ID of the category we use in the FEATURED section of the site
 	};
 
 	componentDidMount() {
@@ -14,10 +24,9 @@ export default class Cover extends React.Component {
 		moltin.Authenticate(function() {
 			moltin.Product.Search({category: _this.state.featured_category, status: '1'}, function(products) {
 				_this.setState({
-					products : products,
-					length: products.length
+					products : products, // all the products from the category
+					lastProduct: products[products.length - 1] // since we display only the last item, let's take the newest one
 				});
-				console.log(products)
 			}, function(error) {
 				// Something went wrong...
 			});
@@ -26,14 +35,15 @@ export default class Cover extends React.Component {
 
 	render() {
 
-		// const backgroundImage = {
-		// 	backgroundImage: 'url(' + this.state.product.images[0].url.http + ')',
-		// };
-		console.log(this.state.length);
+		const backgroundImage = {
+			backgroundImage: 'url(' + this.state.lastProduct.featured_large.data.url.https + ')',
+		};
+
+		console.log(this.state.lastProduct.featured_large.data.url.https);
 
 		return (
-			<div className="cover">
-				<h1></h1>
+			<div className="cover" style={backgroundImage}>
+				<h1>{this.state.lastProduct.title}</h1>
 			</div>
 		);
 	}

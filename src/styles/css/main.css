@@ -86,9 +86,11 @@ header {
 .home-intro {
   padding: 0 1em; }
   .home-intro .cover {
+    margin-bottom: 1em;
     background-repeat: no-repeat;
     background-size: 100% auto;
-    background-position: center; }
+    background-position: center;
+    height: 400px; }
     .home-intro .cover .cover-inner {
       padding: 2em;
       color: #fff;
