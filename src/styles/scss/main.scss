@@ -34,20 +34,41 @@ header {
 	padding: 0 1em;
 
 	.cover {
+		background-color: grey;
 		margin-bottom: 1em;
 		background-repeat: no-repeat;
 		background-size: 100% auto;
 		background-position: center;
-		height: 400px;
 	
 		.cover-inner {
-			padding: 2em;
-			color: #fff;
-			height: 400px;
-			background-color: rgba(0,0,0,.7);
-
 			.content {
-				width: 500px;
+				width: 600px;
+				height: 300px;
+				padding: 2em 1em;
+				@include gradient-horizontal(rgba(0,0,0,.99), rgba(255,255,255,0));
+
+				h1 {
+					color: #fff;
+					text-shadow: 2px 2px 2px rgba(0,0,0,.9);
+					text-transform: uppercase;
+					letter-spacing: 2px;
+				}
+				
+				p {
+					color: #fff;
+					font-size: 1.2em;
+				}
+
+				span.price {
+					display: block;
+					color: lightseagreen;
+					font-size: 1.5em;
+					margin-bottom: 1em;
+				}
+
+				i {
+					margin-right: 0;
+				}
 			}
 		}
 	}
@@ -115,7 +136,7 @@ header {
 
 			.content {
 				position: relative;
-				padding-right: 3em;
+				padding-right: 3.5em;
 				
 				.header {
 					text-align: left;
@@ -133,6 +154,8 @@ header {
 					position: absolute;
 					top: .85em;
 					right: 0;
+					border: 1px solid lightseagreen;
+					padding: .5em;
 
 					span {
 						font-size: 1.2em;
