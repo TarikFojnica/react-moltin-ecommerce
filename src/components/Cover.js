@@ -15,8 +15,33 @@ export default class Cover extends React.Component {
 					}
 				}
 			},
+			price : {
+				value: ''
+			}
 		},
-		featured_category: '1415212879321235847', // ID of the category we use in the FEATURED section of the site
+		featured_category: '1415212879321235847', // ID of the category we use in the FEATURED section of the site,
+		adding: false
+	};
+
+	addToCart = (clicked) => {
+		let _this = this;
+		this.setState({
+			clickedId: clicked,
+			adding: true
+		});
+
+		moltin.Authenticate(function() {
+			moltin.Cart.Insert(clicked.id, '1', null, function(cart) {
+				console.log('a', cart);
+				events.publish('ADD_TO_CART');
+				_this.setState({
+					adding: false
+				})
+
+			}, function(error) {
+				console.log(error);
+			});
+		});
 	};
 
 	componentDidMount() {
@@ -39,7 +64,7 @@ export default class Cover extends React.Component {
 			backgroundImage: 'url(' + this.state.lastProduct.featured_large.data.url.https + ')',
 		};
 
-		console.log(this.state.lastProduct.featured_large.data.url.https);
+		console.log(this.state.lastProduct.price.value);
 
 		return (
 			<div className="cover" style={backgroundImage}>
@@ -48,9 +73,9 @@ export default class Cover extends React.Component {
 						<h1>{this.state.lastProduct.title}</h1>
 						<p>{this.state.lastProduct.description}</p>
 						<span className="price">
-							{this.state.lastProduct.sale_price}
+							{this.state.lastProduct.price.value}
 						</span>
-						<button className="ui inverted teal button">
+						<button className="ui inverted teal button" onClick={() => (this.state.lastProduct.id)}>
 							<i className="add to cart icon"></i> Add to Cart
 						</button>
 						<button className="ui inverted button">

@@ -6,7 +6,7 @@ import events from '../vendor/pub-sub'
 export default class Spotlight extends React.Component {
 	state = {
 		clickedId: '',
-		adding: false
+		adding: false,
 	};
 
 	addToCart = (clicked) => {
@@ -52,7 +52,7 @@ export default class Spotlight extends React.Component {
 							<span className="header">{result.title}</span>
 							<span className="sub">Collection Name</span>
 							<div className="price">
-								<span><i className="euro icon"></i>{result.sale_price}</span>
+								<span>{result.price.value}</span>
 							</div>
 						</div>
 					</div>

@@ -43,7 +43,7 @@ header {
 		.cover-inner {
 			.content {
 				width: 600px;
-				height: 300px;
+				height: 400px;
 				padding: 2em 1em;
 				@include gradient-horizontal(rgba(0,0,0,.99), rgba(255,255,255,0));
 
@@ -57,6 +57,10 @@ header {
 				p {
 					color: #fff;
 					font-size: 1.2em;
+				}
+
+				.button {
+					@include border-radius(0)
 				}
 
 				span.price {

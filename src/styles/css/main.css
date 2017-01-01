@@ -93,7 +93,7 @@ header {
     background-position: center; }
     .home-intro .cover .cover-inner .content {
       width: 600px;
-      height: 300px;
+      height: 400px;
       padding: 2em 1em;
       background-image: -webkit-linear-gradient(left, rgba(0, 0, 0, 0.99) 0%, rgba(255, 255, 255, 0) 100%);
       background-image: -o-linear-gradient(left, rgba(0, 0, 0, 0.99) 0%, rgba(255, 255, 255, 0) 100%);
@@ -108,6 +108,11 @@ header {
       .home-intro .cover .cover-inner .content p {
         color: #fff;
         font-size: 1.2em; }
+      .home-intro .cover .cover-inner .content .button {
+        -webkit-border-radius: 0 !important;
+        border-radius: 0 !important;
+        background-clip: padding-box;
+        /* stops bg color from leaking outside the border: */ }
       .home-intro .cover .cover-inner .content span.price {
         display: block;
         color: lightseagreen;
