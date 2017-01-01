@@ -93,8 +93,7 @@ header {
     background-position: center; }
     .home-intro .cover .cover-inner .content {
       width: 600px;
-      height: 400px;
-      padding: 2em 1em;
+      padding: 6.5em 1em;
       background-image: -webkit-linear-gradient(left, rgba(0, 0, 0, 0.99) 0%, rgba(255, 255, 255, 0) 100%);
       background-image: -o-linear-gradient(left, rgba(0, 0, 0, 0.99) 0%, rgba(255, 255, 255, 0) 100%);
       background-image: linear-gradient(to right, rgba(0, 0, 0, 0.99) 0%, rgba(255, 255, 255, 0) 100%);
@@ -115,7 +114,7 @@ header {
         /* stops bg color from leaking outside the border: */ }
       .home-intro .cover .cover-inner .content span.price {
         display: block;
-        color: lightseagreen;
+        color: #6DFFFF;
         font-size: 1.5em;
         margin-bottom: 1em; }
       .home-intro .cover .cover-inner .content i {
@@ -233,7 +232,15 @@ header {
     background-color: rgba(0, 0, 0, 0.1);
     padding: 1em; }
     .sidebar .sidebar-cart .header {
-      font-size: 1em !important; }
+      font-size: 1em !important;
+      text-transform: uppercase; }
+      .sidebar .sidebar-cart .header .price {
+        font-size: .9em;
+        color: lightseagreen;
+        border: 1px solid lightseagreen;
+        padding: .2em .5em;
+        display: inline-block;
+        margin-top: .4em; }
     .sidebar .sidebar-cart .ui.tiny.image {
       width: 45px; }
     .sidebar .sidebar-cart .extra {

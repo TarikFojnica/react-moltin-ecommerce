@@ -45,16 +45,14 @@ export default class SidebarCart extends React.Component {
 		console.log(this.state.currentCart.contents);
 		let cartContents = _.values(this.state.currentCart.contents);
 		let preparedCartContents = cartContents.map((result, id) => {
+			console.log(result.pricing)
 			return(
 				<div className="item" key={id}>
 					<div className="ui tiny image">
 						<img src={result.images[0].url.http} />
 					</div>
 					<div className="content">
-						<span className="header">{result.name}</span>
-						<div className="extra">
-							<i className="euro icon"></i>{result.sale_price}
-						</div>
+						<span className="header">{result.name} <br/><span className="price">{result.pricing.formatted.with_tax}</span></span>
 					</div>
 				</div>
 			)
