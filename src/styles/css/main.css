@@ -66,6 +66,10 @@
 .content-container {
   border-left: 1px solid rgba(0, 0, 0, 0.1); }
 
+.container.fluid {
+  width: 100%;
+  padding-left: 350px; }
+
 .no-padding-top {
   padding-top: 0 !important; }
 
@@ -216,39 +220,44 @@ header {
     background-repeat: no-repeat; }
 
 .sidebar {
-  padding: 0 1em; }
-  .sidebar .sidebar-element {
-    margin-bottom: 1em;
-    position: relative; }
-    .sidebar .sidebar-element h4 {
-      text-transform: uppercase;
-      padding-right: 1.5em; }
-    .sidebar .sidebar-element .button {
-      position: absolute;
-      top: .5em;
-      right: .5em;
-      font-weight: 700 !important; }
-  .sidebar .sidebar-cart {
-    background-color: rgba(0, 0, 0, 0.1);
-    padding: 1em; }
-    .sidebar .sidebar-cart .header {
-      font-size: 1em !important;
-      text-transform: uppercase; }
-      .sidebar .sidebar-cart .header .price {
-        font-size: .9em;
-        color: lightseagreen;
-        border: 1px solid lightseagreen;
-        padding: .2em .5em;
-        display: inline-block;
-        margin-top: .4em; }
-    .sidebar .sidebar-cart .ui.tiny.image {
-      width: 45px; }
-    .sidebar .sidebar-cart .extra {
-      font-size: 1.2em !important;
-      color: lightseagreen !important;
-      font-weight: 700; }
-      .sidebar .sidebar-cart .extra i {
-        margin-right: 0 !important; }
+  width: 330px;
+  background-color: rgba(0, 0, 0, 0.9); }
+  .sidebar .sidebar-inner {
+    padding: 0 1em; }
+    .sidebar .sidebar-inner .sidebar-element {
+      margin-bottom: 1em;
+      position: relative; }
+      .sidebar .sidebar-inner .sidebar-element h4 {
+        text-transform: uppercase;
+        padding-right: 1.5em;
+        color: #F3F3F3; }
+      .sidebar .sidebar-inner .sidebar-element .button {
+        position: absolute;
+        top: .5em;
+        right: .5em;
+        font-weight: 700 !important; }
+    .sidebar .sidebar-inner .sidebar-cart {
+      background-color: rgba(0, 0, 0, 0.1);
+      padding: 1em; }
+      .sidebar .sidebar-inner .sidebar-cart .header {
+        font-size: 1em !important;
+        text-transform: uppercase;
+        color: #F3F3F3 !important; }
+        .sidebar .sidebar-inner .sidebar-cart .header .price {
+          font-size: .9em;
+          color: lightseagreen;
+          border: 1px solid lightseagreen;
+          padding: .2em .5em;
+          display: inline-block;
+          margin-top: .4em; }
+      .sidebar .sidebar-inner .sidebar-cart .ui.tiny.image {
+        width: 45px; }
+      .sidebar .sidebar-inner .sidebar-cart .extra {
+        font-size: 1.2em !important;
+        color: lightseagreen !important;
+        font-weight: 700; }
+        .sidebar .sidebar-inner .sidebar-cart .extra i {
+          margin-right: 0 !important; }
 
 footer .footer {
   padding: 4em 0 3em 0 !important; }

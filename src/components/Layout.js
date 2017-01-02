@@ -10,22 +10,18 @@ class Layout extends React.Component {
 	render() {
 		return (
 			<div className="app-container">
-				<Header />
-
-				<div className="ui container fluid">
-					<div className="ui grid">
-						<div className="four wide column no-padding-top">
-							<Sidebar/>
-						</div>
-
-						<div className="twelve wide column content-container no-padding-top">
-							<div className="app-content">{this.props.children}</div>
-						</div>
-
-					</div>
+				<div className="ui wide sidebar inverted visible">
+					<Sidebar/>
 				</div>
 
-				<Footer/>
+				<div className="pusher">
+					<Header />
+					<div className="ui container">
+						<div className="app-content">{this.props.children}</div>
+					</div>
+
+					<Footer/>
+				</div>
 			</div>
 		);
 	}
