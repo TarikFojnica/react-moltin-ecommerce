@@ -1,0 +1,415 @@
+$separation: (
+	'n': 0,
+	'xxs': 2,
+	'xs': 4,
+	's': 10,
+	'm': 16,
+	'l': 24,
+	'xl': 36,
+	'xxl': 50
+);
+
+@each $key, $value in $separation {
+	.mt-#{$key} {
+		margin-top: #{$value}px !important;
+	}
+
+	.mb-#{$key} {
+		margin-bottom: #{$value}px !important;
+	}
+
+	.ml-#{$key} {
+		margin-left: #{$value}px !important;
+	}
+
+	.mr-#{$key} {
+		margin-right: #{$value}px !important;
+	}
+
+	.mv-#{$key} {
+		margin-top: #{$value}px !important;
+		margin-bottom: #{$value}px !important;
+	}
+
+	.mh-#{$key} {
+		margin-left: #{$value}px !important;
+		margin-right: #{$value}px !important;
+	}
+
+	.pt-#{$key} {
+		padding-top: #{$value}px !important;
+	}
+
+	.pb-#{$key} {
+		padding-bottom: #{$value}px !important;
+	}
+
+	.pl-#{$key} {
+		padding-left: #{$value}px !important;
+	}
+
+	.pr-#{$key} {
+		padding-right: #{$value}px !important;
+	}
+
+	.pv-#{$key} {
+		padding-top: #{$value}px !important;
+		padding-bottom: #{$value}px !important;
+	}
+
+	.ph-#{$key} {
+		padding-left: #{$value}px !important;
+		padding-right: #{$value}px !important;
+	}
+
+	.pd-#{$key} {
+		padding: #{$value}px !important;
+	}
+}
+
+.mh-a {
+	margin-left: auto !important;
+	margin-right: auto !important;
+}
+
+.lh-n {
+	line-height: normal !important;
+}
+
+$fontweight: (
+	'n': 400,
+	'm': 500,
+	's': 600,
+	'b': 700
+);
+
+@each $key, $value in $fontweight {
+	.fw-#{$key} {
+		font-weight: $value !important;
+	}
+}
+
+$textalign: (
+	'l': left,
+	'c': center,
+	'r': right,
+	'j': justify
+);
+
+@each $key, $value in $textalign {
+	.ta-#{$key} {
+		text-align: $value;
+	}
+}
+
+.ta-right-center {
+	text-align: right;
+
+	@media screen and (max-width: $breakpoint-small) {
+		text-align: center;
+
+		.button {
+			width: 300px;
+			max-width: 100%;
+		}
+	}
+}
+
+$verticalalign: (
+	't': top,
+	'tt': text-top,
+	'm': middle,
+	'b': bottom,
+	'tb': text-bottom,
+	'base': baseline,
+	'sup': super,
+	'sub': sub
+);
+
+@each $key, $value in $verticalalign {
+	.va-#{$key} {
+		vertical-align: $value;
+	}
+}
+
+// TODO: need to cleanup color constants later in _variables.scss and here
+$backgrounds: (
+	'guest': #27B75D,
+	'classic': #00ABEC,
+	'premium': #9844C5,
+	'platinum': #757575,
+	'professional': #000,
+	'black': #000, // professional
+	'grey-darker': #414141,
+	'grey-dark': #757575, // platinum
+	'grey': #EFEFEF,
+	'grey-light': #FCF8F5,
+	'white': #FFF,
+	'green': #27B75D, // guest
+	'blue': #00ABEC, // classic
+	'yellow': #FBC701,
+	'purple': #9844C5 // premium
+);
+
+@each $key, $value in $backgrounds {
+	.bg-#{$key} {
+		background-color: $value !important;
+	}
+}
+
+$textcolors: (
+	'black': #000,
+	'dark': #222,
+	'default': #414141,
+	'grey-dark': #666,
+	'grey': #888,
+	'grey-light': #CCC,
+	'white': #FFF,
+	'blue': $color-blue,
+	'red': $color-red,
+	'green': $color-green,
+	'green-lighter': $color-green-lighter
+);
+
+@each $key, $value in $textcolors {
+	.color-#{$key} {
+		color: $value !important;
+	}
+}
+
+$borders: (
+	'grey': #CCC,
+	'grey-light': #EFEFEF,
+	'black-alpha': rgba(#000, .1),
+	'white-alpha': rgba(#FFF, .2)
+);
+
+@each $key, $value in $borders {
+	.bt-#{$key} {
+		border-top: solid 1px $value;
+	}
+
+	.bb-#{$key} {
+		border-bottom: solid 1px $value;
+	}
+
+	.brdr-#{$key} {
+		border: solid 1px $value;
+	}
+}
+
+.bt-none {
+	border-top: none !important;
+}
+
+.bb-none {
+	border-bottom: none !important;
+}
+
+.hide {
+	display: none;
+}
+
+.inline-block {
+	display: inline-block !important;
+}
+
+.block {
+	display: block;
+}
+
+.no-overflow {
+	position: relative;
+	display: inline-block;
+	overflow: hidden;
+	max-width: 100%;
+	text-overflow: ellipsis;
+}
+
+.overflow-hidden {
+	overflow: hidden;
+}
+
+.max-width {
+	max-width: 100%;
+}
+
+.nowrap {
+	white-space: nowrap;
+}
+
+.normal-wrap {
+	white-space: normal !important;
+}
+
+.cursor-pointer {
+	&:hover {
+		cursor: pointer;
+	}
+}
+
+.condensed {
+	font-family: 'Roboto Condensed', sans-serif;
+}
+
+img {
+	max-width: 100%
+}
+
+.hover-fade {
+	-o-transition:.5s;
+	-ms-transition:.5s;
+	-moz-transition:.5s;
+	-webkit-transition:.5s;
+	/* ...and now for the proper property */
+	transition:.5s;
+}
+
+.full-width {
+	display: block;
+	width: 100%;
+}
+
+//.overlay {
+//	position: absolute;
+//	top: 0;
+//	width: 100%;
+//	height: 100%;
+//	background-color: red;
+//	display: none;
+//	z-index: 1;
+//
+//	&.visible {
+//		display: block;
+//	}
+//}
+
+.fixed-sidebar-container {
+	padding-left: 250px;
+	@include hover-animation(.3s);
+
+	@include max-width(991px) {
+		padding-left: 0;
+	}
+
+	&.hide-sidebar {
+		padding-left: 250px;
+	}
+
+	.left-sidebar {
+		position:fixed;
+		overflow-x: visible;
+		height:100%;
+		width: 250px;
+		top:0;
+		left:0;
+		overflow-y: auto;
+		background-color: #dfdfdf;
+		@include hover-animation(.2s);
+		z-index: 9999;
+
+		@include max-width(991px) {
+			left: -280px;
+			@include box-shadow(0, 0, 50px, 20px, rgba(0,0,0,.5))
+		}
+
+		&.hide-sidebar {
+			left: 0;
+		}
+	}
+
+	.right-container {
+		width: 100%;
+		background-color: #eaeaea;
+
+		.container-fluid-inner {
+			width: 1200px;
+			margin: 0 auto;
+
+			@include max-width(1500px) {
+				width: 100%;
+			}
+		}
+	}
+}
+
+img {
+	&.before-text {
+		width: .9em;
+		margin-right: 5px;
+		margin-top: -2px;
+		margin-bottom: 0 !important;
+	}
+}
+
+@mixin collapse-earlier {
+	.navbar-header {
+		float: none;
+	}
+	.navbar-left,.navbar-right {
+		float: none !important;
+	}
+	.navbar-toggle {
+		display: block;
+	}
+	.navbar-collapse {
+		border-top: 1px solid transparent;
+		box-shadow: inset 0 1px 0 rgba(255,255,255,0.1);
+	}
+	.navbar-fixed-top {
+		top: 0;
+		border-width: 0 0 1px;
+	}
+	.navbar-collapse.collapse {
+		display: none!important;
+	}
+	.navbar-nav {
+		float: none!important;
+		margin-top: 7.5px;
+	}
+	.navbar-nav>li {
+		float: none;
+	}
+	.navbar-nav>li>a {
+		padding-top: 10px;
+		padding-bottom: 10px;
+	}
+	.collapse.in{
+		display:block !important;
+	}
+}
+
+.absolute-btn {
+	width: 100%;
+	background-color: lighten(#34536D, 15%);
+	margin-top: 0;
+	margin-left: 0;
+	color: #fff;
+	border: none;
+	@include border-left-radius(0);
+	@include border-left-radius(0);
+	padding: 10px 10px 10px 20px;
+	text-align: left;
+	display: none;
+
+	@include max-width(991px) {
+		display: block;
+	}
+}
+
+.button-close {
+	position: fixed;
+	top: 0;
+	left: -100;
+	z-index: 1000000;
+	border: none;
+	background-color: #F3F3F3;
+	padding: 5px 10px;
+	display: none;
+	@include hover-animation(.3s);
+
+	&.hide-sidebar {
+		display: block;
+		left: 250px;
+	}
+}
