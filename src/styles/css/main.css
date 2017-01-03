@@ -221,7 +221,7 @@ header {
 
 .sidebar {
   width: 330px;
-  background-color: rgba(0, 0, 0, 0.9); }
+  background-color: #1B1C1D; }
   .sidebar .sidebar-inner {
     padding: 0 1em; }
     .sidebar .sidebar-inner .sidebar-element {
@@ -230,14 +230,13 @@ header {
       .sidebar .sidebar-inner .sidebar-element h4 {
         text-transform: uppercase;
         padding-right: 1.5em;
-        color: #F3F3F3; }
+        color: whitesmoke; }
       .sidebar .sidebar-inner .sidebar-element .button {
         position: absolute;
         top: .5em;
         right: .5em;
         font-weight: 700 !important; }
     .sidebar .sidebar-inner .sidebar-cart {
-      background-color: rgba(0, 0, 0, 0.1);
       padding: 1em; }
       .sidebar .sidebar-inner .sidebar-cart .header {
         font-size: 1em !important;

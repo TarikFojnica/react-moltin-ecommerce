@@ -7,7 +7,7 @@ export default class Header extends React.Component {
 		return (
 			<header>
 				<div className="ui secondary menu">
-					<div className="ui container">
+					<div className="ui container fluid">
 						<Link to="/" className="header item">Kanmer</Link>
 						<Link to="/" className="item">Home</Link>
 						<Link to="/" className="item">About</Link>

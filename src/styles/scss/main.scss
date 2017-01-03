@@ -216,7 +216,7 @@ header {
 
 .sidebar {
 	width: 330px;
-	background-color: rgba(0,0,0,.9);
+	background-color:#1B1C1D;
 	.sidebar-inner {
 		padding: 0 1em;
 		.sidebar-element {
@@ -226,7 +226,7 @@ header {
 			h4 {
 				text-transform: uppercase;
 				padding-right: 1.5em;
-				color: #F3F3F3;
+				color: whitesmoke;
 			}
 
 			.button {
@@ -238,7 +238,6 @@ header {
 		}
 
 		.sidebar-cart {
-			background-color: rgba(0,0,0,.1);
 			padding: 1em;
 
 			.header {
