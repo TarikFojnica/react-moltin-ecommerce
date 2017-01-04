@@ -1,4 +1,7 @@
 @import "modules/mixins";
+$color-primary: #3f5e7b;
+$color-secondary: #251A22;
+$color-light: #EDE4DF;
 
 .content-container {
 	border-left: 1px solid rgba(0,0,0,.1);
@@ -6,7 +9,7 @@
 
 .container {
 	&.fluid {
-		width: 100%;
+		width: 85% !important;
 		padding-left: 350px;
 	}
 }
@@ -21,6 +24,7 @@ header {
 	padding: 0 1em;
 
 	.ui.secondary.menu {
+
 		.item {
 			text-transform: uppercase;
 			margin: .8em 0;
@@ -28,9 +32,15 @@ header {
 				margin-right: .3em;
 			}
 
+			&.logo {
+				img {
+					width: 100px;
+				}
+			}
+
 			&.bordered {
-				border: 1px solid lightseagreen;
-				color: lightseagreen;
+				border: 1px solid $color-primary;
+				color: $color-primary;
 				font-weight: 700;
 			}
 		}
@@ -50,8 +60,8 @@ header {
 		.cover-inner {
 			.content {
 				width: 600px;
-				padding: 6.5em 1em;
-				@include gradient-horizontal(rgba(0,0,0,.99), rgba(255,255,255,0));
+				padding: 9em 1em;
+				@include gradient-horizontal(rgba(0, 0, 0, 0.99), rgba(255,255,255,0));
 
 				h1 {
 					color: #fff;
@@ -118,13 +128,14 @@ header {
 					width: 100%;
 					height: 100%;
 					background-color: rgba(0,0,0,.4);
-					@include gradient-vertical(rgba(255,255,255,.5), lightseagreen);
+					@include gradient-vertical(rgba($color-light, .5), $color-primary);
 					padding: 1em;
 
 					.buttons-container {
 						position: absolute;
-						bottom: 0;
+						bottom: -100px;
 						left: 0;
+
 						width: 100%;
 						padding: 1em;
 
@@ -141,6 +152,11 @@ header {
 			&:hover {
 				.extra.content {
 					display: block;
+
+					.buttons-container {
+						bottom: 0;
+						transition:all 1s linear;
+					}
 				}
 			}
 
@@ -164,13 +180,13 @@ header {
 					position: absolute;
 					top: .85em;
 					right: 0;
-					border: 1px solid lightseagreen;
+					border: 1px solid $color-primary;
 					padding: .5em;
 
 					span {
 						font-size: 1.2em;
 						font-weight: 600;
-						color: lightseagreen;
+						color: $color-primary;
 
 						i {
 							margin-right: 0;
@@ -216,7 +232,7 @@ header {
 
 .sidebar {
 	width: 330px;
-	background-color:#1B1C1D;
+	background-color:#EDE4DF;
 	.sidebar-inner {
 		padding: 0 1em;
 		.sidebar-element {
@@ -226,7 +242,6 @@ header {
 			h4 {
 				text-transform: uppercase;
 				padding-right: 1.5em;
-				color: whitesmoke;
 			}
 
 			.button {
@@ -239,16 +254,16 @@ header {
 
 		.sidebar-cart {
 			padding: 1em;
+			background-color: #251A22;
 
 			.header {
 				font-size: 1em !important;
 				text-transform: uppercase;
-				color: #F3F3F3 !important;
 
 				.price {
 					font-size: .9em;
-					color: lightseagreen;
-					border: 1px solid lightseagreen;
+					color: $color-primary;
+					border: 1px solid $color-primary;
 					padding: .2em .5em;
 					display: inline-block;
 					margin-top: .4em;
@@ -261,13 +276,21 @@ header {
 
 			.extra {
 				font-size: 1.2em !important;
-				color: lightseagreen !important;
+				color: $color-primary !important;
 				font-weight: 700;
 
 				i {
 					margin-right: 0 !important;
 				}
 			}
+
+
+		}
+
+		.ui.vertical.menu {
+			width: 100%;
+			@include border-radius(0);
+			border-color: #d6d6d6;
 		}
 	}
 }

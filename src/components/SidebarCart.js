@@ -42,10 +42,9 @@ export default class SidebarCart extends React.Component {
 	}
 
 	render() {
-		console.log(this.state.currentCart.contents);
+		console.log(this.state.currentCart.total_items);
 		let cartContents = _.values(this.state.currentCart.contents);
 		let preparedCartContents = cartContents.map((result, id) => {
-			console.log(result.pricing)
 			return(
 				<div className="item" key={id}>
 					<div className="ui tiny image">
@@ -58,12 +57,15 @@ export default class SidebarCart extends React.Component {
 			)
 		});
 
-		console.log(cartContents);
+		console. log(cartContents);
 
 		return (
 			<div className="sidebar-cart sidebar-element">
 				<h4>In Cart <i className="in cart icon"></i></h4><Link to="/" className="ui button basic teal mini">Checkout</Link>
 				<div className="ui items">
+					<span className="empty">
+						The Cart is empty
+					</span>
 					{preparedCartContents}
 				</div>
 			</div>
