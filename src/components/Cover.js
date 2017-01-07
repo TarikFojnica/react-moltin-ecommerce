@@ -75,7 +75,7 @@ export default class Cover extends React.Component {
 						<span className="price">
 							{this.state.lastProduct.price.value}
 						</span>
-						<button className="ui inverted teal button" onClick={() => (this.state.lastProduct.id)}>
+						<button className="ui inverted button" onClick={() => (this.state.lastProduct.id)}>
 							<i className="add to cart icon"></i> Add to Cart
 						</button>
 						<button className="ui inverted button">

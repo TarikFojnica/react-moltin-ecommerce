@@ -47,9 +47,8 @@ header {
 			}
 
 			&.bordered {
-				border: 1px solid $color-primary;
-				color: $color-primary;
-				font-weight: 700;
+				border: 1px solid $color-light;
+				color: $color-secondary;
 			}
 			
 			&:hover {
@@ -70,32 +69,32 @@ header {
 		background-position: center;
 	
 		.cover-inner {
+			border: 1px solid $color-light;
 			.content {
 				width: 600px;
 				padding: 9em 1em;
-				@include gradient-horizontal(rgba(0, 0, 0, 0.99), rgba(255,255,255,0));
+				@include gradient-horizontal(rgba($color-primary, .99), rgba(255,255,255,.0), 60%, 90%);
 
 				h1 {
-					color: #fff;
-					text-shadow: 2px 2px 2px rgba(0,0,0,.9);
+					color: whitesmoke;
 					text-transform: uppercase;
 					letter-spacing: 2px;
 				}
 				
 				p {
-					color: #fff;
+					color: $color-light;
 					font-size: 1.2em;
 				}
 
 				.button {
-					@include border-radius(0)
+					@include border-radius(0);
 				}
 
 				span.price {
 					display: block;
-					color: $color-primary-lighter;
 					font-size: 1.5em;
 					margin-bottom: 1em;
+					color: $color-light;
 				}
 
 				i {
@@ -244,7 +243,7 @@ header {
 
 .sidebar {
 	width: 330px;
-	background-color: #fff;
+	background-color: #ffffff;
 	background-image: url("https://www.transparenttextures.com/patterns/ag-square.png");
 	/* This is mostly intended for prototyping; please download the pattern and re-host for production environments. Thank you! */
 	border-right: 1px solid rgba(0,0,0,.1);

@@ -87,9 +87,8 @@ header {
     header .ui.secondary.menu .item.logo img {
       width: 100px; }
     header .ui.secondary.menu .item.bordered {
-      border: 1px solid #3f5e7b;
-      color: #3f5e7b;
-      font-weight: 700; }
+      border: 1px solid #EDE4DF;
+      color: #251A22; }
     header .ui.secondary.menu .item:hover {
       background-color: #EDE4DF !important; }
 
@@ -101,34 +100,35 @@ header {
     background-repeat: no-repeat;
     background-size: 100% auto;
     background-position: center; }
-    .home-intro .cover .cover-inner .content {
-      width: 600px;
-      padding: 9em 1em;
-      background-image: -webkit-linear-gradient(left, rgba(0, 0, 0, 0.99) 0%, rgba(255, 255, 255, 0) 100%);
-      background-image: -o-linear-gradient(left, rgba(0, 0, 0, 0.99) 0%, rgba(255, 255, 255, 0) 100%);
-      background-image: linear-gradient(to right, rgba(0, 0, 0, 0.99) 0%, rgba(255, 255, 255, 0) 100%);
-      background-repeat: repeat-x;
-      filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#FC000000', endColorstr='#00FFFFFF', GradientType=1); }
-      .home-intro .cover .cover-inner .content h1 {
-        color: #fff;
-        text-shadow: 2px 2px 2px rgba(0, 0, 0, 0.9);
-        text-transform: uppercase;
-        letter-spacing: 2px; }
-      .home-intro .cover .cover-inner .content p {
-        color: #fff;
-        font-size: 1.2em; }
-      .home-intro .cover .cover-inner .content .button {
-        -webkit-border-radius: 0 !important;
-        border-radius: 0 !important;
-        background-clip: padding-box;
-        /* stops bg color from leaking outside the border: */ }
-      .home-intro .cover .cover-inner .content span.price {
-        display: block;
-        color: #8bc4f3;
-        font-size: 1.5em;
-        margin-bottom: 1em; }
-      .home-intro .cover .cover-inner .content i {
-        margin-right: 0; }
+    .home-intro .cover .cover-inner {
+      border: 1px solid #EDE4DF; }
+      .home-intro .cover .cover-inner .content {
+        width: 600px;
+        padding: 9em 1em;
+        background-image: -webkit-linear-gradient(left, rgba(63, 94, 123, 0.99) 60%, rgba(255, 255, 255, 0) 90%);
+        background-image: -o-linear-gradient(left, rgba(63, 94, 123, 0.99) 60%, rgba(255, 255, 255, 0) 90%);
+        background-image: linear-gradient(to right, rgba(63, 94, 123, 0.99) 60%, rgba(255, 255, 255, 0) 90%);
+        background-repeat: repeat-x;
+        filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#FC3F5E7B', endColorstr='#00FFFFFF', GradientType=1); }
+        .home-intro .cover .cover-inner .content h1 {
+          color: whitesmoke;
+          text-transform: uppercase;
+          letter-spacing: 2px; }
+        .home-intro .cover .cover-inner .content p {
+          color: #EDE4DF;
+          font-size: 1.2em; }
+        .home-intro .cover .cover-inner .content .button {
+          -webkit-border-radius: 0 !important;
+          border-radius: 0 !important;
+          background-clip: padding-box;
+          /* stops bg color from leaking outside the border: */ }
+        .home-intro .cover .cover-inner .content span.price {
+          display: block;
+          font-size: 1.5em;
+          margin-bottom: 1em;
+          color: #EDE4DF; }
+        .home-intro .cover .cover-inner .content i {
+          margin-right: 0; }
 
 .product-list-element {
   margin-bottom: 1em !important; }
@@ -230,7 +230,7 @@ header {
 
 .sidebar {
   width: 330px;
-  background-color: #fff;
+  background-color: #ffffff;
   background-image: url("https://www.transparenttextures.com/patterns/ag-square.png");
   /* This is mostly intended for prototyping; please download the pattern and re-host for production environments. Thank you! */
   border-right: 1px solid rgba(0, 0, 0, 0.1); }
