@@ -79,7 +79,9 @@ header {
   padding: 0 1em; }
   header .ui.secondary.menu .item {
     text-transform: uppercase;
-    margin: .8em 0; }
+    margin: .8em 0;
+    letter-spacing: 2px;
+    color: #3f5e7b; }
     header .ui.secondary.menu .item span {
       margin-right: .3em; }
     header .ui.secondary.menu .item.logo img {
@@ -88,6 +90,8 @@ header {
       border: 1px solid #3f5e7b;
       color: #3f5e7b;
       font-weight: 700; }
+    header .ui.secondary.menu .item:hover {
+      background-color: #EDE4DF !important; }
 
 .home-intro {
   padding: 0 1em; }
@@ -120,7 +124,7 @@ header {
         /* stops bg color from leaking outside the border: */ }
       .home-intro .cover .cover-inner .content span.price {
         display: block;
-        color: #6DFFFF;
+        color: #8bc4f3;
         font-size: 1.5em;
         margin-bottom: 1em; }
       .home-intro .cover .cover-inner .content i {
@@ -226,7 +230,10 @@ header {
 
 .sidebar {
   width: 330px;
-  background-color: #EDE4DF; }
+  background-color: #fff;
+  background-image: url("https://www.transparenttextures.com/patterns/ag-square.png");
+  /* This is mostly intended for prototyping; please download the pattern and re-host for production environments. Thank you! */
+  border-right: 1px solid rgba(0, 0, 0, 0.1); }
   .sidebar .sidebar-inner {
     padding: 0 1em; }
     .sidebar .sidebar-inner .sidebar-element {
@@ -234,7 +241,8 @@ header {
       position: relative; }
       .sidebar .sidebar-inner .sidebar-element h4 {
         text-transform: uppercase;
-        padding-right: 1.5em; }
+        padding-right: 1.5em;
+        color: #3f5e7b; }
       .sidebar .sidebar-inner .sidebar-element .button {
         position: absolute;
         top: .5em;
@@ -242,10 +250,16 @@ header {
         font-weight: 700 !important; }
     .sidebar .sidebar-inner .sidebar-cart {
       padding: 1em;
-      background-color: #251A22; }
+      margin-top: 1em;
+      background-color: #fff;
+      border: 1px solid #EDE4DF;
+      -webkit-box-shadow: 0 0 15px 2px rgba(0, 0, 0, 0.1);
+      -moz-box-shadow: 0 0 15px 2px rgba(0, 0, 0, 0.1);
+      box-shadow: 0 0 15px 2px rgba(0, 0, 0, 0.1); }
       .sidebar .sidebar-inner .sidebar-cart .header {
         font-size: 1em !important;
-        text-transform: uppercase; }
+        text-transform: uppercase;
+        color: #251A22 !important; }
         .sidebar .sidebar-inner .sidebar-cart .header .price {
           font-size: .9em;
           color: #3f5e7b;
@@ -253,14 +267,18 @@ header {
           padding: .2em .5em;
           display: inline-block;
           margin-top: .4em; }
+      .sidebar .sidebar-inner .sidebar-cart .empty {
+        color: #251A22; }
       .sidebar .sidebar-inner .sidebar-cart .ui.tiny.image {
         width: 45px; }
       .sidebar .sidebar-inner .sidebar-cart .extra {
         font-size: 1.2em !important;
-        color: #3f5e7b !important;
         font-weight: 700; }
         .sidebar .sidebar-inner .sidebar-cart .extra i {
           margin-right: 0 !important; }
+      .sidebar .sidebar-inner .sidebar-cart .checkout.button {
+        background-color: #EDE4DF;
+        font-weight: 700; }
     .sidebar .sidebar-inner .ui.vertical.menu {
       width: 100%;
       -webkit-border-radius: 0 !important;

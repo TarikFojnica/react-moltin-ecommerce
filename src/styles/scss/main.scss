@@ -1,5 +1,6 @@
 @import "modules/mixins";
 $color-primary: #3f5e7b;
+$color-primary-lighter: #8bc4f3;
 $color-secondary: #251A22;
 $color-light: #EDE4DF;
 
@@ -18,6 +19,10 @@ $color-light: #EDE4DF;
 	padding-top: 0 !important;
 }
 
+body {
+
+}
+
 header {
 	border-bottom: 1px solid rgba(0,0,0,.1);
 	margin-bottom: 2em;
@@ -28,6 +33,9 @@ header {
 		.item {
 			text-transform: uppercase;
 			margin: .8em 0;
+			letter-spacing: 2px;
+			color: $color-primary;
+
 			span {
 				margin-right: .3em;
 			}
@@ -42,6 +50,10 @@ header {
 				border: 1px solid $color-primary;
 				color: $color-primary;
 				font-weight: 700;
+			}
+			
+			&:hover {
+				background-color: $color-light !important;
 			}
 		}
 	}
@@ -81,7 +93,7 @@ header {
 
 				span.price {
 					display: block;
-					color: #6DFFFF;
+					color: $color-primary-lighter;
 					font-size: 1.5em;
 					margin-bottom: 1em;
 				}
@@ -232,7 +244,11 @@ header {
 
 .sidebar {
 	width: 330px;
-	background-color:#EDE4DF;
+	background-color: #fff;
+	background-image: url("https://www.transparenttextures.com/patterns/ag-square.png");
+	/* This is mostly intended for prototyping; please download the pattern and re-host for production environments. Thank you! */
+	border-right: 1px solid rgba(0,0,0,.1);
+
 	.sidebar-inner {
 		padding: 0 1em;
 		.sidebar-element {
@@ -242,6 +258,7 @@ header {
 			h4 {
 				text-transform: uppercase;
 				padding-right: 1.5em;
+				color: $color-primary;
 			}
 
 			.button {
@@ -254,11 +271,15 @@ header {
 
 		.sidebar-cart {
 			padding: 1em;
-			background-color: #251A22;
+			margin-top: 1em;
+			background-color: #fff;
+			border: 1px solid $color-light;
+			@include box-shadow(0, 0, 15px, 2px, rgba(0,0,0,.1));
 
 			.header {
 				font-size: 1em !important;
 				text-transform: uppercase;
+				color: $color-secondary !important;
 
 				.price {
 					font-size: .9em;
@@ -270,13 +291,16 @@ header {
 				}
 			}
 
+			.empty {
+				color: $color-secondary;
+			}
+
 			.ui.tiny.image {
 				width: 45px;
 			}
 
 			.extra {
 				font-size: 1.2em !important;
-				color: $color-primary !important;
 				font-weight: 700;
 
 				i {
@@ -284,7 +308,10 @@ header {
 				}
 			}
 
-
+			.checkout.button {
+				background-color: $color-light;
+				font-weight: 700;
+			}
 		}
 
 		.ui.vertical.menu {
