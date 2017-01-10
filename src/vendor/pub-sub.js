@@ -1,9 +1,9 @@
-// Author David Walsh
-// https://davidwalsh.name/pubsub-javascript
+// Author: David Walsh
+// Url: https://davidwalsh.name/pubsub-javascript
 
-var events = (function(){
-	var topics = {};
-	var hOP = topics.hasOwnProperty;
+let events = (function(){
+	let topics = {};
+	let hOP = topics.hasOwnProperty;
 
 	return {
 		subscribe: function(topic, listener) {
@@ -11,7 +11,7 @@ var events = (function(){
 			if(!hOP.call(topics, topic)) topics[topic] = [];
 
 			// Add the listener to queue
-			var index = topics[topic].push(listener) -1;
+			let index = topics[topic].push(listener) -1;
 
 			// Provide handle back for removal of topic
 			return {

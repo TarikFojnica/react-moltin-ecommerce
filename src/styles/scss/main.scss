@@ -19,8 +19,10 @@ $color-light: #EDE4DF;
 	padding-top: 0 !important;
 }
 
-body {
-
+.pusher {
+	background-color: #ede4df;
+	background-image: url("https://www.transparenttextures.com/patterns/dust.png");
+	/* This is mostly intended for prototyping; please download the pattern and re-host for production environments. Thank you! */
 }
 
 header {
