@@ -26,7 +26,7 @@ export default class Cart extends React.Component {
 		console.log(this.state.currentCart);
 
 		return (
-			<span className="cart">
+			<span className="cart-item">
 				{this.state.currentCart.total_items}
 				<i className="in cart icon"></i>
 			</span>

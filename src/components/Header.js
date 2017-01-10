@@ -12,7 +12,7 @@ export default class Header extends React.Component {
 						<Link to="/" className="item">Home</Link>
 						<Link to="/" className="item">About</Link>
 						<Link to="/" className="item">Contact</Link>
-						<Link to="/" className="item ui right floated bordered">
+						<Link to="/" className="item ui right cart-item floated">
 							<Cart/>
 						</Link>
 					</div>

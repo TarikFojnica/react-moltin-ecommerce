@@ -86,16 +86,19 @@ header {
     text-transform: uppercase;
     margin: .8em 0;
     letter-spacing: 2px;
-    color: #3f5e7b; }
+    -webkit-border-radius: 0px !important;
+    border-radius: 0px !important;
+    background-clip: padding-box;
+    /* stops bg color from leaking outside the border: */
+    color: #3f5e7b;
+    border: 1px solid #EDE4DF; }
     header .ui.secondary.menu .item span {
       margin-right: .3em; }
     header .ui.secondary.menu .item.logo img {
       width: 100px; }
-    header .ui.secondary.menu .item.bordered {
-      border: 1px solid #EDE4DF;
+    header .ui.secondary.menu .item.cart-item {
+      background-color: rgba(0, 0, 0, 0.05);
       color: #251A22; }
-    header .ui.secondary.menu .item:hover {
-      background-color: #EDE4DF !important; }
 
 .home-intro {
   padding: 0 1em; }
@@ -144,9 +147,11 @@ header {
     border-radius: 0 !important;
     background-clip: padding-box;
     /* stops bg color from leaking outside the border: */
+    -webkit-box-shadow: 5px 5px 15px 2px rgba(0, 0, 0, 0.1);
+    -moz-box-shadow: 5px 5px 15px 2px rgba(0, 0, 0, 0.1);
+    box-shadow: 5px 5px 15px 2px rgba(0, 0, 0, 0.1);
     border: none;
-    text-align: center;
-    box-shadow: none; }
+    text-align: center; }
     .product-list-element .ui.card .image {
       -webkit-border-radius: 0 !important;
       border-radius: 0 !important;
@@ -189,7 +194,7 @@ header {
         transition: all 1s linear; }
     .product-list-element .ui.card .content {
       position: relative;
-      padding-right: 3.5em; }
+      padding-right: 4.5em; }
       .product-list-element .ui.card .content .header {
         text-align: left;
         text-transform: uppercase; }
@@ -201,7 +206,7 @@ header {
       .product-list-element .ui.card .content .price {
         position: absolute;
         top: .85em;
-        right: 0;
+        right: .7em;
         border: 1px solid #3f5e7b;
         padding: .5em; }
         .product-list-element .ui.card .content .price span {
