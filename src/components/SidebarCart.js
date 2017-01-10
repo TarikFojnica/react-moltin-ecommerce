@@ -29,8 +29,13 @@ export default class SidebarCart extends React.Component {
 			// Once the new item is added to the cart, increase the number of total_items by one.
 			// We could call the moltin.Cart.Contents() API function, but we want to reduce the number
 			// of API calls as we are limited.
+
 			moltin.Authenticate(function () {
 				moltin.Cart.Contents(function(items) {
+					events.publish('CART_UPDATED', {
+						cart: items // any argument
+					});
+
 					_this.setState({
 						currentCart: items
 					})

@@ -70,17 +70,20 @@ export default class Cover extends React.Component {
 			<div className="cover" style={backgroundImage}>
 				<div className="cover-inner">
 					<div className="content">
-						<h1>{this.state.lastProduct.title}</h1>
-						<p>{this.state.lastProduct.description}</p>
-						<span className="price">
+						<div className="inner">
+							<span className="ui tag red label">Featured</span>
+							<h1>{this.state.lastProduct.title}</h1>
+							<p>{this.state.lastProduct.description}</p>
+							<span className="price">
 							{this.state.lastProduct.price.value}
 						</span>
-						<button className="ui inverted button" onClick={() => (this.state.lastProduct.id)}>
-							<i className="add to cart icon"></i> Add to Cart
-						</button>
-						<button className="ui inverted button">
-							Details
-						</button>
+							<button className="ui inverted button" onClick={() => (this.state.lastProduct.id)}>
+								<i className="add to cart icon"></i> Add to Cart
+							</button>
+							<button className="ui inverted button">
+								Details
+							</button>
+						</div>
 					</div>
 				</div>
 			</div>
