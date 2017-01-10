@@ -69,36 +69,40 @@ header {
 		background-position: center;
 	
 		.cover-inner {
-			border: 1px solid $color-light;
 			.content {
 				width: 600px;
 				padding: 9em 1em;
 				@include gradient-horizontal(rgba($color-primary, .99), rgba(255,255,255,.0), 60%, 90%);
 
-				h1 {
-					color: whitesmoke;
-					text-transform: uppercase;
-					letter-spacing: 2px;
-				}
-				
-				p {
-					color: $color-light;
-					font-size: 1.2em;
-				}
+				.inner {
+					border: 1px solid $color-light;
+					padding: 1.5em;
 
-				.button {
-					@include border-radius(0);
-				}
+					h1 {
+						color: whitesmoke;
+						text-transform: uppercase;
+						letter-spacing: 2px;
+					}
 
-				span.price {
-					display: block;
-					font-size: 1.5em;
-					margin-bottom: 1em;
-					color: $color-light;
-				}
+					p {
+						color: $color-light;
+						font-size: 1.2em;
+					}
 
-				i {
-					margin-right: 0;
+					.button {
+						@include border-radius(0);
+					}
+
+					span.price {
+						display: block;
+						font-size: 1.5em;
+						margin-bottom: 1em;
+						color: $color-light;
+					}
+
+					i {
+						margin-right: 0;
+					}
 				}
 			}
 		}
