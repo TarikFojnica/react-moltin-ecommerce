@@ -1,3 +1,6 @@
+// Author David Walsh
+// https://davidwalsh.name/pubsub-javascript
+
 var events = (function(){
 	var topics = {};
 	var hOP = topics.hasOwnProperty;
