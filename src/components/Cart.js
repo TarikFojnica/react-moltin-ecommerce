@@ -1,5 +1,4 @@
 import React from 'react'
-import moltin from '../vendor/moltin';
 import events from '../vendor/pub-sub'
 
 export default class Cart extends React.Component {
