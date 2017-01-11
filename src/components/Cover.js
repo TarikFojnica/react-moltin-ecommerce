@@ -71,7 +71,7 @@ export default class Cover extends React.Component {
 				<div className="cover-inner">
 					<div className="content">
 						<div className="inner">
-							<span className="ui tag red label">Featured</span>
+							<span className="ui tag yellow label">Featured</span>
 							<h1>{this.state.lastProduct.title}</h1>
 							<p>{this.state.lastProduct.description}</p>
 							<span className="price">

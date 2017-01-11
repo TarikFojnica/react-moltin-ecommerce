@@ -20,9 +20,8 @@ $color-light: #EDE4DF;
 }
 
 .pusher {
-	background-color: #ede4df;
+	background-color: rgba(237, 228, 223, 0.76);
 	background-image: url("https://www.transparenttextures.com/patterns/dust.png");
-	/* This is mostly intended for prototyping; please download the pattern and re-host for production environments. Thank you! */
 }
 
 header {
@@ -38,7 +37,6 @@ header {
 			letter-spacing: 2px;
 			@include border-radius(0px);
 			color: $color-primary;
-			border: 1px solid $color-light;
 
 			span {
 				margin-right: .3em;

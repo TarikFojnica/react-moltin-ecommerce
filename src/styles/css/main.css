@@ -74,9 +74,8 @@
   padding-top: 0 !important; }
 
 .pusher {
-  background-color: #ede4df;
-  background-image: url("https://www.transparenttextures.com/patterns/dust.png");
-  /* This is mostly intended for prototyping; please download the pattern and re-host for production environments. Thank you! */ }
+  background-color: rgba(237, 228, 223, 0.76);
+  background-image: url("https://www.transparenttextures.com/patterns/dust.png"); }
 
 header {
   border-bottom: 1px solid rgba(0, 0, 0, 0.1);
@@ -90,8 +89,7 @@ header {
     border-radius: 0px !important;
     background-clip: padding-box;
     /* stops bg color from leaking outside the border: */
-    color: #3f5e7b;
-    border: 1px solid #EDE4DF; }
+    color: #3f5e7b; }
     header .ui.secondary.menu .item span {
       margin-right: .3em; }
     header .ui.secondary.menu .item.logo img {

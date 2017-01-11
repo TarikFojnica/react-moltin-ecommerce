@@ -7,7 +7,7 @@ import {Link} from 'react-router'
 export default class SidebarCart extends React.Component {
 	state = {
 		currentCart : {
-			total_items: null,
+			total_items: 0,
 		}
 	};
 
@@ -39,7 +39,7 @@ export default class SidebarCart extends React.Component {
 
 					// Pass the new cart content to CART_UPDATED event
 					events.publish('CART_UPDATED', {
-						cart: items // any argument
+						cart: items
 					});
 
 					_this.setState({
@@ -53,31 +53,39 @@ export default class SidebarCart extends React.Component {
 	}
 
 	render() {
+		let preparedCartContent;
 		console.log(this.state.currentCart.total_items);
-		let cartContents = _.values(this.state.currentCart.contents);
-		let preparedCartContents = cartContents.map((result, id) => {
-			return(
-				<div className="item" key={id}>
-					<div className="ui tiny image">
-						<img src={result.images[0].url.http} />
-					</div>
-					<div className="content">
-						<span className="header">{result.name} <br/><span className="price">{result.pricing.formatted.with_tax}</span></span>
-					</div>
-				</div>
-			)
-		});
+		let cartContent = _.values(this.state.currentCart.contents);
 
-		console. log(cartContents);
+		if (this.state.currentCart.total_items >= 1) {
+			preparedCartContent = cartContent.map((result, id) => {
+				return(
+					<div className="item" key={id}>
+						<div className="ui tiny image">
+							<img src={result.images[0].url.http} />
+						</div>
+						<div className="content">
+							<span className="header">{result.name} <br/><span className="price">{result.pricing.formatted.with_tax}</span></span>
+						</div>
+					</div>
+				)
+			});
+		}
+
+		else {
+			preparedCartContent = (
+				<span className="empty">
+					The Cart is empty
+				</span>
+			);
+		}
+
 
 		return (
 			<div className="sidebar-cart sidebar-element">
 				<h4>In Cart <i className="in cart icon"></i></h4><Link to="/" className="ui checkout button tiny">Checkout</Link>
 				<div className="ui items">
-					<span className="empty">
-						The Cart is empty
-					</span>
-					{preparedCartContents}
+					{preparedCartContent}
 				</div>
 			</div>
 		);
