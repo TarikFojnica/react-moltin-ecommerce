@@ -301,7 +301,8 @@ header {
   font-size: 1em;
   letter-spacing: 1px;
   margin-bottom: .5em;
-  border-bottom: 1px solid #EDE4DF; }
+  border-bottom: 1px solid #EDE4DF;
+  color: #251A22 !important; }
 
 footer .footer {
   padding: 4em 0 3em 0 !important; }
