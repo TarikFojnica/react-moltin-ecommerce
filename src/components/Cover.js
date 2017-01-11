@@ -1,6 +1,7 @@
 import React from 'react';
 import moltin from '../vendor/moltin';
-import events from '../vendor/pub-sub'
+import events from '../vendor/pub-sub';
+import {Link} from 'react-router'
 
 export default class Cover extends React.Component {
 	state = {
@@ -46,6 +47,8 @@ export default class Cover extends React.Component {
 
 	componentDidMount() {
 		let _this = this;
+
+		// Get the featured product
 		moltin.Authenticate(function() {
 			moltin.Product.Search({category: _this.state.featured_category, status: '1'}, function(products) {
 				_this.setState({
@@ -64,8 +67,6 @@ export default class Cover extends React.Component {
 			backgroundImage: 'url(' + this.state.lastProduct.featured_large.data.url.https + ')',
 		};
 
-		console.log(this.state.lastProduct.price.value);
-
 		return (
 			<div className="cover" style={backgroundImage}>
 				<div className="cover-inner">
@@ -77,12 +78,10 @@ export default class Cover extends React.Component {
 							<span className="price">
 							{this.state.lastProduct.price.value}
 						</span>
-							<button className="ui inverted button" onClick={() => (this.state.lastProduct.id)}>
+							<button className={`ui inverted button ${this.state.adding ? 'disabled' : ''}`} onClick={() => { this.addToCart(this.state.lastProduct)}}>
 								<i className="add to cart icon"></i> Add to Cart
 							</button>
-							<button className="ui inverted button">
-								Details
-							</button>
+							<Link className="ui inverted button" to={`/product/${this.state.lastProduct.id}`}>Details</Link>
 						</div>
 					</div>
 				</div>
