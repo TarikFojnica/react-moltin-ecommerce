@@ -57,6 +57,7 @@ export default class SidebarCart extends React.Component {
 		console.log(this.state.currentCart.total_items);
 		let cartContent = _.values(this.state.currentCart.contents);
 
+		// If the cart is not empty, display the cart items
 		if (this.state.currentCart.total_items >= 1) {
 			preparedCartContent = cartContent.map((result, id) => {
 				return(
@@ -72,6 +73,7 @@ export default class SidebarCart extends React.Component {
 			});
 		}
 
+		// If the cart is empty, display the message
 		else {
 			preparedCartContent = (
 				<span className="empty">

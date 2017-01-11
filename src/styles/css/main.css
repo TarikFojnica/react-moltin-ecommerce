@@ -296,6 +296,13 @@ header {
       /* stops bg color from leaking outside the border: */
       border-color: #d6d6d6; }
 
+.categories .item {
+  text-transform: uppercase;
+  font-size: 1em;
+  letter-spacing: 1px;
+  margin-bottom: .5em;
+  border-bottom: 1px solid #EDE4DF; }
+
 footer .footer {
   padding: 4em 0 3em 0 !important; }
 
