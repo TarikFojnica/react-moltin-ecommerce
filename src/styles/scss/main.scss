@@ -1,5 +1,5 @@
 @import "modules/mixins";
-$color-primary: #3f5e7b;
+$color-primary: #2e435c;
 $color-primary-lighter: #8bc4f3;
 $color-secondary: #251A22;
 $color-light: #EDE4DF;
@@ -69,10 +69,12 @@ header {
 		background-repeat: no-repeat;
 		background-size: 100% auto;
 		background-position: center;
+		position: relative;
 	
 		.cover-inner {
 			.content {
 				width: 600px;
+				height: 520px;
 				padding: 9em 1em;
 				@include gradient-horizontal(rgba($color-primary, .99), rgba(255,255,255,.0), 60%, 90%);
 
@@ -335,6 +337,11 @@ header {
 		border-bottom: 1px solid $color-light;
 		color: $color-secondary !important;
 	}
+}
+
+.checkout-container {
+	background-color: white;
+	padding: 1em;
 }
 
 footer {
