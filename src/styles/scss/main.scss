@@ -1,4 +1,5 @@
 @import "modules/mixins";
+@import "modules/buttons";
 $color-primary: #2e435c;
 $color-primary-lighter: #8bc4f3;
 $color-secondary: #251A22;
@@ -94,7 +95,16 @@ header {
 					}
 
 					.button {
-						@include border-radius(0);
+						&.primary {
+							background-color: #fff;
+							min-width: 200px;
+						}
+						
+						&.secondary {
+							background: none;
+							border: 1px solid rgba(255,255,255,.1);
+							min-width: 200px;
+						}
 					}
 
 					span.price {
@@ -336,6 +346,11 @@ header {
 		margin-bottom: .5em;
 		border-bottom: 1px solid $color-light;
 		color: $color-secondary !important;
+		display: block;
+
+		&:hover {
+			cursor: pointer;
+		}
 	}
 }
 
