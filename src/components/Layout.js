@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
+import '../vendor/semantic/dist/semantic.min.css';
 import '../styles/css/main.css';
-import 'semantic-ui-css/semantic.min.css';
 import Header from './Header';
 import Footer from './Footer'
 import Sidebar from './Sidebar'

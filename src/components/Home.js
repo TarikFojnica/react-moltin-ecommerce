@@ -1,7 +1,5 @@
 import React, { Component } from 'react';
-import '../styles/css/main.css';
 import moltin from '../vendor/moltin';
-import 'semantic-ui-css/semantic.min.css';
 import ProductList from './ProductList';
 import Cover from './Cover'
 
