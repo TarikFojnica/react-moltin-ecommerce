@@ -37,7 +37,15 @@ export default class Spotlight extends React.Component {
 				<div key={id} className="column product-list-element">
 					<div className="ui card" key={id}>
 						<div className="image">
-							<img src={result.images[0].url.http} />
+							{
+								(result.featured_small)
+									// If we have an image set
+									? <img src={result.featured_small.data.url.https} />
+
+									//put some placeholder
+									: <img src="http://placehold.it/300x380" />
+							}
+
 
 							<div className="extra content">
 								<div className="buttons-container">
