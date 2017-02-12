@@ -63,7 +63,14 @@ export default class SidebarCart extends React.Component {
 				return(
 					<div className="item" key={id}>
 						<div className="ui tiny image">
-							<img src={result.images[0].url.http} />
+							{
+								(result.featured_small)
+									// If we have an image set
+									? <img src={result.featured_small.data.url.https} />
+
+									//else put some placeholder
+									: <img src="http://placehold.it/300x380" />
+							}
 						</div>
 						<div className="content">
 							<span className="header">{result.name} <br/><span className="price">{result.pricing.formatted.with_tax}</span></span>
