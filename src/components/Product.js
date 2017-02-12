@@ -13,7 +13,11 @@ export default class Product extends React.Component {
 				{
 					url: ''
 				}
-			]
+			],
+
+			price: {
+				value: ''
+			}
 		},
 	};
 
@@ -32,18 +36,28 @@ export default class Product extends React.Component {
 	}
 
 	render() {
-
 		//initialize an empty gallery array.
 		const gallery = [];
 
-		let index = 0;
-		_.forEach(this.state.product.images, function(value) {
-			gallery[index] = {
-				original: value.url.https,
-				thumbnail: value.url.https
-			};
-			index++;
-		});
+		// If we have images uploaded
+		if (this.state.product.images.length >= 1 ) {
+			let index = 0;
+
+			_.forEach(this.state.product.images, function(value) {
+				gallery[index] = {
+					original: value.url.https,
+					thumbnail: value.url.https
+				};
+				index++;
+			});
+		}
+
+		else {
+			gallery[0] = {
+				original: 'https://placehold.it/1000x1000',
+				thumbnail: 'https://placehold.it/1000x1000'
+			}
+		}
 
 
 		return (
@@ -61,10 +75,9 @@ export default class Product extends React.Component {
 					</div>
 					<div className="six wide column">
 						<div className="product-details">
-							<h1>{this.state.product.title}</h1>
+							<h1>{this.state.product.title} <span className="price">{this.state.product.price.value}</span></h1>
 							<p>{this.state.product.description}</p>
-							<span className="price"><i className="euro icon"></i>{this.state.product.sale_price}</span>
-							<button className="fluid ui button teal"><i className="add to cart icon"></i>Add to Cart</button>
+							<button className="fluid ui button"><i className="add to cart icon"></i>Add to Cart</button>
 						</div>
 					</div>
 				</div>
