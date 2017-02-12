@@ -1,5 +1,6 @@
 @import "modules/mixins";
 @import "modules/buttons";
+@import "../../../node_modules/react-image-gallery/styles/scss/image-gallery.scss";
 $color-primary: #2e435c;
 $color-primary-lighter: #8bc4f3;
 $color-secondary: #251A22;
@@ -77,7 +78,8 @@ header {
 				width: 600px;
 				height: 520px;
 				padding: 9em 1em;
-				@include gradient-horizontal(rgba($color-primary, .99), rgba(255,255,255,.0), 60%, 90%);
+				//@include gradient-horizontal(rgba($color-primary, .99), rgba(255,255,255,.0), 60%, 90%);
+				@include gradient-vertical(rgba($color-secondary, .5), $color-primary);
 
 				.inner {
 					border: 1px solid $color-light;
