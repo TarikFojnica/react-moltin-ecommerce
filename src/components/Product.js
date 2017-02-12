@@ -34,19 +34,19 @@ export default class Product extends React.Component {
 	render() {
 		//this.state.product.images[0].url.http
 
-		console.log(this.state.product);
+		console.log('state prod', this.state.product);
 
 		const images = [
 			{
-				original: 'http://lorempixel.com/1000/600/nature/1/',
+				original: 'http://lorempixel.com/1000/800/nature/1/',
 				thumbnail: 'http://lorempixel.com/250/150/nature/1/',
 			},
 			{
-				original: 'http://lorempixel.com/1000/600/nature/2/',
+				original: 'http://lorempixel.com/1000/800/nature/2/',
 				thumbnail: 'http://lorempixel.com/250/150/nature/2/'
 			},
 			{
-				original: 'http://lorempixel.com/1000/600/nature/3/',
+				original: 'http://lorempixel.com/1000/800/nature/3/',
 				thumbnail: 'http://lorempixel.com/250/150/nature/3/'
 			}
 		]
@@ -54,7 +54,7 @@ export default class Product extends React.Component {
 		return (
 			<div className="product-container">
 				<div className="ui grid">
-					<div className="nine wide column">
+					<div className="ten wide column">
 						<ImageGallery
 							thumbnailPosition={'left'}
 							showNav={false}
@@ -64,7 +64,7 @@ export default class Product extends React.Component {
 							slideInterval={2000}
 							onImageLoad={this.handleImageLoad}/>
 					</div>
-					<div className="seven wide column">
+					<div className="six wide column">
 						<div className="product-details">
 							<h1>{this.state.product.title}</h1>
 							<p>{this.state.product.description}</p>
