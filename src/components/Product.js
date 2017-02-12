@@ -1,6 +1,7 @@
 import React from 'react'
 import moltin from '../vendor/moltin';
 import ImageGallery from 'react-image-gallery';
+import _ from 'lodash'
 
 
 export default class Product extends React.Component {
@@ -13,7 +14,7 @@ export default class Product extends React.Component {
 					url: ''
 				}
 			]
-		}
+		},
 	};
 
 	componentDidMount() {
@@ -30,26 +31,20 @@ export default class Product extends React.Component {
 		console.log('Image loaded ', event.target)
 	}
 
-
 	render() {
-		//this.state.product.images[0].url.http
 
-		console.log('state prod', this.state.product);
+		//initialize an empty gallery array.
+		const gallery = [];
 
-		const images = [
-			{
-				original: 'http://lorempixel.com/1000/800/nature/1/',
-				thumbnail: 'http://lorempixel.com/250/150/nature/1/',
-			},
-			{
-				original: 'http://lorempixel.com/1000/800/nature/2/',
-				thumbnail: 'http://lorempixel.com/250/150/nature/2/'
-			},
-			{
-				original: 'http://lorempixel.com/1000/800/nature/3/',
-				thumbnail: 'http://lorempixel.com/250/150/nature/3/'
-			}
-		]
+		let index = 0;
+		_.forEach(this.state.product.images, function(value) {
+			gallery[index] = {
+				original: value.url.https,
+				thumbnail: value.url.https
+			};
+			index++;
+		});
+
 
 		return (
 			<div className="product-container">
@@ -60,7 +55,7 @@ export default class Product extends React.Component {
 							showNav={false}
 							showPlayButton={false}
 							slideOnThumbnailHover={true}
-							items={images}
+							items={gallery}
 							slideInterval={2000}
 							onImageLoad={this.handleImageLoad}/>
 					</div>
