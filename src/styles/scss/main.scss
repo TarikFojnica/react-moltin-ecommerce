@@ -6,6 +6,10 @@ $color-primary-lighter: #8bc4f3;
 $color-secondary: #251A22;
 $color-light: #EDE4DF;
 
+body {
+	background-color: $color-light;
+}
+
 .content-container {
 	border-left: 1px solid rgba(0,0,0,.1);
 }
@@ -72,6 +76,22 @@ header {
 		background-size: 100% auto;
 		background-position: center;
 		position: relative;
+
+		.overlay {
+			position: absolute;
+			top: 0;
+			left: 0;
+			width: 100%;
+			height: 100%;
+			background-color: #d4cfcc;
+			z-index: 999;
+			text-align:center;
+			padding: 100px;
+
+			&.hidden {
+				display: none;
+			}
+		}
 	
 		.cover-inner {
 			.content {
