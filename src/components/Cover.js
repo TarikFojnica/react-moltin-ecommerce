@@ -73,7 +73,7 @@ export default class Cover extends React.Component {
 		return (
 			<div className="cover" style={backgroundImage}>
 				<div className={`overlay ${this.state.featuredAcquired ? 'hidden' : ''}`}>
-					<img src={LoadingIcon} alt=""/>
+					<img src={LoadingIcon} alt="Loading"/>
 				</div>
 				<div className="cover-inner">
 					<div className="content">

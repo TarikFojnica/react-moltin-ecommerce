@@ -1,5 +1,6 @@
 @import "modules/mixins";
 @import "modules/buttons";
+@import "modules/animation";
 @import "../../../node_modules/react-image-gallery/styles/scss/image-gallery.scss";
 $color-primary: #2e435c;
 $color-primary-lighter: #8bc4f3;
@@ -88,8 +89,14 @@ header {
 			text-align:center;
 			padding: 100px;
 
+			img {
+				width: 50px;
+			}
+
 			&.hidden {
-				display: none;
+				visibility: hidden;
+				opacity: 0;
+				transition: visibility 0s .5s, opacity .5s linear;
 			}
 		}
 	
