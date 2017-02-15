@@ -2,6 +2,8 @@ import React from 'react'
 import moltin from '../vendor/moltin';
 import ImageGallery from 'react-image-gallery';
 import _ from 'lodash'
+import LoadingIcon from '../../public/ripple.svg'
+import { Accordion, Icon } from 'semantic-ui-react'
 
 
 export default class Product extends React.Component {
@@ -19,6 +21,7 @@ export default class Product extends React.Component {
 				value: ''
 			}
 		},
+		galleryLoaded: false
 	};
 
 	componentDidMount() {
@@ -38,6 +41,7 @@ export default class Product extends React.Component {
 	render() {
 		//initialize an empty gallery array.
 		const gallery = [];
+		let _this = this;
 
 		// If we have images uploaded
 		if (this.state.product.images.length >= 1 ) {
@@ -49,6 +53,11 @@ export default class Product extends React.Component {
 					thumbnail: value.url.https
 				};
 				index++;
+
+				// If the gallery is completely loaded
+				if (index === _this.state.product.images.length) {
+					_this.state.galleryLoaded = true;
+				}
 			});
 		}
 
@@ -64,20 +73,57 @@ export default class Product extends React.Component {
 			<div className="product-container">
 				<div className="ui grid">
 					<div className="ten wide column">
-						<ImageGallery
-							thumbnailPosition={'left'}
-							showNav={false}
-							showPlayButton={false}
-							slideOnThumbnailHover={true}
-							items={gallery}
-							slideInterval={2000}
-							onImageLoad={this.handleImageLoad}/>
+						{/*<div className="overlay">*/}
+							{/*<img src={LoadingIcon} alt="Loading"/>*/}
+						{/*</div>*/}
+
+						<div className={this.state.galleryLoaded === false ? 'hidden' : ''}>
+							<ImageGallery
+								thumbnailPosition={'left'}
+								showNav={false}
+								showPlayButton={false}
+								slideOnThumbnailHover={true}
+								items={gallery}
+								slideInterval={2000}
+								onImageLoad={this.handleImageLoad}
+							/>
+						</div>
 					</div>
 					<div className="six wide column">
 						<div className="product-details">
 							<h1>{this.state.product.title} <span className="price">{this.state.product.price.value}</span></h1>
+							<button className="fluid ui button"><i className="add to cart icon"></i>Order Now</button>
+
 							<p>{this.state.product.description}</p>
-							<button className="fluid ui button"><i className="add to cart icon"></i>Add to Cart</button>
+							<Accordion styled defaultActiveIndex={0}>
+								<Accordion.Title>
+									<Icon name='dropdown' />
+									Details & Dimensions
+								</Accordion.Title>
+								<Accordion.Content>
+									<p>
+										Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vivamus at augue et risus scelerisque finibus nec vitae velit. Praesent consectetur nibh aliquet m
+									</p>
+								</Accordion.Content>
+								<Accordion.Title>
+									<Icon name='dropdown' />
+									Delivery
+								</Accordion.Title>
+								<Accordion.Content>
+									<p>
+										Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vivamus at augue et risus scelerisque finibus nec vitae velit. Praesent consectetur nibh aliquet m
+									</p>
+								</Accordion.Content>
+								<Accordion.Title>
+									<Icon name='dropdown' />
+									Components
+								</Accordion.Title>
+								<Accordion.Content>
+									<p>
+										Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vivamus at augue et risus scelerisque finibus nec vitae velit. Praesent consectetur nibh aliquet m
+									</p>
+								</Accordion.Content>
+							</Accordion>
 						</div>
 					</div>
 				</div>

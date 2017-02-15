@@ -2670,6 +2670,23 @@
   -o-animation-delay: 1s;
   animation-delay: 1s; }
 
+.overlay {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: #d4cfcc;
+  z-index: 999;
+  text-align: center;
+  padding: 100px; }
+  .overlay img {
+    width: 50px; }
+  .overlay.hidden {
+    visibility: hidden;
+    opacity: 0;
+    transition: visibility 0s .5s, opacity .5s linear; }
+
 /*!
   Ionicons, v2.0.0
   Created by Ben Sperry for the Ionic Framework, http://ionicons.com/
@@ -3039,22 +3056,6 @@ header {
     background-size: 100% auto;
     background-position: center;
     position: relative; }
-    .home-intro .cover .overlay {
-      position: absolute;
-      top: 0;
-      left: 0;
-      width: 100%;
-      height: 100%;
-      background-color: #d4cfcc;
-      z-index: 999;
-      text-align: center;
-      padding: 100px; }
-      .home-intro .cover .overlay img {
-        width: 50px; }
-      .home-intro .cover .overlay.hidden {
-        visibility: hidden;
-        opacity: 0;
-        transition: visibility 0s .5s, opacity .5s linear; }
     .home-intro .cover .cover-inner .content {
       width: 600px;
       height: 520px;
@@ -3074,13 +3075,18 @@ header {
         .home-intro .cover .cover-inner .content .inner p {
           color: #EDE4DF;
           font-size: 1.2em; }
-        .home-intro .cover .cover-inner .content .inner .button.primary {
-          background-color: #fff;
-          min-width: 200px; }
-        .home-intro .cover .cover-inner .content .inner .button.secondary {
-          background: none;
-          border: 1px solid rgba(255, 255, 255, 0.1);
-          min-width: 200px; }
+        .home-intro .cover .cover-inner .content .inner .button {
+          -webkit-border-radius: 0 !important;
+          border-radius: 0 !important;
+          background-clip: padding-box;
+          /* stops bg color from leaking outside the border: */ }
+          .home-intro .cover .cover-inner .content .inner .button.primary {
+            background-color: #fff;
+            min-width: 200px; }
+          .home-intro .cover .cover-inner .content .inner .button.secondary {
+            background: none;
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            min-width: 200px; }
         .home-intro .cover .cover-inner .content .inner span.price {
           display: block;
           font-size: 1.5em;
@@ -3167,30 +3173,41 @@ header {
             margin-right: 0; }
 
 .product-container {
-  padding: 0 1em; }
+  padding: 0 1em;
+  position: relative; }
   .product-container .product-details {
     background-color: #fff;
-    -webkit-box-shadow: 0 0 15px 2px rgba(0, 0, 0, 0.1);
-    -moz-box-shadow: 0 0 15px 2px rgba(0, 0, 0, 0.1);
-    box-shadow: 0 0 15px 2px rgba(0, 0, 0, 0.1);
-    padding: 1.2em;
-    border: 1px solid rgba(0, 0, 0, 0.1); }
+    -webkit-box-shadow: 0 0 15px 2px rgba(0, 0, 0, 0.2);
+    -moz-box-shadow: 0 0 15px 2px rgba(0, 0, 0, 0.2);
+    box-shadow: 0 0 15px 2px rgba(0, 0, 0, 0.2);
+    padding: 1.2em; }
     .product-container .product-details h1 {
       font-weight: 300;
       text-transform: uppercase;
-      font-size: 1.7em; }
+      font-size: 1.5em; }
     .product-container .product-details .price {
-      font-size: 1.1em;
+      font-size: 1.2em;
       display: block;
       text-align: left;
       margin-bottom: .4em;
+      margin-top: .5em;
       color: #2e435c; }
     .product-container .product-details .button {
-      height: 45px;
+      height: 40px;
       background-color: #2e435c;
-      color: #fff; }
+      color: #fff;
+      margin-bottom: 1em;
+      -webkit-border-radius: 0 !important;
+      border-radius: 0 !important;
+      background-clip: padding-box;
+      /* stops bg color from leaking outside the border: */ }
       .product-container .product-details .button:hover {
         background-color: #3f5c7e; }
+  .product-container .ui.styled.accordion {
+    -webkit-border-radius: 0 !important;
+    border-radius: 0 !important;
+    background-clip: padding-box;
+    /* stops bg color from leaking outside the border: */ }
 
 .sidebar {
   width: 330px;

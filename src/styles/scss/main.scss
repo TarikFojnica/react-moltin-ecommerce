@@ -1,6 +1,7 @@
 @import "modules/mixins";
 @import "modules/buttons";
 @import "modules/animation";
+@import "modules/overlay";
 @import "../../../node_modules/react-image-gallery/styles/scss/image-gallery.scss";
 $color-primary: #2e435c;
 $color-primary-lighter: #8bc4f3;
@@ -78,28 +79,6 @@ header {
 		background-position: center;
 		position: relative;
 
-		.overlay {
-			position: absolute;
-			top: 0;
-			left: 0;
-			width: 100%;
-			height: 100%;
-			background-color: #d4cfcc;
-			z-index: 999;
-			text-align:center;
-			padding: 100px;
-
-			img {
-				width: 50px;
-			}
-
-			&.hidden {
-				visibility: hidden;
-				opacity: 0;
-				transition: visibility 0s .5s, opacity .5s linear;
-			}
-		}
-	
 		.cover-inner {
 			.content {
 				width: 600px;
@@ -124,6 +103,8 @@ header {
 					}
 
 					.button {
+						@include border-radius(0);
+
 						&.primary {
 							background-color: #fff;
 							min-width: 200px;
@@ -178,7 +159,6 @@ header {
 				}
 
 				.extra.content {
-
 					display: none;
 					position: absolute;
 					bottom: 0;
@@ -257,35 +237,43 @@ header {
 
 .product-container {
 	padding: 0 1em;
+	position: relative;
+
 	.product-details {
 		background-color: #fff;
-		@include box-shadow(0, 0, 15px, 2px, rgba(0,0,0,.1));
+		@include box-shadow(0, 0, 15px, 2px, rgba(0,0,0,.2));
 		padding: 1.2em;
-		border: 1px solid rgba(0,0,0,.1);
 
 		h1 {
 			font-weight: 300;
 			text-transform: uppercase;
-			font-size: 1.7em;
+			font-size: 1.5em;
 		}
 
 		.price {
-			font-size: 1.1em;
+			font-size: 1.2em;
 			display: block;
 			text-align: left;
 			margin-bottom: .4em;
+			margin-top: .5em;
 			color: $color-primary;
 		}
 
 		.button {
-			height: 45px;
+			height: 40px;
 			background-color: $color-primary;
 			color: #fff;
+			margin-bottom: 1em;
+			@include border-radius(0);
 			
 			&:hover {
 				background-color: lighten($color-primary, 10%);
 			}
 		}
+	}
+
+	.ui.styled.accordion {
+		@include border-radius(0);
 	}
 }
 
