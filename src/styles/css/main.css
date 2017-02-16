@@ -2682,10 +2682,12 @@
   left: 0;
   width: 100%;
   height: 100%;
+  background-color: #2e435c;
+  padding: 100px;
   z-index: 999;
   text-align: center; }
   .overlay img {
-    height: 100%; }
+    height: 50px; }
   .overlay.hidden {
     visibility: hidden;
     opacity: 0;
@@ -3014,7 +3016,8 @@
       padding: 5px 10px; } }
 
 body {
-  background-color: #EDE4DF; }
+  background-color: #EDE4DF;
+  overflow-y: scroll; }
 
 .content-container {
   border-left: 1px solid rgba(0, 0, 0, 0.1); }
@@ -3054,7 +3057,6 @@ header {
 .home-intro {
   padding: 0 1em; }
   .home-intro .cover {
-    background-color: grey;
     margin-bottom: 1em;
     background-repeat: no-repeat;
     background-size: 100% auto;
@@ -3267,7 +3269,20 @@ header {
           margin-right: 0 !important; }
       .sidebar .sidebar-inner .sidebar-cart .checkout.button {
         background-color: #EDE4DF;
-        font-weight: 700; }
+        font-weight: 700;
+        -webkit-border-radius: 0 !important;
+        border-radius: 0 !important;
+        background-clip: padding-box;
+        /* stops bg color from leaking outside the border: */
+        border: 1px solid #EDE4DF;
+        padding: .6em; }
+        .sidebar .sidebar-inner .sidebar-cart .checkout.button.active {
+          background-color: #4CAF50;
+          border: 1px solid #4CAF50;
+          color: #fff; }
+          .sidebar .sidebar-inner .sidebar-cart .checkout.button.active:hover {
+            background: none;
+            color: #251A22; }
     .sidebar .sidebar-inner .ui.vertical.menu {
       width: 100%;
       -webkit-border-radius: 0 !important;

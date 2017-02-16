@@ -4,12 +4,13 @@
 	left: 0;
 	width: 100%;
 	height: 100%;
-	//background-color: #d4cfcc;
+	background-color: #2e435c;
+	padding: 100px;
 	z-index: 999;
 	text-align:center;
 
 	img {
-		height: 100%;
+		height: 50px;
 	}
 
 	&.hidden {

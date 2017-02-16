@@ -92,7 +92,9 @@ export default class SidebarCart extends React.Component {
 
 		return (
 			<div className="sidebar-cart sidebar-element">
-				<h4>In Cart <i className="in cart icon"></i></h4><Link to="/" className="ui checkout button tiny"><i className="paypal icon"></i>Checkout</Link>
+				<h4>In Cart <i className="in cart icon"></i></h4>
+				<Link to="/" className={`ui checkout button tiny ${this.state.currentCart.total_items >= 1 ? 'active': ''}`}>
+					<i className="paypal icon"></i>Checkout</Link>
 				<div className="ui items">
 					{preparedCartContent}
 				</div>

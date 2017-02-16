@@ -1,15 +1,18 @@
-@import "modules/mixins";
-@import "modules/buttons";
-@import "modules/animation";
-@import "modules/overlay";
-@import "../../../node_modules/react-image-gallery/styles/scss/image-gallery.scss";
 $color-primary: #2e435c;
 $color-primary-lighter: #8bc4f3;
 $color-secondary: #251A22;
 $color-light: #EDE4DF;
 
+
+@import "modules/mixins";
+@import "modules/buttons";
+@import "modules/animation";
+@import "modules/overlay";
+@import "../../../node_modules/react-image-gallery/styles/scss/image-gallery.scss";
+
 body {
 	background-color: $color-light;
+	overflow-y: scroll;
 }
 
 .content-container {
@@ -72,7 +75,7 @@ header {
 	padding: 0 1em;
 
 	.cover {
-		background-color: grey;
+
 		margin-bottom: 1em;
 		background-repeat: no-repeat;
 		background-size: 100% auto;
@@ -352,6 +355,20 @@ header {
 			.checkout.button {
 				background-color: $color-light;
 				font-weight: 700;
+				@include border-radius(0);
+				border: 1px solid $color-light;
+				padding: .6em;
+				
+				&.active {
+					background-color: #4CAF50;
+					border: 1px solid #4CAF50;
+					color: #fff;
+
+					&:hover {
+						background: none;
+						color: $color-secondary;
+					}
+				}
 			}
 		}
 

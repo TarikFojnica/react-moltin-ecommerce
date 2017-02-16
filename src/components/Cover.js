@@ -3,7 +3,6 @@ import moltin from '../vendor/moltin';
 import events from '../vendor/pub-sub';
 import {Link} from 'react-router';
 import LoadingIcon from '../../public/ripple.svg';
-import LoadingCover from '../../public/images/cover-loader.svg'
 import ReactCSSTransitionGroup from 'react-addons-css-transition-group'
 
 export default class Cover extends React.Component {
@@ -80,7 +79,7 @@ export default class Cover extends React.Component {
 					transitionLeave={false}>
 
 					<div className={`overlay ${this.state.featuredAcquired ? 'hidden' : ''}`}>
-						<img src={LoadingCover} alt="Loading"/>
+						<img src={LoadingIcon} alt="Loading"/>
 					</div>
 					<div className="cover-inner">
 						<div className="content">
