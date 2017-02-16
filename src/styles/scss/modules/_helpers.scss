@@ -102,18 +102,6 @@ $textalign: (
 	}
 }
 
-.ta-right-center {
-	text-align: right;
-
-	@media screen and (max-width: $breakpoint-small) {
-		text-align: center;
-
-		.button {
-			width: 300px;
-			max-width: 100%;
-		}
-	}
-}
 
 $verticalalign: (
 	't': top,
@@ -165,10 +153,6 @@ $textcolors: (
 	'grey': #888,
 	'grey-light': #CCC,
 	'white': #FFF,
-	'blue': $color-blue,
-	'red': $color-red,
-	'green': $color-green,
-	'green-lighter': $color-green-lighter
 );
 
 @each $key, $value in $textcolors {
@@ -286,11 +270,6 @@ img {
 
 .fixed-sidebar-container {
 	padding-left: 250px;
-	@include hover-animation(.3s);
-
-	@include max-width(991px) {
-		padding-left: 0;
-	}
 
 	&.hide-sidebar {
 		padding-left: 250px;
@@ -305,13 +284,7 @@ img {
 		left:0;
 		overflow-y: auto;
 		background-color: #dfdfdf;
-		@include hover-animation(.2s);
 		z-index: 9999;
-
-		@include max-width(991px) {
-			left: -280px;
-			@include box-shadow(0, 0, 50px, 20px, rgba(0,0,0,.5))
-		}
 
 		&.hide-sidebar {
 			left: 0;
@@ -325,10 +298,6 @@ img {
 		.container-fluid-inner {
 			width: 1200px;
 			margin: 0 auto;
-
-			@include max-width(1500px) {
-				width: 100%;
-			}
 		}
 	}
 }
@@ -406,7 +375,6 @@ img {
 	background-color: #F3F3F3;
 	padding: 5px 10px;
 	display: none;
-	@include hover-animation(.3s);
 
 	&.hide-sidebar {
 		display: block;

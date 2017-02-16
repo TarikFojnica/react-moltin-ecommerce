@@ -11,6 +11,12 @@ export default class Spotlight extends React.Component {
 
 	addToCart = (clicked) => {
 		let _this = this;
+
+		// Fire ADD_TO_CART immediately after user initiate the action
+		events.publish('ADD_TO_CART', {
+			adding: true
+		});
+
 		this.setState({
 			clickedId: clicked,
 			adding: true
@@ -18,10 +24,12 @@ export default class Spotlight extends React.Component {
 
 		moltin.Authenticate(function() {
 			moltin.Cart.Insert(clicked.id, '1', null, function(cart) {
-				console.log('a', cart);
+
+				// Inform other listeners that ADD_TO_CART event is complete
 				events.publish('ADD_TO_CART', {
-					adding: true // any argument
+					adding: false
 				});
+
 				_this.setState({
 					adding: false
 				})

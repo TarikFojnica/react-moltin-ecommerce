@@ -9,7 +9,8 @@ export default class SidebarCart extends React.Component {
 	state = {
 		currentCart : {
 			total_items: 0,
-		}
+		},
+		addingToCart: false
 	};
 
 	componentDidMount() {
@@ -31,7 +32,10 @@ export default class SidebarCart extends React.Component {
 		});
 
 		// Listen to the ADD_TO_CART event
-		events.subscribe('ADD_TO_CART', function() {
+		events.subscribe('ADD_TO_CART', function(obj) {
+			_this.setState({
+				addingToCart: obj.adding
+			});
 
 			// Once it fires, get the latest cart content data
 			moltin.Authenticate(function () {
@@ -99,7 +103,7 @@ export default class SidebarCart extends React.Component {
 					{preparedCartContent}
 				</div>
 
-				<img className="loading-icon" src={LoadingIcon} alt="Loading"/>
+				<img className={`loading-icon ${!this.state.addingToCart ? 'hidden' : ''}`} src={LoadingIcon} alt="Loading"/>
 			</div>
 		);
 	}
