@@ -71,59 +71,61 @@ export default class Product extends React.Component {
 
 		return (
 			<div className="product-container">
-				<div className="ui grid">
-					<div className="ten wide column">
-						{/*<div className="overlay">*/}
+				<div className="top">
+					<div className="ui grid">
+						<div className="ten wide column">
+							{/*<div className="overlay">*/}
 							{/*<img src={LoadingIcon} alt="Loading"/>*/}
-						{/*</div>*/}
+							{/*</div>*/}
 
-						<div className={this.state.galleryLoaded === false ? 'hidden' : ''}>
-							<ImageGallery
-								thumbnailPosition={'left'}
-								showNav={false}
-								showPlayButton={false}
-								slideOnThumbnailHover={true}
-								items={gallery}
-								slideInterval={2000}
-								onImageLoad={this.handleImageLoad}
-							/>
+							<div className={this.state.galleryLoaded === false ? 'hidden' : ''}>
+								<ImageGallery
+									thumbnailPosition={'left'}
+									showNav={false}
+									showPlayButton={false}
+									slideOnThumbnailHover={true}
+									items={gallery}
+									slideInterval={2000}
+									onImageLoad={this.handleImageLoad}
+								/>
+							</div>
 						</div>
-					</div>
-					<div className="six wide column">
-						<div className="product-details">
-							<h1>{this.state.product.title} <span className="price">{this.state.product.price.value}</span></h1>
-							<button className="fluid ui button"><i className="add to cart icon"></i>Order Now</button>
+						<div className="six wide column">
+							<div className="product-details">
+								<h1>{this.state.product.title} <span className="price">{this.state.product.price.value}</span></h1>
+								<button className="fluid ui button"><i className="add to cart icon"></i>Order Now</button>
 
-							<p>{this.state.product.description}</p>
-							<Accordion styled defaultActiveIndex={0}>
-								<Accordion.Title>
-									<Icon name='dropdown' />
-									Details & Dimensions
-								</Accordion.Title>
-								<Accordion.Content>
-									<p>
-										Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vivamus at augue et risus scelerisque finibus nec vitae velit. Praesent consectetur nibh aliquet m
-									</p>
-								</Accordion.Content>
-								<Accordion.Title>
-									<Icon name='dropdown' />
-									Delivery
-								</Accordion.Title>
-								<Accordion.Content>
-									<p>
-										Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vivamus at augue et risus scelerisque finibus nec vitae velit. Praesent consectetur nibh aliquet m
-									</p>
-								</Accordion.Content>
-								<Accordion.Title>
-									<Icon name='dropdown' />
-									Components
-								</Accordion.Title>
-								<Accordion.Content>
-									<p>
-										Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vivamus at augue et risus scelerisque finibus nec vitae velit. Praesent consectetur nibh aliquet m
-									</p>
-								</Accordion.Content>
-							</Accordion>
+								<p>{this.state.product.description}</p>
+								<Accordion styled defaultActiveIndex={0}>
+									<Accordion.Title>
+										<Icon name='dropdown' />
+										Details & Dimensions
+									</Accordion.Title>
+									<Accordion.Content>
+										<p>
+											Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vivamus at augue et risus scelerisque finibus nec vitae velit. Praesent consectetur nibh aliquet m
+										</p>
+									</Accordion.Content>
+									<Accordion.Title>
+										<Icon name='dropdown' />
+										Delivery
+									</Accordion.Title>
+									<Accordion.Content>
+										<p>
+											Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vivamus at augue et risus scelerisque finibus nec vitae velit. Praesent consectetur nibh aliquet m
+										</p>
+									</Accordion.Content>
+									<Accordion.Title>
+										<Icon name='dropdown' />
+										Components
+									</Accordion.Title>
+									<Accordion.Content>
+										<p>
+											Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vivamus at augue et risus scelerisque finibus nec vitae velit. Praesent consectetur nibh aliquet m
+										</p>
+									</Accordion.Content>
+								</Accordion>
+							</div>
 						</div>
 					</div>
 				</div>

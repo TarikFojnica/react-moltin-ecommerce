@@ -10,6 +10,7 @@
     "lodash": "^4.17.3",
     "moltin": "^1.0.4",
     "react": "^15.4.1",
+    "react-addons-css-transition-group": "^15.4.2",
     "react-dom": "^15.4.1",
     "react-image-gallery": "^0.7.12",
     "react-router": "^3.0.0",

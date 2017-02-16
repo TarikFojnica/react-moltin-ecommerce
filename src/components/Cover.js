@@ -1,8 +1,10 @@
 import React from 'react';
 import moltin from '../vendor/moltin';
 import events from '../vendor/pub-sub';
-import {Link} from 'react-router'
-import LoadingIcon from '../../public/ripple.svg'
+import {Link} from 'react-router';
+import LoadingIcon from '../../public/ripple.svg';
+import LoadingCover from '../../public/images/cover-loader.svg'
+import ReactCSSTransitionGroup from 'react-addons-css-transition-group'
 
 export default class Cover extends React.Component {
 	state = {
@@ -72,24 +74,30 @@ export default class Cover extends React.Component {
 
 		return (
 			<div className="cover" style={backgroundImage}>
-				<div className={`overlay ${this.state.featuredAcquired ? 'hidden' : ''}`}>
-					<img src={LoadingIcon} alt="Loading"/>
-				</div>
-				<div className="cover-inner">
-					<div className="content">
-						<div className="inner">
-							<h1>{this.state.lastProduct.title}</h1>
-							<p>{this.state.lastProduct.description}</p>
-							<span className="price">
+				<ReactCSSTransitionGroup
+					transitionName="update-hadith"
+					transitionEnterTimeout={300}
+					transitionLeave={false}>
+
+					<div className={`overlay ${this.state.featuredAcquired ? 'hidden' : ''}`}>
+						<img src={LoadingCover} alt="Loading"/>
+					</div>
+					<div className="cover-inner">
+						<div className="content">
+							<div className="inner">
+								<h1>{this.state.lastProduct.title}</h1>
+								<p>{this.state.lastProduct.description}</p>
+								<span className="price">
 							{this.state.lastProduct.price.value}
 						</span>
-							<button className={`ui inverted button ${this.state.adding ? 'disabled' : ''}`} onClick={() => { this.addToCart(this.state.lastProduct)}}>
-								<i className="add to cart icon"></i> Add to Cart
-							</button>
-							<Link className="ui inverted button" to={`/product/${this.state.lastProduct.id}`}>Details</Link>
+								<button className={`ui inverted button ${this.state.adding ? 'disabled' : ''}`} onClick={() => { this.addToCart(this.state.lastProduct)}}>
+									<i className="add to cart icon"></i> Add to Cart
+								</button>
+								<Link className="ui inverted button" to={`/product/${this.state.lastProduct.id}`}>Details</Link>
+							</div>
 						</div>
 					</div>
-				</div>
+				</ReactCSSTransitionGroup>
 			</div>
 		);
 	}
