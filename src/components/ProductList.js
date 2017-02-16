@@ -19,7 +19,9 @@ export default class Spotlight extends React.Component {
 		moltin.Authenticate(function() {
 			moltin.Cart.Insert(clicked.id, '1', null, function(cart) {
 				console.log('a', cart);
-				events.publish('ADD_TO_CART');
+				events.publish('ADD_TO_CART', {
+					adding: true // any argument
+				});
 				_this.setState({
 					adding: false
 				})

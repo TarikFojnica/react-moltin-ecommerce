@@ -1,0 +1,101 @@
+.sidebar {
+	width: 330px;
+	background-color: #ffffff;
+	background-image: url("https://www.transparenttextures.com/patterns/ag-square.png");
+	/* This is mostly intended for prototyping; please download the pattern and re-host for production environments. Thank you! */
+	border-right: 1px solid rgba(0,0,0,.1);
+
+	.sidebar-inner {
+		padding: 0 1em;
+		.sidebar-element {
+			margin-bottom: 1em;
+			position: relative;
+
+			h4 {
+				text-transform: uppercase;
+				padding-right: 1.5em;
+				color: $color-primary;
+			}
+
+			.button {
+				position: absolute;
+				top: .5em;
+				right: .5em;
+				font-weight: 700 !important;
+			}
+		}
+
+		.sidebar-cart {
+			padding: 1em;
+			margin-top: 1em;
+			background-color: #fff;
+			border: 1px solid $color-light;
+			@include box-shadow(0, 0, 15px, 2px, rgba(0,0,0,.1));
+			position: relative;
+
+			.header {
+				font-size: 1em !important;
+				text-transform: uppercase;
+				color: $color-secondary !important;
+
+				.price {
+					font-size: .9em;
+					color: $color-primary;
+					border: 1px solid $color-primary;
+					padding: .2em .5em;
+					display: inline-block;
+					margin-top: .4em;
+				}
+			}
+
+			.empty {
+				color: $color-secondary;
+			}
+
+			.ui.tiny.image {
+				width: 45px;
+			}
+
+			.extra {
+				font-size: 1.2em !important;
+				font-weight: 700;
+
+				i {
+					margin-right: 0 !important;
+				}
+			}
+
+			.checkout.button {
+				background-color: $color-light;
+				font-weight: 700;
+				@include border-radius(0);
+				border: 1px solid $color-light;
+				padding: .6em;
+
+				&.active {
+					background-color: #4CAF50;
+					border: 1px solid #4CAF50;
+					color: #fff;
+
+					&:hover {
+						background: none;
+						color: $color-secondary;
+					}
+				}
+			}
+
+			.loading-icon {
+				position: absolute;
+				bottom: 20px;
+				right: 20px;
+				width: 64px;
+			}
+		}
+
+		.ui.vertical.menu {
+			width: 100%;
+			@include border-radius(0);
+			border-color: #d6d6d6;
+		}
+	}
+}

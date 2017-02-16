@@ -1,8 +1,9 @@
-import React from 'react'
-import events from '../vendor/pub-sub'
-import moltin from '../vendor/moltin'
-import _ from 'lodash/object'
-import {Link} from 'react-router'
+import React from 'react';
+import events from '../vendor/pub-sub';
+import moltin from '../vendor/moltin';
+import _ from 'lodash/object';
+import {Link} from 'react-router';
+import LoadingIcon from '../../public/ripple.svg';
 
 export default class SidebarCart extends React.Component {
 	state = {
@@ -13,7 +14,6 @@ export default class SidebarCart extends React.Component {
 
 	componentDidMount() {
 		let _this = this;
-
 
 		// Initial content load of the cart content
 		moltin.Authenticate(function () {
@@ -54,7 +54,6 @@ export default class SidebarCart extends React.Component {
 
 	render() {
 		let preparedCartContent;
-		console.log(this.state.currentCart.total_items);
 		let cartContent = _.values(this.state.currentCart.contents);
 
 		// If the cart is not empty, display the cart items
@@ -93,11 +92,14 @@ export default class SidebarCart extends React.Component {
 		return (
 			<div className="sidebar-cart sidebar-element">
 				<h4>In Cart <i className="in cart icon"></i></h4>
+				{/*// If the cart is not empty, add 'active' class to it*/}
 				<Link to="/" className={`ui checkout button tiny ${this.state.currentCart.total_items >= 1 ? 'active': ''}`}>
 					<i className="paypal icon"></i>Checkout</Link>
 				<div className="ui items">
 					{preparedCartContent}
 				</div>
+
+				<img className="loading-icon" src={LoadingIcon} alt="Loading"/>
 			</div>
 		);
 	}
