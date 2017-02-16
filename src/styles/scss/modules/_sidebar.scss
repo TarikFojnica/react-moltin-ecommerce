@@ -90,12 +90,14 @@
 
 			.loading-icon {
 				position: absolute;
-				bottom: 20px;
+				bottom: 10px;
 				right: 5px;
-				width: 64px;
+				width: 45px;
 
 				&.hidden {
-					display: none;
+					visibility: hidden;
+					opacity: 0;
+					transition: visibility 0s .9s, opacity .9s linear;
 				}
 			}
 		}

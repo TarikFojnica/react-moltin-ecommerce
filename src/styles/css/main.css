@@ -3706,11 +3706,13 @@ img.before-text {
             color: #251A22; }
       .sidebar .sidebar-inner .sidebar-cart .loading-icon {
         position: absolute;
-        bottom: 20px;
+        bottom: 10px;
         right: 5px;
-        width: 64px; }
+        width: 45px; }
         .sidebar .sidebar-inner .sidebar-cart .loading-icon.hidden {
-          display: none; }
+          visibility: hidden;
+          opacity: 0;
+          transition: visibility 0s .9s, opacity .9s linear; }
     .sidebar .sidebar-inner .ui.vertical.menu {
       width: 100%;
       -webkit-border-radius: 0 !important;
