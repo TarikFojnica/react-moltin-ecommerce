@@ -97,7 +97,7 @@
 				&.hidden {
 					visibility: hidden;
 					opacity: 0;
-					transition: visibility 0s .9s, opacity .9s linear;
+					transition: visibility 0s .5s, opacity .5s linear;
 				}
 			}
 		}

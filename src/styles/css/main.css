@@ -3712,7 +3712,7 @@ img.before-text {
         .sidebar .sidebar-inner .sidebar-cart .loading-icon.hidden {
           visibility: hidden;
           opacity: 0;
-          transition: visibility 0s .9s, opacity .9s linear; }
+          transition: visibility 0s .5s, opacity .5s linear; }
     .sidebar .sidebar-inner .ui.vertical.menu {
       width: 100%;
       -webkit-border-radius: 0 !important;
