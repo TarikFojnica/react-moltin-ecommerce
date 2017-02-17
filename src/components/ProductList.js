@@ -30,6 +30,7 @@ export default class Spotlight extends React.Component {
 					adding: false
 				});
 
+				// We use this info in the component itself
 				_this.setState({
 					adding: false
 				})

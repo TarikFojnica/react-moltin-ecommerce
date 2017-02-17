@@ -34,9 +34,8 @@ export default class Cover extends React.Component {
 			adding: true
 		});
 
-		moltin.Authenticate(function() {
+		moltin.Authenticate(() => {
 			moltin.Cart.Insert(clicked.id, '1', null, function(cart) {
-				console.log('a', cart);
 				events.publish('ADD_TO_CART');
 				_this.setState({
 					adding: false
@@ -52,7 +51,7 @@ export default class Cover extends React.Component {
 		let _this = this;
 
 		// Get the featured product
-		moltin.Authenticate(function() {
+		moltin.Authenticate(() => {
 			moltin.Product.Search({category: _this.state.featured_category, status: '1'}, function(products) {
 				_this.setState({
 					products : products, // all the products from the category
