@@ -3888,8 +3888,8 @@ header {
   padding: 0 1em;
   position: relative; }
   .product-container .top {
-    border-bottom: 1px solid rgba(0, 0, 0, 0.2);
-    padding-bottom: 1.5em; }
+    padding: 1em;
+    background-color: rgba(0, 0, 0, 0.05); }
   .product-container .product-details {
     background-color: #fff;
     -webkit-box-shadow: 0 0 15px 2px rgba(0, 0, 0, 0.2);

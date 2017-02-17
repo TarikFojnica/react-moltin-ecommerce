@@ -78,7 +78,7 @@ export default class Product extends React.Component {
 							{/*<img src={LoadingIcon} alt="Loading"/>*/}
 							{/*</div>*/}
 
-							<div className={this.state.galleryLoaded === false ? 'hidden' : ''}>
+							<div className="no-overflow">
 								<ImageGallery
 									thumbnailPosition={'left'}
 									showNav={false}
