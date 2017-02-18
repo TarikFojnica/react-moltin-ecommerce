@@ -13,10 +13,11 @@ $color-light: #EDE4DF;
 @import "../../../node_modules/react-image-gallery/styles/scss/image-gallery.scss";
 @import "modules/sidebar";
 @import "modules/payment-form";
+@import "modules/cart-details";
 
 
 body {
-	background-color: $color-light;
+	background-color: #fff;
 	overflow-y: scroll;
 }
 
@@ -36,8 +37,8 @@ body {
 }
 
 .pusher {
-	background-color: rgba(237, 228, 223, 0.76);
-	background-image: url("https://www.transparenttextures.com/patterns/dust.png");
+	background-color: #fff;
+	//background-image: url("https://www.transparenttextures.com/patterns/dust.png");
 }
 
 header {
@@ -238,12 +239,10 @@ header {
 }
 
 .product-container {
-	padding: 0 1em;
 	position: relative;
 
 	.top {
 		padding: 1em;
-		background-color: rgba($color-secondary, .1);
 	}
 
 	.product-details {
@@ -302,8 +301,7 @@ header {
 }
 
 .checkout-container {
-	background-color: white;
-	padding: 1em;
+	background: #fff;
 }
 
 footer {

@@ -1,3 +1,9 @@
 .cart-details {
-	background-color: rgba($color-secondary, .1);
+	background-color: rgba(0,0,0,.03);
+	min-height: 500px;
+	padding: 1em;
+
+	.table {
+		@include border-radius(0);
+	}
 }

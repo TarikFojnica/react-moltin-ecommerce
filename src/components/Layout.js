@@ -19,7 +19,6 @@ class Layout extends React.Component {
 					<div className="ui container fluid">
 						<div className="app-content">{this.props.children}</div>
 					</div>
-
 					<Footer/>
 				</div>
 			</div>
