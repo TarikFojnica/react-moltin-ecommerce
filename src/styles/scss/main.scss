@@ -7,10 +7,13 @@ $color-light: #EDE4DF;
 @import "modules/mixins";
 @import "modules/helpers";
 @import "modules/buttons";
+@import "modules/table";
 @import "modules/animation";
 @import "modules/overlay";
 @import "../../../node_modules/react-image-gallery/styles/scss/image-gallery.scss";
 @import "modules/sidebar";
+@import "modules/payment-form";
+
 
 body {
 	background-color: $color-light;
@@ -70,7 +73,6 @@ header {
 }
 
 .home-intro {
-	padding: 0 1em;
 
 	.cover {
 		margin-bottom: 1em;

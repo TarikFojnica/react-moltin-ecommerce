@@ -1,0 +1,25 @@
+.payment-form {
+	
+	.header {
+		color: $color-primary;
+	}
+	
+	.field {
+		input, select {
+			height: 50px;
+			border: 1px solid rgba($color-primary, .2) !important;
+			color: $color-primary;
+			font-weight: 700;
+
+			@include placeholder {
+				color: $color-primary;
+			}
+		}
+
+		.button {
+			height: 50px !important;
+		}
+
+
+	}
+}

@@ -93,7 +93,7 @@ export default class Product extends React.Component {
 						<div className="six wide column">
 							<div className="product-details">
 								<h1>{this.state.product.title} <span className="price">{this.state.product.price.value}</span></h1>
-								<button className="fluid ui button"><i className="add to cart icon"></i>Order Now</button>
+								<button className="fluid ui button"><i className="add to cart icon"></i>Add To Cart</button>
 
 								<p>{this.state.product.description}</p>
 								<Accordion styled defaultActiveIndex={0}>

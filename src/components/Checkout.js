@@ -1,60 +1,22 @@
-import React from 'react';
+import React, { Component } from 'react'
 import moltin from '../vendor/moltin';
-import { Icon, Label, Menu, Table } from 'semantic-ui-react'
+import PurchaseForm from '../components/PurchaseForm'
 
 export default class Checkout extends React.Component {
 	render() {
 
 		return (
-			<div className="table">
-				<Table celled>
-					<Table.Header>
-						<Table.Row>
-							<Table.HeaderCell>Header</Table.HeaderCell>
-							<Table.HeaderCell>Header</Table.HeaderCell>
-							<Table.HeaderCell>Header</Table.HeaderCell>
-						</Table.Row>
-					</Table.Header>
-
-					<Table.Body>
-						<Table.Row>
-							<Table.Cell>
-								<Label ribbon>First</Label>
-							</Table.Cell>
-							<Table.Cell>Cell</Table.Cell>
-							<Table.Cell>Cell</Table.Cell>
-						</Table.Row>
-						<Table.Row>
-							<Table.Cell>Cell</Table.Cell>
-							<Table.Cell>Cell</Table.Cell>
-							<Table.Cell>Cell</Table.Cell>
-						</Table.Row>
-						<Table.Row>
-							<Table.Cell>Cell</Table.Cell>
-							<Table.Cell>Cell</Table.Cell>
-							<Table.Cell>Cell</Table.Cell>
-						</Table.Row>
-					</Table.Body>
-
-					<Table.Footer>
-						<Table.Row>
-							<Table.HeaderCell colSpan='3'>
-								<Menu floated='right' pagination>
-									<Menu.Item as='a' icon>
-										<Icon name='left chevron' />
-									</Menu.Item>
-									<Menu.Item as='a'>1</Menu.Item>
-									<Menu.Item as='a'>2</Menu.Item>
-									<Menu.Item as='a'>3</Menu.Item>
-									<Menu.Item as='a'>4</Menu.Item>
-									<Menu.Item as='a' icon>
-										<Icon name='right chevron' />
-									</Menu.Item>
-								</Menu>
-							</Table.HeaderCell>
-						</Table.Row>
-					</Table.Footer>
-				</Table>
+			<div className="ui grid">
+				<div className="eight wide column">
+					<div className="payment-form">
+						<PurchaseForm/>
+					</div>
+				</div>
+				<div className="eight wide column">
+					<div className="cart-details">
+						Lorem ipsum dolor sit amet, consectetur adipiscing elit. In porta urna eu nulla ullamcorper, iaculis efficitur eros ornare. Aliquam finibus et leo in dignissim. Sed efficitur ligula et vehicula facilisis. Aliquam finibus cursus neque, ultrices semper lorem commodo sit amet. Nulla fermentum elit est. Quisque feugiat lacus non vulputate congue. Morbi rhoncus, nibh id commodo aliquam, neque turpis pharetra diam, ac imperdiet mauris leo ut nisi. Vest
+					</div>
+				</div>
 			</div>
 		);
 	}
