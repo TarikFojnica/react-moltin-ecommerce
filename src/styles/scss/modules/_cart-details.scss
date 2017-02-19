@@ -1,9 +1,54 @@
 .cart-details {
-	background-color: rgba(0,0,0,.03);
+	background-color: #FAFAFA;
+	border-left: 1px solid #d7d7d7;
 	min-height: 500px;
 	padding: 1em;
 
-	.table {
-		@include border-radius(0);
+	.ui.items {
+		.item {
+			position: relative;
+
+			.header {
+				font-weight: 400;
+			}
+
+			.image {
+				width: 100px;
+				height: 70px;
+				overflow: hidden;
+			}
+
+			.price {
+				margin-top: .5em;
+				display: block;
+				color: $color-green;
+			}
+
+			span {
+				&.remove {
+					position: absolute;
+					top: 0;
+					right: 0;
+				}
+			}
+		}
+	}
+	
+	.total {
+		background-color: lighten(yellow, 40%);
+		padding: 1em;
+
+		span {
+			color: $color-secondary;
+
+			&.text {
+				font-size: 1.3em;
+			}
+
+			&.price {
+				font-size: 1.6em;
+				color: $color-green;
+			}
+		}
 	}
 }

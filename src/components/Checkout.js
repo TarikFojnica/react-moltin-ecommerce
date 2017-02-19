@@ -9,10 +9,10 @@ export default class Checkout extends React.Component {
 		return (
 			<div className="checkout-container">
 				<div className="ui grid">
-					<div className="eight wide column">
+					<div className="seven wide column">
 						<PaymentForm/>
 					</div>
-					<div className="eight wide column pt-n pb-n">
+					<div className="nine wide column pt-n pb-n">
 						<CartDetails/>
 					</div>
 				</div>

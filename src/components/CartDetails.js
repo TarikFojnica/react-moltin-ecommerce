@@ -44,6 +44,10 @@ export default class CartDetails extends React.Component {
 						<div className="content">
 							<span className="header">{result.name} <br/><span className="price">{result.pricing.formatted.with_tax}</span></span>
 						</div>
+
+						<span className="remove">
+							<i className="remove outline icon"></i>
+						</span>
 					</div>
 				)
 			});
@@ -60,7 +64,14 @@ export default class CartDetails extends React.Component {
 
 		return (
 			<div className="cart-details">
-				{preparedCartContent}
+				<div className="ui items">
+					{preparedCartContent}
+
+					<div className="total">
+						<span className="text">TOTAL:</span>
+						<span className="price"> $100.00</span>
+					</div>
+				</div>
 			</div>
 		);
 	}
