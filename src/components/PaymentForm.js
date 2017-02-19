@@ -1,6 +1,14 @@
 import React, { Component } from 'react'
 
 export default class FormExampleOnSubmit extends Component {
+	handleChange(event) {
+		this.setState({value: event.target.value});
+	}
+
+	handleSubmit(event) {
+		alert('A name was submitted: ' + this.state.value);
+		event.preventDefault();
+	}
 
 
 	render() {

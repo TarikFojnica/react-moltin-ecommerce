@@ -6,7 +6,14 @@ export default class CartDetails extends React.Component {
 	state = {
 		currentCart : {
 			total_items: 0,
-			contents: {}
+			contents: {},
+			totals : {
+				post_discount : {
+					formatted : {
+						with_tax: null
+					}
+ 				}
+			}
 		},
 		addingToCart: false
 	};
@@ -24,7 +31,7 @@ export default class CartDetails extends React.Component {
 	render() {
 		let preparedCartContent;
 		let cartContent = _.values(this.state.currentCart.contents);
-		console.log(this.state.currentCart.contents);
+		console.log(this.state.currentCart);
 
 		// If the cart is not empty, display the cart items
 		if (this.state.currentCart.total_items >= 1) {
@@ -68,8 +75,8 @@ export default class CartDetails extends React.Component {
 					{preparedCartContent}
 
 					<div className="total">
-						<span className="text">TOTAL:</span>
-						<span className="price"> $100.00</span>
+						<span className="text">TOTAL: </span>
+						<span className="price">{this.state.currentCart.totals.post_discount.formatted.with_tax}</span>
 					</div>
 				</div>
 			</div>
