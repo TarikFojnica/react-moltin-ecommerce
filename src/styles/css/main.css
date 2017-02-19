@@ -4454,6 +4454,8 @@ img.before-text {
     color: #2e435c; }
   .payment-form .field input:-ms-input-placeholder, .payment-form .field select:-ms-input-placeholder {
     color: #2e435c; }
+  .payment-form .field input:focus, .payment-form .field select:focus {
+    border-color: #2e435c !important; }
 .payment-form .field .button {
   height: 50px !important; }
 

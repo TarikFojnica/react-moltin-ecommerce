@@ -1,23 +1,41 @@
 import React, { Component } from 'react'
 
 export default class FormExampleOnSubmit extends Component {
-	handleChange(event) {
-		this.setState({value: event.target.value});
-	}
 
-	handleSubmit(event) {
-		alert('A name was submitted: ' + this.state.value);
+	state = {
+		email: '',
+		firstName: '',
+		lastName: '',
+		city: '',
+		country: '',
+		zipCode: '',
+		phoneNumber: '',
+		streetAddress: ''
+	};
+
+	handleChange = (event) => {
+		const value = event.target.value;
+		const name = event.target.name;
+
+		this.setState({
+			[name]: value
+		});
+	};
+
+	handleSubmit = (event) =>{
+		console.log(this.state);
 		event.preventDefault();
-	}
+	};
 
 
 	render() {
 		return (
 			<div className="payment-form">
-				<form className="ui form">
+				<form className="ui form" onSubmit={this.handleSubmit}>
+
 					<div className="field">
 						<label>Customer Information</label>
-						<input type="email" name="shipping[email]" placeholder="Email" />
+						<input type="email" name="email" placeholder="Email"  value={this.state.email}  onChange={this.handleChange} required=""/>
 					</div>
 
 					<div className="field">
@@ -25,26 +43,36 @@ export default class FormExampleOnSubmit extends Component {
 						<label>Shipping Information</label>
 						<div className="two fields">
 							<div className="field">
-								<input type="text" name="shipping[first-name]" placeholder="First Name" />
+								<input
+									name="firstName"
+									placeholder="First Name"
+									type="text"
+									value={this.state.firstName}
+									onChange={this.handleChange} />
 							</div>
 							<div className="field">
-								<input type="text" name="shipping[last-name]" placeholder="Last Name" />
+								<input
+									name="lastName"
+									placeholder="Last Name"
+									type="text"
+									value={this.state.lastName}
+									onChange={this.handleChange} />
 							</div>
 						</div>
 					</div>
 
 					<div className="field">
-						<input type="text" name="shipping[address]" placeholder="Address" />
+						<input type="text" name="address" placeholder="Address"  value={this.state.address}  onChange={this.handleChange} />
 					</div>
 
 					<div className="field">
-						<input type="text" name="shipping[address]" placeholder="City" />
+						<input type="text" name="city" placeholder="City"  value={this.state.city}  onChange={this.handleChange}/>
 					</div>
 
 					<div className="field">
 						<div className="two fields">
 							<div className="field">
-								<select className="ui fluid dropdown">
+								<select className="ui fluid" name="country" value={this.state.country} onChange={this.handleChange}>
 									<option value="SELECT">Select Country</option>
 									<option value="AF">Afghanistan</option>
 									<option value="AX">Åland Islands</option>
@@ -299,27 +327,17 @@ export default class FormExampleOnSubmit extends Component {
 							</div>
 
 							<div className="field">
-								<input type="text" name="shipping[zip]" placeholder="ZIP Code" />
-							</div>
-
-							<div className="field">
-								<input type="text" name="shipping[[phone]" placeholder="Phone Number" />
+								<input type="text" name="zipCode" placeholder="City"  value={this.state.zipCode}  onChange={this.handleChange}/>
 							</div>
 						</div>
 					</div>
+
 
 					<div className="field">
-						<label>Billing Address</label>
-						<div className="fields">
-							<div className="twelve wide field">
-								<input type="text" name="shipping[address]" placeholder="Street Address" />
-							</div>
-							<div className="four wide field">
-								<input type="text" name="shipping[address-2]" placeholder="Apt #" />
-							</div>
-						</div>
+						<input type="text" name="phoneNumber" placeholder="Phone Number"  value={this.state.phoneNumber}  onChange={this.handleChange} />
 					</div>
-					<div className="large ui button green">Continue to Payment</div>
+
+					<button type="submit" className="large ui button green">Continue to Payment</button>
 				</form>
 			</div>
 		)

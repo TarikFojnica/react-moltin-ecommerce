@@ -13,6 +13,10 @@
 			@include placeholder {
 				color: $color-primary;
 			}
+
+			&:focus {
+				border-color: $color-primary !important;
+			}
 		}
 
 		.button {
