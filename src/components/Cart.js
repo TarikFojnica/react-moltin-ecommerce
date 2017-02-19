@@ -22,8 +22,6 @@ export default class Cart extends React.Component {
 	}
 
 	render() {
-		console.log(this.state.currentCart);
-
 		return (
 			<span className="cart-item">
 				{this.state.currentCart.total_items}

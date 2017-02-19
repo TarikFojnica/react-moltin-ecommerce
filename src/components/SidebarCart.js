@@ -92,7 +92,6 @@ export default class SidebarCart extends React.Component {
 			);
 		}
 
-
 		return (
 			<div className="sidebar-cart sidebar-element">
 				<h4>In Cart <i className="in cart icon"></i></h4>
