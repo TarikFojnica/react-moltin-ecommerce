@@ -9,6 +9,13 @@ export default class SidebarCart extends React.Component {
 	state = {
 		currentCart : {
 			total_items: 0,
+			totals : {
+				post_discount : {
+					formatted : {
+						with_tax: null
+					}
+				}
+			}
 		},
 		addingToCart: false
 	};
@@ -94,7 +101,7 @@ export default class SidebarCart extends React.Component {
 
 		return (
 			<div className="sidebar-cart sidebar-element">
-				<h4>In Cart <i className="in cart icon"></i></h4>
+				<h4>In Cart: <span className="price">{this.state.currentCart.totals.post_discount.formatted.with_tax}</span></h4>
 				{/*// If the cart is not empty, add 'active' class to it*/}
 				<Link to="/checkout" className={`ui checkout button tiny ${this.state.currentCart.total_items >= 1 ? 'active': ''}`}>
 					<i className="paypal icon"></i>Checkout</Link>

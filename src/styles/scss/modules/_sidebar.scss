@@ -36,6 +36,14 @@
 			.ui.items {
 				margin-bottom: 0;
 			}
+			
+			h4 {
+				span {
+					&.price {
+						color: $color-green;
+					}
+				}
+			}
 
 			.header {
 				font-size: 1em !important;
@@ -45,7 +53,7 @@
 				.price {
 					font-size: .9em;
 					color: $color-primary;
-					border: 1px solid $color-primary;
+					border: 1px solid rgba(0,0,0,.1);
 					padding: .2em .5em;
 					display: inline-block;
 					margin-top: .4em;

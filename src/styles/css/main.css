@@ -4384,6 +4384,8 @@ img.before-text {
       position: relative; }
       .sidebar .sidebar-inner .sidebar-cart .ui.items {
         margin-bottom: 0; }
+      .sidebar .sidebar-inner .sidebar-cart h4 span.price {
+        color: #4CAF50; }
       .sidebar .sidebar-inner .sidebar-cart .header {
         font-size: 1em !important;
         text-transform: uppercase;
@@ -4391,7 +4393,7 @@ img.before-text {
         .sidebar .sidebar-inner .sidebar-cart .header .price {
           font-size: .9em;
           color: #2e435c;
-          border: 1px solid #2e435c;
+          border: 1px solid rgba(0, 0, 0, 0.1);
           padding: .2em .5em;
           display: inline-block;
           margin-top: .4em; }
