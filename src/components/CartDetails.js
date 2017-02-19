@@ -15,7 +15,9 @@ export default class CartDetails extends React.Component {
 		let _this = this;
 		// Listen to the CART_UPDATED event
 		events.subscribe('CART_UPDATED', function(obj) {
-			_this.state.currentCart = obj.cart;
+			_this.setState({
+				currentCart : obj.cart
+			});
 		});
 	}
 
@@ -59,18 +61,6 @@ export default class CartDetails extends React.Component {
 		return (
 			<div className="cart-details">
 				{preparedCartContent}
-				<div className="ui items">
-					<div className="item">
-						<div className="ui tiny image">
-							<img src="http://placehold.it/50x50" />
-						</div>
-
-						<div className="middle aligned content">
-							<a className="header">12 Years a Slave</a>
-							<span className="price">$10.00</span>
-						</div>
-					</div>
-				</div>
 			</div>
 		);
 	}
