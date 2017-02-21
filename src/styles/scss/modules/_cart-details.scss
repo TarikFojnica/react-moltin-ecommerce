@@ -16,9 +16,12 @@
 
 			&:hover {
 				background-color: $color-primary;
-
 				a {
 					color: whitesmoke;
+				}
+
+				&.remove {
+					color: white;
 				}
 			}
 			
@@ -44,12 +47,22 @@
 				color: $color-green;
 			}
 
-			span {
+			button {
 				&.remove {
 					position: absolute;
 					top: 10px;
 					right: 10px;
 					z-index: 999;
+					font-size: .8em;
+
+					i {
+						margin: 0 !important;
+					}
+					
+					&:hover {
+						background-color: $color-red;
+						color: white;
+					}
 				}
 			}
 		}

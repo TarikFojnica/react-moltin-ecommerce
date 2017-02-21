@@ -67,9 +67,7 @@ export default class CartDetails extends React.Component {
 							</Link>
 						</div>
 
-						<span className="remove">
-							<i className="remove outline icon"></i>
-						</span>
+						<button className="remove ui button"><i className="remove outline icon"></i></button>
 					</div>
 				)
 			});

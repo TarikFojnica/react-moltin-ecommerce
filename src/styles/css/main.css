@@ -4473,6 +4473,8 @@ img.before-text {
       background-color: #2e435c; }
       .cart-details .ui.items .item:hover a {
         color: whitesmoke; }
+      .cart-details .ui.items .item:hover.remove {
+        color: white; }
     .cart-details .ui.items .item a {
       color: #2e435c;
       font-size: 1.2em; }
@@ -4487,11 +4489,17 @@ img.before-text {
       margin-top: .5em;
       display: block;
       color: #4CAF50; }
-    .cart-details .ui.items .item span.remove {
+    .cart-details .ui.items .item button.remove {
       position: absolute;
       top: 10px;
       right: 10px;
-      z-index: 999; }
+      z-index: 999;
+      font-size: .8em; }
+      .cart-details .ui.items .item button.remove i {
+        margin: 0 !important; }
+      .cart-details .ui.items .item button.remove:hover {
+        background-color: #db2828;
+        color: white; }
   .cart-details .total {
     margin-left: 1em;
     border-top: 2px solid #5d5d5d;
