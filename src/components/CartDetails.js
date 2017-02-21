@@ -39,6 +39,31 @@ export default class CartDetails extends React.Component {
 		});
 	}
 
+	removeFromCart(clicked) {
+		let _this = this;
+
+		moltin.Authenticate(function () {
+			moltin.Cart.Remove(clicked, function() {
+				moltin.Cart.Contents(function(items) {
+					events.publish('CART_UPDATED', {
+						cart: items // any argument
+					});
+
+					_this.setState({
+						currentCart: items,
+						loaded: true
+					})
+				}, function(error) {
+					// Something went wrong...
+				});
+
+				console.log('item removed', clicked)
+			}, function(error) {
+				// Something went wrong...
+			});
+		});
+	}
+
 	render() {
 		let preparedCartContent;
 		let cartContent = _.values(this.state.currentCart.contents);
@@ -67,7 +92,7 @@ export default class CartDetails extends React.Component {
 							</Link>
 						</div>
 
-						<button className="remove ui button"><i className="remove outline icon"></i></button>
+						<button  onClick={() => { this.removeFromCart(result.id)}} className="remove ui button"><i className="remove outline icon"></i></button>
 					</div>
 				)
 			});

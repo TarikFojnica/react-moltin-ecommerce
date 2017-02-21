@@ -27,7 +27,6 @@ export default class FormExampleOnSubmit extends Component {
 		event.preventDefault();
 	};
 
-
 	render() {
 		return (
 			<div className="payment-form">

@@ -4463,6 +4463,14 @@ img.before-text {
   border-left: 1px solid #d7d7d7;
   min-height: 500px;
   position: relative; }
+  .cart-details .ui.items span.empty {
+    font-size: 1.1em;
+    padding: 1em;
+    background-color: #ffff99;
+    display: block;
+    margin-left: 1em;
+    color: #545433;
+    font-weight: 700; }
   .cart-details .ui.items .item {
     position: relative;
     padding: 1em;

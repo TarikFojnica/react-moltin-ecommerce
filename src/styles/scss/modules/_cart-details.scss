@@ -4,6 +4,18 @@
 	position: relative;
 
 	.ui.items {
+		span {
+			&.empty {
+				font-size: 1.1em;
+				padding: 1em;
+				background-color: lighten(yellow, 30%);
+				display: block;
+				margin-left: 1em;
+				color: #545433;
+				font-weight: 700;
+			}
+		}
+
 		.item {
 			position: relative;
 			padding: 1em;
