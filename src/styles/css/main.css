@@ -4477,7 +4477,8 @@ img.before-text {
       color: #2e435c;
       font-size: 1.2em; }
     .cart-details .ui.items .item .header {
-      font-weight: 400; }
+      font-weight: 400;
+      display: block; }
     .cart-details .ui.items .item .image {
       width: 100px;
       height: 70px;
@@ -4489,7 +4490,8 @@ img.before-text {
     .cart-details .ui.items .item span.remove {
       position: absolute;
       top: 10px;
-      right: 10px; }
+      right: 10px;
+      z-index: 999; }
   .cart-details .total {
     margin-left: 1em;
     border-top: 2px solid #5d5d5d;

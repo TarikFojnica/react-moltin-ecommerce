@@ -61,7 +61,7 @@ export default class CartDetails extends React.Component {
 						</div>
 						<div className="content">
 							<Link to={`/product/${result.id}`}>
-							<span className="header">{result.name} <br/>
+								<span className="header">{result.name} <br/>
 								<span className="price">{result.pricing.formatted.with_tax}</span>
 							</span>
 							</Link>
