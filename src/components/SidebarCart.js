@@ -38,6 +38,14 @@ export default class SidebarCart extends React.Component {
 			});
 		});
 
+		// Listen to theCART_UPDATED event. Once it happens, take the object from the
+		// published event and pass it to the currentCart state
+		events.subscribe('CART_UPDATED', function(obj) {
+			_this.setState({
+				currentCart: obj.cart
+			});
+		});
+
 		// Listen to the ADD_TO_CART event
 		events.subscribe('ADD_TO_CART', function(obj) {
 			_this.setState({
