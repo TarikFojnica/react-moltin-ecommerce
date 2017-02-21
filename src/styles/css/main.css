@@ -4460,7 +4460,7 @@ img.before-text {
   height: 50px !important; }
 
 .cart-details {
-  background-color: #FAFAFA;
+  background-color: #ebebeb;
   border-left: 1px solid #d7d7d7;
   min-height: 500px;
   padding: 1em; }
@@ -4510,8 +4510,7 @@ body {
 
 header {
   border-bottom: 1px solid rgba(0, 0, 0, 0.1);
-  margin-bottom: 2em;
-  padding: 0 1em; }
+  margin-bottom: 2em; }
   header .ui.secondary.menu .item {
     text-transform: uppercase;
     margin: .8em 0;

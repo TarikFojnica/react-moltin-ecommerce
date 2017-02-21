@@ -35,7 +35,7 @@ export default class FormExampleOnSubmit extends Component {
 
 					<div className="field">
 						<label>Customer Information</label>
-						<input type="email" name="email" placeholder="Email"  value={this.state.email}  onChange={this.handleChange} required=""/>
+						<input type="email" name="email" placeholder="Email"  value={this.state.email}  onChange={this.handleChange}/>
 					</div>
 
 					<div className="field">
@@ -62,7 +62,7 @@ export default class FormExampleOnSubmit extends Component {
 					</div>
 
 					<div className="field">
-						<input type="text" name="address" placeholder="Address"  value={this.state.address}  onChange={this.handleChange} />
+						<input type="text" name="address" placeholder="Address"  value={this.state.address}  onChange={this.handleChange} required />
 					</div>
 
 					<div className="field">

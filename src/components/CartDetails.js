@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import events from '../vendor/pub-sub';
 import _ from 'lodash/object';
+import moltin from '../vendor/moltin';
 
 export default class CartDetails extends React.Component {
 	state = {
@@ -20,10 +21,17 @@ export default class CartDetails extends React.Component {
 
 	componentDidMount() {
 		let _this = this;
-		// Listen to the CART_UPDATED event
-		events.subscribe('CART_UPDATED', function(obj) {
-			_this.setState({
-				currentCart : obj.cart
+		moltin.Authenticate(function () {
+			moltin.Cart.Contents(function(items) {
+				events.publish('CART_UPDATED', {
+					cart: items // any argument
+				});
+
+				_this.setState({
+					currentCart: items
+				})
+			}, function(error) {
+				// Something went wrong...
 			});
 		});
 	}
