@@ -2,6 +2,8 @@ import React, { Component } from 'react';
 import events from '../vendor/pub-sub';
 import _ from 'lodash/object';
 import moltin from '../vendor/moltin';
+import LoadingIcon from '../../public/ripple.svg';
+import {Link} from 'react-router'
 
 export default class CartDetails extends React.Component {
 	state = {
@@ -16,7 +18,7 @@ export default class CartDetails extends React.Component {
  				}
 			}
 		},
-		addingToCart: false
+		loaded: false
 	};
 
 	componentDidMount() {
@@ -28,7 +30,8 @@ export default class CartDetails extends React.Component {
 				});
 
 				_this.setState({
-					currentCart: items
+					currentCart: items,
+					loaded: true
 				})
 			}, function(error) {
 				// Something went wrong...
@@ -57,7 +60,11 @@ export default class CartDetails extends React.Component {
 							}
 						</div>
 						<div className="content">
-							<span className="header">{result.name} <br/><span className="price">{result.pricing.formatted.with_tax}</span></span>
+							<Link to={`/product/${result.id}`}>
+							<span className="header">{result.name} <br/>
+								<span className="price">{result.pricing.formatted.with_tax}</span>
+							</span>
+							</Link>
 						</div>
 
 						<span className="remove">
@@ -79,6 +86,10 @@ export default class CartDetails extends React.Component {
 
 		return (
 			<div className="cart-details">
+				<div className={`overlay ${this.state.loaded ? 'hidden' : ''}`}>
+					<img src={LoadingIcon} alt="Loading"/>
+				</div>
+
 				<div className="ui items">
 					{preparedCartContent}
 
