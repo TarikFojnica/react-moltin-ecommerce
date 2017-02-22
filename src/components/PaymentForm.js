@@ -66,7 +66,7 @@ export default class FormExampleOnSubmit extends Component {
 					</div>
 
 					<div className="field">
-						<input type="text" name="address" placeholder="Address"  value={this.state.address}  onChange={this.handleChange} required />
+						<input type="text" name="address" placeholder="Address"  value={this.state.address}  onChange={this.handleChange} />
 					</div>
 
 					<div className="field">
@@ -337,15 +337,52 @@ export default class FormExampleOnSubmit extends Component {
 					</div>
 
 					<div className="field">
-						<input type="text" name="phoneNumber" placeholder="Phone Number"  value={this.state.phoneNumber}  onChange={this.handleChange} />
+						<div className="field">
+							<input type="text" name="phoneNumber" placeholder="Phone Number"  value={this.state.phoneNumber}  onChange={this.handleChange} />
+						</div>
 					</div>
 
-					<div className="field cc-fields">
-						<label><i className="credit card alternative icon"></i> Payment Information</label>
-						<input type="email" name="email" placeholder="Email"  value={this.state.email}  onChange={this.handleChange}/>
+					<div className="field cc-field">
+						<label>
+							<i className="credit card alternative icon"></i>
+							Payment Information <br/>
+							<small className="color-green">Your payment details are secure</small>
+						</label>
+
+						<div className="field">
+							<input type="email" name="email" placeholder="Card Number"  value={this.state.email}  onChange={this.handleChange}/>
+						</div>
+
+						<div className="field">
+							<input type="text" name="phoneNumber" placeholder="Owner Name"  value={this.state.phoneNumber}  onChange={this.handleChange} />
+						</div>
 					</div>
 
-					<button type="submit" className="large ui button green">Finalize Order</button>
+					<div className="field cc-field">
+						<div className="field">
+							<div className="three fields">
+								<div className="field">
+									<select className="ui fluid" name="country" value={this.state.country} onChange={this.handleChange}>
+										<option value="SELECT">Expiry Month</option>
+										<option value="1">01</option>
+									</select>
+								</div>
+
+								<div className="field">
+									<select className="ui fluid" name="country" value={this.state.country} onChange={this.handleChange}>
+										<option value="SELECT">Expiry Year</option>
+										<option value="1">01</option>
+									</select>
+								</div>
+
+								<div className="field">
+									<input type="text" name="zipCode" placeholder="City"  value={this.state.zipCode}  onChange={this.handleChange}/>
+								</div>
+							</div>
+						</div>
+					</div>
+
+					<button type="submit" className="large ui button green">Complete Order</button>
 				</form>
 			</div>
 		)

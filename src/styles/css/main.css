@@ -4444,9 +4444,8 @@ img.before-text {
 
 .payment-form .header {
   color: #2e435c; }
-.payment-form .cc-fields {
-  padding: 1em;
-  background-color: #EDE4DF; }
+.payment-form .cc-field input, .payment-form .cc-field select {
+  background-color: rgba(36, 91, 125, 0.12) !important; }
 .payment-form .field input, .payment-form .field select {
   height: 50px;
   border: 1px solid rgba(46, 67, 92, 0.2) !important;
@@ -4462,8 +4461,9 @@ img.before-text {
     color: #2e435c; }
   .payment-form .field input:focus, .payment-form .field select:focus {
     border-color: #2e435c !important; }
-.payment-form .field .button {
-  height: 50px !important; }
+.payment-form .button {
+  height: 50px !important;
+  min-width: 250px; }
 
 .cart-details {
   border-left: 1px solid #d7d7d7;

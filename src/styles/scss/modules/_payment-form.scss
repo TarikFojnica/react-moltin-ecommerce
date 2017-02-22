@@ -3,9 +3,10 @@
 		color: $color-primary;
 	}
 
-	.cc-fields {
-		padding: 1em;
-		background-color: $color-light;
+	.cc-field {
+		input, select {
+			background-color: rgba(36, 91, 125, 0.12) !important;
+		}
 	}
 	
 	.field {
@@ -23,9 +24,11 @@
 				border-color: $color-primary !important;
 			}
 		}
+	}
 
-		.button {
-			height: 50px !important;
-		}
+
+	.button {
+		height: 50px !important;
+		min-width: 250px;
 	}
 }
