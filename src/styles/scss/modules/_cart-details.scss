@@ -6,13 +6,12 @@
 	.ui.items {
 		span {
 			&.empty {
-				font-size: 1.1em;
-				padding: 1em;
-				background-color: lighten(yellow, 30%);
+				font-size: 1.2em;
 				display: block;
 				margin-left: 1em;
-				color: #545433;
+				color: $color-red;
 				font-weight: 700;
+				margin-bottom: 1em;
 			}
 		}
 

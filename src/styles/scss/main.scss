@@ -31,6 +31,10 @@ body {
 	&.fluid {
 		width: 85% !important;
 		padding-left: 350px;
+
+		@include max-width(1600px) {
+			width: 95% !important;
+		}
 	}
 }
 
@@ -40,6 +44,8 @@ body {
 
 .pusher {
 	background-color: #fff;
+	position: relative;
+	min-height: 100%;
 	//background-image: url("https://www.transparenttextures.com/patterns/dust.png");
 }
 
@@ -306,7 +312,12 @@ header {
 }
 
 footer {
-	.footer {
-		padding: 4em 0 3em 0 !important;
+	background-color: $color-primary;
+	padding: 1em 0 1em 0 !important;
+	color: whitesmoke;
+	margin-top: 200px;
+
+	p {
+		text-align: right;
 	}
 }

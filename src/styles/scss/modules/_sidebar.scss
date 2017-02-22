@@ -1,9 +1,13 @@
 .sidebar {
 	width: 330px;
-	background-color: rgba($color-light, .2);
+	background-color: #F9F7F6;
 	background-image: url("https://www.transparenttextures.com/patterns/ag-square.png");
 	/* This is mostly intended for prototyping; please download the pattern and re-host for production environments. Thank you! */
 	border-right: 1px solid rgba(0,0,0,.1);
+
+	@include max-width(1600px) {
+		width: 290px;
+	}
 
 	.sidebar-inner {
 		padding: 0 1em;

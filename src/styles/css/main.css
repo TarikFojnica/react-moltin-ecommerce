@@ -4355,10 +4355,13 @@ img.before-text {
 
 .sidebar {
   width: 330px;
-  background-color: rgba(237, 228, 223, 0.2);
+  background-color: #F9F7F6;
   background-image: url("https://www.transparenttextures.com/patterns/ag-square.png");
   /* This is mostly intended for prototyping; please download the pattern and re-host for production environments. Thank you! */
   border-right: 1px solid rgba(0, 0, 0, 0.1); }
+  @media (max-width: 1600px) {
+    .sidebar {
+      width: 290px; } }
   .sidebar .sidebar-inner {
     padding: 0 1em; }
     .sidebar .sidebar-inner .sidebar-element {
@@ -4441,6 +4444,9 @@ img.before-text {
 
 .payment-form .header {
   color: #2e435c; }
+.payment-form .cc-fields {
+  padding: 1em;
+  background-color: #EDE4DF; }
 .payment-form .field input, .payment-form .field select {
   height: 50px;
   border: 1px solid rgba(46, 67, 92, 0.2) !important;
@@ -4464,13 +4470,12 @@ img.before-text {
   min-height: 500px;
   position: relative; }
   .cart-details .ui.items span.empty {
-    font-size: 1.1em;
-    padding: 1em;
-    background-color: #ffff99;
+    font-size: 1.2em;
     display: block;
     margin-left: 1em;
-    color: #545433;
-    font-weight: 700; }
+    color: #db2828;
+    font-weight: 700;
+    margin-bottom: 1em; }
   .cart-details .ui.items .item {
     position: relative;
     padding: 1em;
@@ -4528,12 +4533,17 @@ body {
 .container.fluid {
   width: 85% !important;
   padding-left: 350px; }
+  @media (max-width: 1600px) {
+    .container.fluid {
+      width: 95% !important; } }
 
 .no-padding-top {
   padding-top: 0 !important; }
 
 .pusher {
-  background-color: #fff; }
+  background-color: #fff;
+  position: relative;
+  min-height: 100%; }
 
 header {
   border-bottom: 1px solid rgba(0, 0, 0, 0.1);
@@ -4730,7 +4740,12 @@ header {
 .checkout-container {
   background: #fff; }
 
-footer .footer {
-  padding: 4em 0 3em 0 !important; }
+footer {
+  background-color: #2e435c;
+  padding: 1em 0 1em 0 !important;
+  color: whitesmoke;
+  margin-top: 200px; }
+  footer p {
+    text-align: right; }
 
 /*# sourceMappingURL=main.css.map */

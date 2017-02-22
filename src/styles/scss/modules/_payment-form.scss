@@ -2,6 +2,11 @@
 	.header {
 		color: $color-primary;
 	}
+
+	.cc-fields {
+		padding: 1em;
+		background-color: $color-light;
+	}
 	
 	.field {
 		input, select {

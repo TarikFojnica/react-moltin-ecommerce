@@ -1,4 +1,5 @@
 import React, { Component } from 'react'
+import moltin from '../vendor/moltin';
 
 export default class FormExampleOnSubmit extends Component {
 
@@ -13,6 +14,7 @@ export default class FormExampleOnSubmit extends Component {
 		streetAddress: ''
 	};
 
+	// Takes care of two way data mining
 	handleChange = (event) => {
 		const value = event.target.value;
 		const name = event.target.name;
@@ -22,23 +24,26 @@ export default class FormExampleOnSubmit extends Component {
 		});
 	};
 
+
+	// Triggers when the form is submitted
 	handleSubmit = (event) =>{
 		console.log(this.state);
 		event.preventDefault();
+
+		moltin.Authenticate(function () {
+			moltin.Cart.Checkout(function(checkout) {
+				console.log(checkout);
+			}, function(error) {
+				// Something went wrong...
+			});
+		});
 	};
 
 	render() {
 		return (
 			<div className="payment-form">
 				<form className="ui form" onSubmit={this.handleSubmit}>
-
 					<div className="field">
-						<label>Customer Information</label>
-						<input type="email" name="email" placeholder="Email"  value={this.state.email}  onChange={this.handleChange}/>
-					</div>
-
-					<div className="field">
-
 						<label>Shipping Information</label>
 						<div className="two fields">
 							<div className="field">
@@ -331,12 +336,16 @@ export default class FormExampleOnSubmit extends Component {
 						</div>
 					</div>
 
-
 					<div className="field">
 						<input type="text" name="phoneNumber" placeholder="Phone Number"  value={this.state.phoneNumber}  onChange={this.handleChange} />
 					</div>
 
-					<button type="submit" className="large ui button green">Continue to Payment</button>
+					<div className="field cc-fields">
+						<label><i className="credit card alternative icon"></i> Payment Information</label>
+						<input type="email" name="email" placeholder="Email"  value={this.state.email}  onChange={this.handleChange}/>
+					</div>
+
+					<button type="submit" className="large ui button green">Finalize Order</button>
 				</form>
 			</div>
 		)
