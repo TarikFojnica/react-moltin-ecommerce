@@ -4668,7 +4668,7 @@ header {
         transition: all 1s linear; }
     .product-list-element .ui.card .content {
       position: relative;
-      padding-right: 4.5em; }
+      padding-right: 5.5em; }
       .product-list-element .ui.card .content .header {
         text-align: left;
         text-transform: uppercase; }
@@ -4733,12 +4733,13 @@ header {
   text-transform: uppercase;
   font-size: 1em;
   letter-spacing: 1px;
-  margin-bottom: .5em;
+  margin-bottom: 1em;
   border-bottom: 1px solid #EDE4DF;
   color: #251A22 !important;
   display: block; }
   .categories .item:hover {
-    cursor: pointer; }
+    cursor: pointer;
+    border-bottom: 1px solid #2e435c; }
 
 .checkout-container {
   background: #fff; }
@@ -4747,7 +4748,7 @@ footer {
   background-color: #2e435c;
   padding: 1em 0 1em 0 !important;
   color: whitesmoke;
-  margin-top: 200px; }
+  margin-top: 1em; }
   footer p {
     text-align: right; }
 

@@ -1,13 +1,14 @@
-import React from 'react'
+import React from 'react';
+import {Link} from 'react-router'
 
 export default class Categories extends React.Component {
 	render() {
 		return (
 			<div className="ui list categories">
-				<a className="item">Men Bags</a>
-				<a className="item">Women Bags</a>
-				<a className="item">Tablet Cases</a>
-				<a className="item">Specials</a>
+				<Link className="item" to="/category/1">Men Bags</Link>
+				<Link className="item" to="/category/1">Women Bags</Link>
+				<Link className="item" to="/category/1">Tablet Cases</Link>
+				<Link className="item" to="/category/1">Specials</Link>
 			</div>
 		);
 	}

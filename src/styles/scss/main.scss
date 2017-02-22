@@ -214,7 +214,7 @@ header {
 
 			.content {
 				position: relative;
-				padding-right: 4.5em;
+				padding-right: 5.5em;
 				
 				.header {
 					text-align: left;
@@ -301,13 +301,14 @@ header {
 		text-transform: uppercase;
 		font-size: 1em;
 		letter-spacing: 1px;
-		margin-bottom: .5em;
+		margin-bottom: 1em;
 		border-bottom: 1px solid $color-light;
 		color: $color-secondary !important;
 		display: block;
 
 		&:hover {
 			cursor: pointer;
+			border-bottom: 1px solid $color-primary;
 		}
 	}
 }
@@ -320,8 +321,7 @@ footer {
 	background-color: $color-primary;
 	padding: 1em 0 1em 0 !important;
 	color: whitesmoke;
-	margin-top: 200px;
-
+	margin-top: 1em;
 	p {
 		text-align: right;
 	}
