@@ -75,6 +75,11 @@ header {
 			&.cart-item {
 				background-color: rgba(0,0,0,.05);
 				color: $color-secondary;
+				
+				&:hover {
+					background-color: $color-primary;
+					color: whitesmoke;
+				}
 			}
 		}
 	}

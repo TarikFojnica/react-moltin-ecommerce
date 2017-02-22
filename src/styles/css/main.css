@@ -4564,6 +4564,9 @@ header {
     header .ui.secondary.menu .item.cart-item {
       background-color: rgba(0, 0, 0, 0.05);
       color: #251A22; }
+      header .ui.secondary.menu .item.cart-item:hover {
+        background-color: #2e435c;
+        color: whitesmoke; }
 
 .home-intro .cover {
   margin-bottom: 1em;

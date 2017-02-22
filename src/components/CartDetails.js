@@ -3,7 +3,7 @@ import events from '../vendor/pub-sub';
 import _ from 'lodash/object';
 import moltin from '../vendor/moltin';
 import LoadingIcon from '../../public/ripple.svg';
-import {Link} from 'react-router'
+import {Link} from 'react-router';
 
 export default class CartDetails extends React.Component {
 	state = {

@@ -1,5 +1,5 @@
 import React from 'react'
-import events from '../vendor/pub-sub'
+import events from '../vendor/pub-sub';
 
 export default class Cart extends React.Component {
 	state = {
