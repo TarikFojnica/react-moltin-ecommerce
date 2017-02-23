@@ -1,18 +1,29 @@
 import React, { Component } from 'react'
 import moltin from '../vendor/moltin';
+import { Button, Modal } from 'semantic-ui-react'
 
 export default class FormExampleOnSubmit extends Component {
 
 	state = {
-		email: '',
-		firstName: '',
-		lastName: '',
-		city: '',
-		country: '',
-		zipCode: '',
-		phoneNumber: '',
-		streetAddress: ''
+		paymentComplete: false,
+		cartId: null,
+		email: 'teste@gmail.com',
+		firstName: 'Tarik',
+		lastName: 'Fojnica',
+		streetAddress: '182 High Street North, East Ham',
+		city: 'London',
+		country: 'US',
+		zipCode: 'CA94040',
+		phoneNumber: '0038762123456',
+		cardNumber: '4242424242424242',
+		expiryMonth: '08',
+		expiryYear: '2020',
+		cvv: '123',
+		open: false,
+		ownerName: 'Tarik Fojnica'
 	};
+
+	close = () => this.setState({ open: false });
 
 	// Takes care of two way data mining
 	handleChange = (event) => {
@@ -24,15 +35,63 @@ export default class FormExampleOnSubmit extends Component {
 		});
 	};
 
-
 	// Triggers when the form is submitted
 	handleSubmit = (event) =>{
-		console.log(this.state);
-		event.preventDefault();
+		let _this = this;
+		this.setState({
+			open: true
+		});
 
-		moltin.Authenticate(function () {
-			moltin.Cart.Checkout(function(checkout) {
-				console.log(checkout);
+		moltin.Authenticate(() => {
+			let _this = this;
+
+			moltin.Cart.Complete({
+				customer: {
+					first_name: _this.state.firstName,
+					last_name:  _this.state.lastName,
+					email:      _this.state.email,
+				},
+				shipping: '1456721508712841263', // hardcoded shipping method. TODO: allow user to select a shipping method
+				gateway: 'stripe', // hardcoded payment method. TODO: allow user to select a payment method
+				bill_to: {
+					first_name: _this.state.firstName,
+					last_name:  _this.state.lastName,
+					address_1:  _this.state.streetAddress,
+					city:       _this.state.city,
+					county:     'California',
+					country:    _this.state.country,
+					postcode:   _this.state.zipCode,
+					phone:      _this.state.phoneNumber
+				},
+				ship_to: 'bill_to',
+			}, function(order) {
+				console.log(order);
+				_this.setState({
+					cartId: order.id
+				})
+			}, function(error) {
+				// Something went wrong...
+			});
+		});
+		event.preventDefault();
+	};
+
+	handlePayment = () => {
+		let _this = this;
+		moltin.Authenticate(() => {
+			moltin.Checkout.Payment('purchase', this.state.cartId, {
+				data: {
+					first_name:   this.state.firstName,
+					last_name:    this.state.lastName,
+					number:       this.state.cardNumber,
+					expiry_month: this.state.expiryMonth,
+					expiry_year:  this.state.expiryYear,
+					cvv:          this.state.cvv
+				}
+			}, function(payment) {
+				_this.setState({
+					paymentComplete: true,
+				})
 			}, function(error) {
 				// Something went wrong...
 			});
@@ -40,6 +99,8 @@ export default class FormExampleOnSubmit extends Component {
 	};
 
 	render() {
+		const { open, dimmer } = this.state;
+
 		return (
 			<div className="payment-form">
 				<form className="ui form" onSubmit={this.handleSubmit}>
@@ -66,7 +127,7 @@ export default class FormExampleOnSubmit extends Component {
 					</div>
 
 					<div className="field">
-						<input type="text" name="address" placeholder="Address"  value={this.state.address}  onChange={this.handleChange} />
+						<input type="text" name="address" placeholder="Address"  value={this.state.streetAddress}  onChange={this.handleChange} />
 					</div>
 
 					<div className="field">
@@ -77,7 +138,6 @@ export default class FormExampleOnSubmit extends Component {
 						<div className="two fields">
 							<div className="field">
 								<select className="ui fluid" name="country" value={this.state.country} onChange={this.handleChange}>
-									<option value="SELECT">Select Country</option>
 									<option value="AF">Afghanistan</option>
 									<option value="AX">Åland Islands</option>
 									<option value="AL">Albania</option>
@@ -342,48 +402,63 @@ export default class FormExampleOnSubmit extends Component {
 						</div>
 					</div>
 
-					<div className="field cc-field">
-						<label>
-							<i className="credit card alternative icon"></i>
-							Payment Information <br/>
-							<small className="color-green">Your payment details are secure</small>
-						</label>
-
-						<div className="field">
-							<input type="email" name="email" placeholder="Card Number"  value={this.state.email}  onChange={this.handleChange}/>
-						</div>
-
-						<div className="field">
-							<input type="text" name="phoneNumber" placeholder="Owner Name"  value={this.state.phoneNumber}  onChange={this.handleChange} />
-						</div>
-					</div>
-
-					<div className="field cc-field">
-						<div className="field">
-							<div className="three fields">
-								<div className="field">
-									<select className="ui fluid" name="country" value={this.state.country} onChange={this.handleChange}>
-										<option value="SELECT">Expiry Month</option>
-										<option value="1">01</option>
-									</select>
-								</div>
-
-								<div className="field">
-									<select className="ui fluid" name="country" value={this.state.country} onChange={this.handleChange}>
-										<option value="SELECT">Expiry Year</option>
-										<option value="1">01</option>
-									</select>
-								</div>
-
-								<div className="field">
-									<input type="text" name="zipCode" placeholder="City"  value={this.state.zipCode}  onChange={this.handleChange}/>
-								</div>
-							</div>
-						</div>
-					</div>
-
 					<button type="submit" className="large ui button green">Complete Your Order</button>
 				</form>
+
+				<div>
+					<Modal dimmer='blurring' open={open} onClose={this.close} size={`small`}>
+						<Modal.Header>Complete your order <br/><small>Feel free to use the provided test values</small></Modal.Header>
+						<Modal.Content>
+							<Modal.Description>
+								<form className="ui form" onSubmit={this.handleSubmit}>
+									<div className="field cc-field">
+										<label>
+											<i className="credit card alternative icon"></i>
+											Card Number <br/>
+											<small className="color-green">Your payment details are secure</small>
+										</label>
+
+										<div className="field">
+											<input type="email" name="email" placeholder="Card Number"  value={this.state.cardNumber}  onChange={this.handleChange}/>
+										</div>
+
+										<div className="field">
+											<label>Owner Name</label>
+											<input type="text" name="phoneNumber" placeholder="Owner Name"  value={this.state.ownerName}  onChange={this.handleChange} />
+										</div>
+									</div>
+
+									<div className="field cc-field">
+										<div className="field">
+											<div className="three fields">
+												<div className="field">
+													<label>Card Expiry Month</label>
+													<input type="text" name="phoneNumber" placeholder="Expiry Month"  value={this.state.expiryMonth}  onChange={this.handleChange} />
+												</div>
+
+												<div className="field">
+													<label>Card Expiry Year</label>
+													<input type="text" name="phoneNumber" placeholder="Expiry Year"  value={this.state.expiryYear}  onChange={this.handleChange} />
+												</div>
+
+												<div className="field">
+													<label>CVV</label>
+													<input type="text" name="zipCode" placeholder="CVV"  value={this.state.cvv}  onChange={this.handleChange}/>
+												</div>
+											</div>
+										</div>
+									</div>
+								</form>
+							</Modal.Description>
+						</Modal.Content>
+						<Modal.Actions>
+							<Button color='black' onClick={this.close}>
+								Cancel
+							</Button>
+							<Button onClick={this.handlePayment} className="right floated" positive icon='checkmark' labelPosition='left' content="Order Now"/>
+						</Modal.Actions>
+					</Modal>
+				</div>
 			</div>
 		)
 	}
