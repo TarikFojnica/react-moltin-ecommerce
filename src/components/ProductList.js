@@ -1,44 +1,11 @@
 import React from 'react';
-import {Link} from 'react-router'
-import moltin from '../vendor/moltin';
-import events from '../vendor/pub-sub'
+import {Link} from 'react-router';
+import AddToCartButton from '../components/AddToCartButton'
 
 export default class Spotlight extends React.Component {
 	state = {
 		clickedId: '',
 		adding: false,
-	};
-
-	addToCart = (clicked) => {
-		let _this = this;
-
-		// Fire ADD_TO_CART immediately after user initiate the action
-		events.publish('ADD_TO_CART', {
-			adding: true
-		});
-
-		this.setState({
-			clickedId: clicked,
-			adding: true
-		});
-
-		moltin.Authenticate(function() {
-			moltin.Cart.Insert(clicked.id, '1', null, function(cart) {
-
-				// Inform other listeners that ADD_TO_CART event is complete
-				events.publish('ADD_TO_CART', {
-					adding: false
-				});
-
-				// We use this info in the component itself
-				_this.setState({
-					adding: false
-				})
-
-			}, function(error) {
-				console.log(error);
-			});
-		});
 	};
 
 	render() {
@@ -60,9 +27,7 @@ export default class Spotlight extends React.Component {
 
 							<div className="extra content">
 								<div className="buttons-container">
-									<button onClick={() => { this.addToCart(result)}} className={`ui inverted button ${this.state.adding ? 'disabled' : ''}`}>
-										<i className="add to cart icon"></i>Add to Cart
-									</button>
+									<AddToCartButton productId={result.id} additionalClass="inverted"/>
 									<Link className="ui inverted button" to={`/product/${result.id}`}>Details</Link>
 								</div>
 							</div>

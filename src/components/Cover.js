@@ -4,7 +4,7 @@ import events from '../vendor/pub-sub';
 import {Link} from 'react-router';
 import LoadingIcon from '../../public/ripple.svg';
 import ReactCSSTransitionGroup from 'react-addons-css-transition-group';
-import AddToCartButton from '../components/AddToCart'
+import AddToCartButton from '../components/AddToCartButton'
 
 export default class Cover extends React.Component {
 	state = {
