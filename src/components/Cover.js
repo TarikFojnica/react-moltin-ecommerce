@@ -3,7 +3,8 @@ import moltin from '../vendor/moltin';
 import events from '../vendor/pub-sub';
 import {Link} from 'react-router';
 import LoadingIcon from '../../public/ripple.svg';
-import ReactCSSTransitionGroup from 'react-addons-css-transition-group'
+import ReactCSSTransitionGroup from 'react-addons-css-transition-group';
+import AddToCartButton from '../components/AddToCart'
 
 export default class Cover extends React.Component {
 	state = {
@@ -25,35 +26,6 @@ export default class Cover extends React.Component {
 		featured_category: '1415212879321235847', // ID of the category we use in the FEATURED section of the site,
 		adding: false,
 		featuredAcquired: false
-	};
-
-	addToCart = (clicked) => {
-		let _this = this;
-		// Fire ADD_TO_CART immediately after user initiate the action
-		events.publish('ADD_TO_CART', {
-			adding: true
-		});
-
-		this.setState({
-			clickedId: clicked,
-			adding: true
-		});
-
-		moltin.Authenticate(() => {
-			moltin.Cart.Insert(clicked.id, '1', null, function(cart) {
-				// Inform other listeners that ADD_TO_CART event is complete
-				events.publish('ADD_TO_CART', {
-					adding: false
-				});
-
-				_this.setState({
-					adding: false
-				})
-
-			}, function(error) {
-				console.log(error);
-			});
-		});
 	};
 
 	componentDidMount() {
@@ -97,9 +69,8 @@ export default class Cover extends React.Component {
 								<span className="price">
 							{this.state.lastProduct.price.value}
 						</span>
-								<button className={`ui inverted button ${this.state.adding ? 'disabled' : ''}`} onClick={() => { this.addToCart(this.state.lastProduct)}}>
-									<i className="add to cart icon"></i> Add to Cart
-								</button>
+
+								<AddToCartButton additionalClass="inverted" productId={this.state.lastProduct.id}/>
 								<Link className="ui inverted button" to={`/product/${this.state.lastProduct.id}`}>Details</Link>
 							</div>
 						</div>
