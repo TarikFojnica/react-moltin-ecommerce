@@ -2,8 +2,9 @@ import React from 'react'
 import moltin from '../vendor/moltin';
 import ImageGallery from 'react-image-gallery';
 import _ from 'lodash'
-import LoadingIcon from '../../public/ripple.svg'
-import { Accordion, Icon } from 'semantic-ui-react'
+import LoadingIcon from '../../public/ripple.svg';
+import { Accordion, Icon } from 'semantic-ui-react';
+import AddToCartButton from '../components/AddToCartButton'
 
 
 export default class Product extends React.Component {
@@ -34,10 +35,6 @@ export default class Product extends React.Component {
 		});
 	}
 
-	handleImageLoad(event) {
-		console.log('Image loaded ', event.target)
-	}
-
 	render() {
 		//initialize an empty gallery array.
 		const gallery = [];
@@ -64,7 +61,7 @@ export default class Product extends React.Component {
 		else {
 			gallery[0] = {
 				original: 'https://placehold.it/1000x1000',
-				thumbnail: 'https://placehold.it/1000x1000'
+				thumbnail: 'https://placehold.it/100x100'
 			}
 		}
 
@@ -93,17 +90,16 @@ export default class Product extends React.Component {
 						<div className="six wide column">
 							<div className="product-details">
 								<h1>{this.state.product.title} <span className="price">{this.state.product.price.value}</span></h1>
-								<button className="fluid ui button"><i className="add to cart icon"></i>Add To Cart</button>
+								<AddToCartButton additionalClass="fluid ui button" productId={this.state.product.id}/>
 
-								<p>{this.state.product.description}</p>
 								<Accordion styled defaultActiveIndex={0}>
 									<Accordion.Title>
 										<Icon name='dropdown' />
-										Details & Dimensions
+										Product Description
 									</Accordion.Title>
 									<Accordion.Content>
 										<p>
-											Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vivamus at augue et risus scelerisque finibus nec vitae velit. Praesent consectetur nibh aliquet m
+											{this.state.product.description}
 										</p>
 									</Accordion.Content>
 									<Accordion.Title>
