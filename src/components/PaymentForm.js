@@ -382,7 +382,7 @@ export default class FormExampleOnSubmit extends Component {
 						</div>
 					</div>
 
-					<button type="submit" className="large ui button green">Complete Order</button>
+					<button type="submit" className="large ui button green">Complete Your Order</button>
 				</form>
 			</div>
 		)

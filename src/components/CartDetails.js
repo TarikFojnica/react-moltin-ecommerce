@@ -18,7 +18,8 @@ export default class CartDetails extends React.Component {
  				}
 			}
 		},
-		loaded: false
+		loaded: false,
+		removing: false
 	};
 
 	componentDidMount() {
@@ -41,6 +42,9 @@ export default class CartDetails extends React.Component {
 
 	removeFromCart(clicked) {
 		let _this = this;
+		this.setState({
+			removing: true
+		});
 
 		moltin.Authenticate(function () {
 			moltin.Cart.Remove(clicked, function() {
@@ -51,7 +55,8 @@ export default class CartDetails extends React.Component {
 
 					_this.setState({
 						currentCart: items,
-						loaded: true
+						loaded: true,
+						removing: false
 					})
 				}, function(error) {
 					// Something went wrong...
@@ -92,7 +97,8 @@ export default class CartDetails extends React.Component {
 							</Link>
 						</div>
 
-						<button  onClick={() => { this.removeFromCart(result.id)}} className="remove ui button"><i className="remove outline icon"></i></button>
+						<button  onClick={() => { this.removeFromCart(result.id)}} className={`remove ui button ${this.state.removing ? 'disabled' : ''}`}>
+							<i className="remove outline icon"></i></button>
 					</div>
 				)
 			});
