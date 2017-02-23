@@ -1,17 +1,19 @@
 import React, { Component } from 'react'
 import moltin from '../vendor/moltin';
-import { Button, Modal } from 'semantic-ui-react'
+import { Button, Modal } from 'semantic-ui-react';
+import {Link} from 'react-router';
 
 export default class FormExampleOnSubmit extends Component {
 
 	state = {
+		processingPayment: false,
 		paymentComplete: false,
 		cartId: null,
 		email: 'teste@gmail.com',
 		firstName: 'Tarik',
 		lastName: 'Fojnica',
-		streetAddress: '182 High Street North, East Ham',
-		city: 'London',
+		streetAddress: '2477 Friendship Lane',
+		city: 'San Jose',
 		country: 'US',
 		zipCode: 'CA94040',
 		phoneNumber: '0038762123456',
@@ -20,7 +22,7 @@ export default class FormExampleOnSubmit extends Component {
 		expiryYear: '2020',
 		cvv: '123',
 		open: false,
-		ownerName: 'Tarik Fojnica'
+		ownerName: 'Tarik Fojnica',
 	};
 
 	close = () => this.setState({ open: false });
@@ -78,6 +80,10 @@ export default class FormExampleOnSubmit extends Component {
 
 	handlePayment = () => {
 		let _this = this;
+		this.setState({
+			processingPayment: true,
+		});
+
 		moltin.Authenticate(() => {
 			moltin.Checkout.Payment('purchase', this.state.cartId, {
 				data: {
@@ -91,6 +97,13 @@ export default class FormExampleOnSubmit extends Component {
 			}, function(payment) {
 				_this.setState({
 					paymentComplete: true,
+					processingPayment: false,
+					firstName: '',
+					lastName: '',
+					cardNumber: '',
+					expiryMonth: '',
+					expiryYear: '',
+					cvv: ''
 				})
 			}, function(error) {
 				// Something went wrong...
@@ -405,9 +418,10 @@ export default class FormExampleOnSubmit extends Component {
 					<button type="submit" className="large ui button green">Complete Your Order</button>
 				</form>
 
-				<div>
+				<div className={`${this.state.paymentComplete ? 'hidden' : ''}`}>
 					<Modal dimmer='blurring' open={open} onClose={this.close} size={`small`}>
 						<Modal.Header>Complete your order <br/><small>Feel free to use the provided test values</small></Modal.Header>
+
 						<Modal.Content>
 							<Modal.Description>
 								<form className="ui form" onSubmit={this.handleSubmit}>
@@ -452,11 +466,23 @@ export default class FormExampleOnSubmit extends Component {
 							</Modal.Description>
 						</Modal.Content>
 						<Modal.Actions>
-							<Button color='black' onClick={this.close}>
+							<Button className={this.state.paymentComplete ? 'disabled' : ''} color='black' onClick={this.close}>
 								Cancel
 							</Button>
-							<Button onClick={this.handlePayment} className="right floated" positive icon='checkmark' labelPosition='left' content="Order Now"/>
+							<Button onClick={this.handlePayment} className={`right floated ${this.state.processingPayment ? 'loading' : this.state.paymentComplete ? 'disabled' : ''}`} positive icon='checkmark' labelPosition='left' content="Order Now"/>
 						</Modal.Actions>
+
+						<div className={`order-successful ${!this.state.paymentComplete ? 'hidden' : ''}`}>
+							<div className="ui positive message">
+								<div className="header">
+									<div className="header">
+										Success
+									</div>
+									<p>Your order was successful. Please check your email for more details</p>
+									<Link className="ui button black" to="/">Back to our site</Link>
+								</div>
+							</div>
+						</div>
 					</Modal>
 				</div>
 			</div>
