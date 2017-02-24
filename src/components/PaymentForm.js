@@ -2,10 +2,12 @@ import React, { Component } from 'react'
 import moltin from '../vendor/moltin';
 import { Button, Modal } from 'semantic-ui-react';
 import {Link} from 'react-router';
+import events from '../vendor/pub-sub';
 
 export default class FormExampleOnSubmit extends Component {
 
 	state = {
+		cartPreparing: false,
 		processingPayment: false,
 		paymentComplete: false,
 		cartId: null,
@@ -27,7 +29,7 @@ export default class FormExampleOnSubmit extends Component {
 
 	close = () => this.setState({ open: false });
 
-	// Takes care of two way data mining
+	// Takes care of two way data binding
 	handleChange = (event) => {
 		const value = event.target.value;
 		const name = event.target.name;
@@ -40,12 +42,12 @@ export default class FormExampleOnSubmit extends Component {
 	// Triggers when the form is submitted
 	handleSubmit = (event) =>{
 		let _this = this;
-		this.setState({
-			open: true
-		});
 
 		moltin.Authenticate(() => {
 			let _this = this;
+			this.setState({
+				cartPreparing: true,
+			});
 
 			moltin.Cart.Complete({
 				customer: {
@@ -67,10 +69,12 @@ export default class FormExampleOnSubmit extends Component {
 				},
 				ship_to: 'bill_to',
 			}, function(order) {
-				console.log(order);
 				_this.setState({
+					open: true,
+					cartPreparing: false,
 					cartId: order.id
-				})
+				});
+
 			}, function(error) {
 				// Something went wrong...
 			});
@@ -95,6 +99,8 @@ export default class FormExampleOnSubmit extends Component {
 					cvv:          this.state.cvv
 				}
 			}, function(payment) {
+
+				// Reset the input values
 				_this.setState({
 					paymentComplete: true,
 					processingPayment: false,
@@ -105,6 +111,24 @@ export default class FormExampleOnSubmit extends Component {
 					expiryYear: '',
 					cvv: ''
 				})
+
+				moltin.Cart.Delete(function() {
+					// Clear the cart once the payment is successful
+					//TODO: pass the cart object manually without the API call
+					moltin.Cart.Contents(function(items) {
+						events.publish('CART_UPDATED', {
+							cart: items // any argument
+						});
+
+						_this.setState({
+							currentCart: items
+						})
+					}, function(error) {
+						// Something went wrong...
+					});
+				}, function(error) {
+					// Something went wrong...
+				});
 			}, function(error) {
 				// Something went wrong...
 			});
@@ -112,11 +136,16 @@ export default class FormExampleOnSubmit extends Component {
 	};
 
 	render() {
-		const { open, dimmer } = this.state;
+		const { open } = this.state;
 
 		return (
 			<div className="payment-form">
 				<form className="ui form" onSubmit={this.handleSubmit}>
+
+					<div className="field">
+						<input type="text" name="email" placeholder="Email"  value={this.state.email}  onChange={this.handleChange} />
+					</div>
+
 					<div className="field">
 						<label>Shipping Information</label>
 						<div className="two fields">
@@ -415,7 +444,7 @@ export default class FormExampleOnSubmit extends Component {
 						</div>
 					</div>
 
-					<button type="submit" className="large ui button green">Complete Your Order</button>
+					<button type="submit" className={`large ui button green ${this.state.cartPreparing ? 'loading' : ''}`}>Complete Your Order</button>
 				</form>
 
 				<div className={`${this.state.paymentComplete ? 'hidden' : ''}`}>
