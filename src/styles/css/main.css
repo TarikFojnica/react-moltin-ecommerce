@@ -4011,12 +4011,6 @@ img.before-text {
   -o-animation-delay: 1s;
   animation-delay: 1s; }
 
-.update-hadith-enter {
-  border: 1px solid rgba(255, 255, 255, 0.5) !important; }
-
-.update-hadith-leave {
-  border: 1px solid rgba(255, 255, 255, 0.5) !important; }
-
 .overlay {
   position: absolute;
   top: 0;
