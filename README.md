@@ -22,6 +22,7 @@ The current setup will minify all of the assets including JS and CSS files.
 - Organize the SCSS modules better
 - Work on smaller screen optimization
 - Use arrow functions where possible
+- Improve the error handling
 
 ## Technologies
  - [Moltin](https://www.moltin.com/)
