@@ -1,3 +1,5 @@
+import config from './config';
+
 var Moltin,
 	__indexOf = [].indexOf || function(item) { for (var i = 0, l = this.length; i < l; i++) { if (i in this && this[i] === item) return i; } return -1; },
 	__hasProp = {}.hasOwnProperty,
@@ -651,6 +653,6 @@ Moltin = (function() {
 
 })();
 
-var moltin2 = new Moltin({publicId: 'd5BY7IIJYsyoSrabACClkacWlB21xCULA53dSMyiX5'});
+var moltin2 = new Moltin({publicId: config.publicId});
 export default moltin2;
 //# sourceMappingURL=moltin.js.map
