@@ -1,10 +1,10 @@
 import React from 'react';
 import moltin from '../vendor/moltin';
-import events from '../vendor/pub-sub';
 import {Link} from 'react-router';
 import LoadingIcon from '../../public/ripple.svg';
 import ReactCSSTransitionGroup from 'react-addons-css-transition-group';
-import AddToCartButton from '../components/AddToCartButton'
+import AddToCartButton from '../components/AddToCartButton';
+import config from '../vendor/config'
 
 export default class Cover extends React.Component {
 	state = {
@@ -23,7 +23,7 @@ export default class Cover extends React.Component {
 				value: ''
 			}
 		},
-		featured_category: '1415212879321235847', // ID of the category we use in the FEATURED section of the site,
+		featured_category: config.featuredCategoryId, // ID of the category we use in the FEATURED section of the site,
 		adding: false,
 		featuredAcquired: false
 	};
@@ -36,7 +36,7 @@ export default class Cover extends React.Component {
 			moltin.Product.Search({category: _this.state.featured_category, status: '1'}, function(products) {
 				_this.setState({
 					products : products, // all the products from the category
-					lastProduct: products[products.length - 1], // since we display only the last item, let's take the newest one
+					lastProduct: products[products.length - 1], // since we display only one item, let's take the newest one
 					featuredAcquired: true // The featured product is loaded
 				});
 			}, function(error) {
