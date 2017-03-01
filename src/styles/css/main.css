@@ -4041,8 +4041,8 @@ img.before-text {
 */
 @font-face {
   font-family: "Ionicons";
-  src: url("//cdnjs.cloudflare.com/ajax/libs/ionicons/2.0.1/fonts/ionicons.eot?v=2.0.0");
-  src: url("//cdnjs.cloudflare.com/ajax/libs/ionicons/2.0.1/fonts/ionicons.eot?v=2.0.0#iefix") format("embedded-opentype"), url("//cdnjs.cloudflare.com/ajax/libs/ionicons/2.0.1/fonts/ionicons.ttf?v=2.0.0") format("truetype"), url("//cdnjs.cloudflare.com/ajax/libs/ionicons/2.0.1/fonts/ionicons.woff?v=2.0.0") format("woff"), url("//cdnjs.cloudflare.com/ajax/libs/ionicons/2.0.1/fonts/ionicons.svg?v=2.0.0#Ionicons") format("svg");
+  src: url("https://cdnjs.cloudflare.com/ajax/libs/ionicons/2.0.1/fonts/ionicons.eot?v=2.0.0");
+  src: url("https://cdnjs.cloudflare.com/ajax/libs/ionicons/2.0.1/fonts/ionicons.eot?v=2.0.0#iefix") format("embedded-opentype"), url("https://cdnjs.cloudflare.com/ajax/libs/ionicons/2.0.1/fonts/ionicons.ttf?v=2.0.0") format("truetype"), url("https://cdnjs.cloudflare.com/ajax/libs/ionicons/2.0.1/fonts/ionicons.woff?v=2.0.0") format("woff"), url("https://cdnjs.cloudflare.com/ajax/libs/ionicons/2.0.1/fonts/ionicons.svg?v=2.0.0#Ionicons") format("svg");
   font-weight: normal;
   font-style: normal; }
 .image-gallery-fullscreen-button::before,
@@ -4352,7 +4352,7 @@ img.before-text {
 
 .sidebar {
   width: 330px;
-  background-color: #F9F7F6;
+  background-color: #2D4058;
   background-image: url("https://www.transparenttextures.com/patterns/ag-square.png");
   /* This is mostly intended for prototyping; please download the pattern and re-host for production environments. Thank you! */
   border-right: 1px solid rgba(0, 0, 0, 0.1); }
@@ -4539,7 +4539,7 @@ body {
   padding-top: 0 !important; }
 
 .pusher {
-  background-color: #fff;
+  background-color: #F6F4F3;
   position: relative;
   min-height: 100%; }
 
@@ -4732,12 +4732,12 @@ header {
   font-size: 1em;
   letter-spacing: 1px;
   margin-bottom: 1em;
-  border-bottom: 1px solid #EDE4DF;
-  color: #251A22 !important;
+  color: white !important;
+  border-bottom: 1px solid #3a597e;
   display: block; }
   .categories .item:hover {
     cursor: pointer;
-    border-bottom: 1px solid #2e435c; }
+    border-bottom: 1px solid white; }
 
 .checkout-container {
   background: #fff; }

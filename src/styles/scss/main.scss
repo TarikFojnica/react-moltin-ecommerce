@@ -46,7 +46,7 @@ body {
 }
 
 .pusher {
-	background-color: #fff;
+	background-color: #F6F4F3;
 	position: relative;
 	min-height: 100%;
 	//background-image: url("https://www.transparenttextures.com/patterns/dust.png");
@@ -305,13 +305,13 @@ header {
 		font-size: 1em;
 		letter-spacing: 1px;
 		margin-bottom: 1em;
-		border-bottom: 1px solid $color-light;
-		color: $color-secondary !important;
+		color: white !important;
+		border-bottom: 1px solid #3a597e;
 		display: block;
 
 		&:hover {
 			cursor: pointer;
-			border-bottom: 1px solid $color-primary;
+			border-bottom: 1px solid white;
 		}
 	}
 }
