@@ -4521,7 +4521,7 @@ img.before-text {
         color: #4CAF50; }
 
 body {
-  background-color: #fff;
+  background-color: #FFFFFF;
   overflow-y: scroll; }
 
 .content-container {
@@ -4539,7 +4539,7 @@ body {
   padding-top: 0 !important; }
 
 .pusher {
-  background-color: #F6F4F3;
+  background-color: #FFFFFF;
   position: relative;
   min-height: 100%; }
 
