@@ -24,6 +24,7 @@ The current setup will minify all of the assets including JS and CSS files.
 - Use arrow functions where possible
 - Improve the error handling
 - Adopt the [Presentational and Container Components](https://medium.com/@dan_abramov/smart-and-dumb-components-7ca2f9a7c7d0#.cdcbjkn9v) pattern
+- Display the correct `<title>` when browsing pages
 
 ## Technologies
  - [Moltin](https://www.moltin.com/)

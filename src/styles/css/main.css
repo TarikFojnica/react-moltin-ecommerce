@@ -4020,13 +4020,15 @@ img.before-text {
   background-color: #2e435c;
   padding: 100px;
   z-index: 999;
-  text-align: center; }
+  text-align: center;
+  visibility: visible;
+  opacity: 1; }
   .overlay img {
     height: 50px; }
   .overlay.hidden {
     visibility: hidden;
     opacity: 0;
-    transition: visibility 0s .5s, opacity .5s linear; }
+    transition: visibility 0s, opacity 0.5s linear; }
 
 /*!
   Ionicons, v2.0.0
