@@ -53,29 +53,23 @@ export default class Cover extends React.Component {
 
 		return (
 			<div className="cover" style={backgroundImage}>
-				<ReactCSSTransitionGroup
-					transitionName="update-hadith"
-					transitionEnterTimeout={300}
-					transitionLeave={false}>
-
-					<div className={`overlay ${this.state.featuredAcquired ? 'hidden' : ''}`}>
-						<img src={LoadingIcon} alt="Loading"/>
-					</div>
-					<div className="cover-inner">
-						<div className="content">
-							<div className="inner">
-								<h1>{this.state.lastProduct.title}</h1>
-								<p>{this.state.lastProduct.description}</p>
-								<span className="price">
+				<div className={`overlay ${this.state.featuredAcquired ? 'non-visible' : ''}`}>
+					<img src={LoadingIcon} alt="Loading"/>
+				</div>
+				<div className="cover-inner">
+					<div className="content">
+						<div className="inner">
+							<h1>{this.state.lastProduct.title}</h1>
+							<p>{this.state.lastProduct.description}</p>
+							<span className="price">
 							{this.state.lastProduct.price.value}
 						</span>
 
-								<AddToCartButton additionalClass="inverted" productId={this.state.lastProduct.id}/>
-								<Link className="ui inverted button" to={`/product/${this.state.lastProduct.id}`}>Details</Link>
-							</div>
+							<AddToCartButton additionalClass="inverted" productId={this.state.lastProduct.id}/>
+							<Link className="ui inverted button" to={`/product/${this.state.lastProduct.id}`}>Details</Link>
 						</div>
 					</div>
-				</ReactCSSTransitionGroup>
+				</div>
 			</div>
 		);
 	}

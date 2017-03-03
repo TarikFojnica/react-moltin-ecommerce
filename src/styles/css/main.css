@@ -4025,10 +4025,10 @@ img.before-text {
   opacity: 1; }
   .overlay img {
     height: 50px; }
-  .overlay.hidden {
+  .overlay.non-visible {
     visibility: hidden;
     opacity: 0;
-    transition: visibility 0s, opacity 0.5s linear; }
+    transition: visibility .5s, opacity 0.5s linear; }
 
 /*!
   Ionicons, v2.0.0
@@ -4429,7 +4429,7 @@ img.before-text {
         bottom: 10px;
         right: 5px;
         width: 45px; }
-        .sidebar .sidebar-inner .sidebar-cart .loading-icon.hidden {
+        .sidebar .sidebar-inner .sidebar-cart .loading-icon.non-visible {
           visibility: hidden;
           opacity: 0;
           transition: visibility 0s .5s, opacity .5s linear; }

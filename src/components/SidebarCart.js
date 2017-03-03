@@ -117,7 +117,7 @@ export default class SidebarCart extends React.Component {
 					{preparedCartContent}
 				</div>
 
-				<img className={`loading-icon ${!this.state.addingToCart ? 'hidden' : ''}`} src={LoadingIcon} alt="Loading"/>
+				<img className={`loading-icon ${!this.state.addingToCart ? 'non-visible' : ''}`} src={LoadingIcon} alt="Loading"/>
 			</div>
 		);
 	}

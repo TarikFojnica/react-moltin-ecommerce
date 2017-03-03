@@ -106,7 +106,7 @@
 				right: 5px;
 				width: 45px;
 
-				&.hidden {
+				&.non-visible {
 					visibility: hidden;
 					opacity: 0;
 					transition: visibility 0s .5s, opacity .5s linear;

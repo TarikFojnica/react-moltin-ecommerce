@@ -115,7 +115,7 @@ export default class CartDetails extends React.Component {
 
 		return (
 			<div className="cart-details">
-				<div className={`overlay ${this.state.loaded ? 'hidden' : ''}`}>
+				<div className={`overlay ${this.state.loaded ? 'non-visible' : ''}`}>
 					<img src={LoadingIcon} alt="Loading"/>
 				</div>
 
