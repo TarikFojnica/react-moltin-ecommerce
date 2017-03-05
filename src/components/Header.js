@@ -4,10 +4,11 @@ import Cart from './Cart'
 import Logo from '../../public/logo.png'
 
 export default class Header extends React.Component {
+
 	render() {
 		return (
 			<header>
-				<div className="ui secondary menu">
+				<div className="ui fixed secondary menu">
 					<div className="ui container fluid">
 						<Link to="/" className="header logo item">
 							<img src={Logo} alt=""/>
