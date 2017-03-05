@@ -71,6 +71,20 @@ header {
 			@include border-radius(0px);
 			color: $color-primary;
 
+			&.general {
+				@include max-width(767px) {
+					display: none;
+				}
+			}
+
+			&.navigation-button {
+				display: none;
+
+				@include max-width(767px) {
+					display: block;
+				}
+			}
+
 			span {
 				margin-right: .3em;
 			}
@@ -85,6 +99,10 @@ header {
 				background-color: rgba(0,0,0,.05);
 				color: $color-secondary;
 				border: 1px solid white;
+
+				@include max-width(767px) {
+					margin-right: 1em;
+				}
 
 				span {
 					font-weight: 700;
@@ -275,10 +293,6 @@ header {
 
 .product-container {
 	position: relative;
-
-	.top {
-		padding: 1em;
-	}
 
 	.product-details {
 		background-color: #fff;

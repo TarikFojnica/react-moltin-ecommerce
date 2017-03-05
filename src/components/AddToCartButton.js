@@ -6,7 +6,7 @@ import events from '../vendor/pub-sub'
 export default class AddToCart extends React.Component {
 	state = {
 		adding: false
-}
+	};
 
 	addToCart = (clicked) => {
 		let _this = this;

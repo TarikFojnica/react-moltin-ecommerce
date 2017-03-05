@@ -10,9 +10,7 @@ class Layout extends React.Component {
 	render() {
 		return (
 			<div className="app-container">
-				<div className="ui wide sidebar visible">
-					<Sidebar/>
-				</div>
+				<Sidebar/>
 
 				<div className="pusher">
 					<Header />
