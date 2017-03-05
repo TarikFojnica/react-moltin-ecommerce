@@ -4352,18 +4352,31 @@ img.before-text {
       font-size: .8em;
       padding: 5px 10px; } }
 
+.sidebar-overlay {
+  position: absolute;
+  top: 0;
+  left: 0;
+  z-index: 102;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.5); }
+
 .sidebar {
   width: 330px;
   background-color: #ffffff;
   background-image: url("https://www.transparenttextures.com/patterns/ag-square.png");
   /* This is mostly intended for prototyping; please download the pattern and re-host for production environments. Thank you! */
-  border-right: 1px solid rgba(0, 0, 0, 0.1); }
+  border-right: 1px solid rgba(0, 0, 0, 0.1);
+  z-index: 103; }
   @media (max-width: 1600px) {
     .sidebar {
       width: 290px; } }
   @media (max-width: 1320px) {
     .sidebar {
       display: none; } }
+  @media (max-width: 767px) {
+    .sidebar.display-on-mobile {
+      display: block; } }
   .sidebar .sidebar-inner {
     padding: 0 1em; }
     .sidebar .sidebar-inner .sidebar-element {
@@ -4389,6 +4402,12 @@ img.before-text {
       position: relative; }
       .sidebar .sidebar-inner .sidebar-cart .ui.items {
         margin-bottom: 0; }
+        @media (max-width: 768px) {
+          .sidebar .sidebar-inner .sidebar-cart .ui.items {
+            display: none; } }
+      @media (max-width: 767px) {
+        .sidebar .sidebar-inner .sidebar-cart h4 {
+          margin-bottom: 0; } }
       .sidebar .sidebar-inner .sidebar-cart h4 span.price {
         color: #4CAF50; }
       .sidebar .sidebar-inner .sidebar-cart .header {
@@ -4519,7 +4538,7 @@ img.before-text {
       position: absolute;
       top: 10px;
       right: 10px;
-      z-index: 999;
+      z-index: 2;
       font-size: .8em; }
       .cart-details .ui.items .item button.remove i {
         margin: 0 !important; }
@@ -4538,7 +4557,8 @@ img.before-text {
 
 body {
   background-color: #FFFFFF;
-  overflow-y: scroll; }
+  overflow-y: scroll;
+  position: relative; }
 
 .content-container {
   border-left: 1px solid rgba(0, 0, 0, 0.1); }

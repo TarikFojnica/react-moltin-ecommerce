@@ -23,7 +23,7 @@ export default class Header extends React.Component {
 						<Link to="/" className="item general">Home</Link>
 						<Link to="/" className="item general">About</Link>
 						<Link to="/" className="item general">Contact</Link>
-						<button className="item navigation-button" onClick={this.showSidebar}>Button</button>
+						<button className="item navigation-button" onClick={this.showSidebar}><i className="list layout icon"></i> Menu</button>
 						<Cart/>
 					</div>
 				</div>
