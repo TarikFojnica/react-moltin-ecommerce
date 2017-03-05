@@ -1,12 +1,16 @@
 .sidebar {
 	width: 330px;
-	background-color: #2D4058;
+	background-color: #ffffff;
 	background-image: url("https://www.transparenttextures.com/patterns/ag-square.png");
 	/* This is mostly intended for prototyping; please download the pattern and re-host for production environments. Thank you! */
 	border-right: 1px solid rgba(0,0,0,.1);
 
 	@include max-width(1600px) {
 		width: 290px;
+	}
+
+	@include max-width(1320px) {
+		display: none;
 	}
 
 	.sidebar-inner {
@@ -120,4 +124,23 @@
 			border-color: #d6d6d6;
 		}
 	}
+
+	.categories {
+		.item {
+			text-transform: uppercase;
+			font-size: 1em;
+			letter-spacing: 1px;
+			margin-bottom: 1em;
+			color: #3a597e !important;
+			border-bottom: 1px solid #e2e2e2;
+			display: block;
+
+			&:hover {
+				cursor: pointer;
+				border-bottom: 1px solid rgba(#3a597e, .5);
+			}
+		}
+	}
+
 }
+

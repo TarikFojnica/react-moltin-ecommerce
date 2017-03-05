@@ -4354,13 +4354,16 @@ img.before-text {
 
 .sidebar {
   width: 330px;
-  background-color: #2D4058;
+  background-color: #ffffff;
   background-image: url("https://www.transparenttextures.com/patterns/ag-square.png");
   /* This is mostly intended for prototyping; please download the pattern and re-host for production environments. Thank you! */
   border-right: 1px solid rgba(0, 0, 0, 0.1); }
   @media (max-width: 1600px) {
     .sidebar {
       width: 290px; } }
+  @media (max-width: 1320px) {
+    .sidebar {
+      display: none; } }
   .sidebar .sidebar-inner {
     padding: 0 1em; }
     .sidebar .sidebar-inner .sidebar-element {
@@ -4440,6 +4443,17 @@ img.before-text {
       background-clip: padding-box;
       /* stops bg color from leaking outside the border: */
       border-color: #d6d6d6; }
+  .sidebar .categories .item {
+    text-transform: uppercase;
+    font-size: 1em;
+    letter-spacing: 1px;
+    margin-bottom: 1em;
+    color: #3a597e !important;
+    border-bottom: 1px solid #e2e2e2;
+    display: block; }
+    .sidebar .categories .item:hover {
+      cursor: pointer;
+      border-bottom: 1px solid rgba(58, 89, 126, 0.5); }
 
 .payment-form .header {
   color: #2e435c; }
@@ -4536,6 +4550,10 @@ body {
     .container.fluid {
       padding-left: 300px;
       width: 99% !important; } }
+  @media (max-width: 1320px) {
+    .container.fluid {
+      padding-left: 0;
+      width: 95% !important; } }
 
 .no-padding-top {
   padding-top: 0 !important; }
@@ -4728,18 +4746,6 @@ header {
     border-radius: 0 !important;
     background-clip: padding-box;
     /* stops bg color from leaking outside the border: */ }
-
-.categories .item {
-  text-transform: uppercase;
-  font-size: 1em;
-  letter-spacing: 1px;
-  margin-bottom: 1em;
-  color: white !important;
-  border-bottom: 1px solid #3a597e;
-  display: block; }
-  .categories .item:hover {
-    cursor: pointer;
-    border-bottom: 1px solid white; }
 
 .checkout-container {
   background: #fff; }

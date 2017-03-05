@@ -653,6 +653,6 @@ Moltin = (function() {
 
 })();
 
-var moltin2 = new Moltin({publicId: config.publicId});
-export default moltin2;
+const moltinObject = new Moltin({publicId: config.publicId});
+export default moltinObject;
 //# sourceMappingURL=moltin.js.map

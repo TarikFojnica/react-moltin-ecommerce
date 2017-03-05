@@ -11,7 +11,7 @@ export default class FormExampleOnSubmit extends Component {
 		processingPayment: false,
 		paymentComplete: false,
 		cartId: null,
-		email: 'teste@gmail.com',
+		email: 'test@gmail.com',
 		firstName: 'Tarik',
 		lastName: 'Fojnica',
 		streetAddress: '2477 Friendship Lane',
@@ -143,6 +143,7 @@ export default class FormExampleOnSubmit extends Component {
 				<form className="ui form" onSubmit={this.handleSubmit}>
 
 					<div className="field">
+						<label>Contact Email</label>
 						<input type="text" name="email" placeholder="Email"  value={this.state.email}  onChange={this.handleChange} />
 					</div>
 
@@ -169,7 +170,7 @@ export default class FormExampleOnSubmit extends Component {
 					</div>
 
 					<div className="field">
-						<input type="text" name="address" placeholder="Address"  value={this.state.streetAddress}  onChange={this.handleChange} />
+						<input type="text" name="streetAddress" placeholder="Address"  value={this.state.streetAddress} onChange={this.handleChange} />
 					</div>
 
 					<div className="field">
@@ -441,6 +442,16 @@ export default class FormExampleOnSubmit extends Component {
 					<div className="field">
 						<div className="field">
 							<input type="text" name="phoneNumber" placeholder="Phone Number"  value={this.state.phoneNumber}  onChange={this.handleChange} />
+						</div>
+					</div>
+
+					<div className="grouped fields">
+						<label htmlFor="fruit">Payment Type:</label>
+						<div className="field">
+							<div className="ui radio checkbox">
+								<input type="radio" name="fruit" defaultChecked className="hidden" />
+								<label>PayPal</label>
+							</div>
 						</div>
 					</div>
 
