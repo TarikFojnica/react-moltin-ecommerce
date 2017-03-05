@@ -4583,10 +4583,17 @@ header {
         width: 100px; }
       header .ui.secondary.menu .item.cart-item {
         background-color: rgba(0, 0, 0, 0.05);
-        color: #251A22; }
+        color: #251A22;
+        border: 1px solid white; }
+        header .ui.secondary.menu .item.cart-item span {
+          font-weight: 700; }
+        header .ui.secondary.menu .item.cart-item.green {
+          background-color: #4CAF50;
+          color: #fff; }
         header .ui.secondary.menu .item.cart-item:hover {
-          background-color: #2e435c;
-          color: whitesmoke; }
+          background: none;
+          border: 1px solid #4CAF50;
+          color: #251A22; }
 
 .home-intro .cover {
   margin-bottom: 1em;

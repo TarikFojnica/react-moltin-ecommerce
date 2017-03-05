@@ -84,10 +84,21 @@ header {
 			&.cart-item {
 				background-color: rgba(0,0,0,.05);
 				color: $color-secondary;
+				border: 1px solid white;
+
+				span {
+					font-weight: 700;
+				}
+				
+				&.green {
+					background-color: $color-green;
+					color: #fff;
+				}
 				
 				&:hover {
-					background-color: $color-primary;
-					color: whitesmoke;
+					background: none;
+					border: 1px solid $color-green;
+					color: $color-secondary;
 				}
 			}
 		}
@@ -95,7 +106,6 @@ header {
 }
 
 .home-intro {
-
 	.cover {
 		margin-bottom: 1em;
 		background-repeat: no-repeat;

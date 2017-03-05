@@ -1,5 +1,6 @@
 import React from 'react'
 import events from '../vendor/pub-sub';
+import {Link} from 'react-router'
 
 export default class Cart extends React.Component {
 	state = {
@@ -23,10 +24,10 @@ export default class Cart extends React.Component {
 
 	render() {
 		return (
-			<span className="cart-item">
-				{this.state.currentCart.total_items}
+			<Link to="/checkout" className={`item ui right cart-item floated ${this.state.currentCart.total_items >= 1 ? 'green' : ''}`}>
+				<span>{this.state.currentCart.total_items}</span>
 				<i className="in cart icon"></i>
-			</span>
+			</Link>
 		);
 	}
 }
