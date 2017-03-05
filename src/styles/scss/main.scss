@@ -230,11 +230,14 @@ header {
 
 			.content {
 				position: relative;
-				padding-right: 5.5em;
+				padding-right: 100px;
 				
 				.header {
 					text-align: left;
 					text-transform: uppercase;
+					@include max-width(767px) {
+						font-size: 1.1em;
+					}
 				}
 				
 				.sub {
@@ -255,6 +258,10 @@ header {
 						font-size: 1.2em;
 						font-weight: 600;
 						color: $color-primary;
+
+						@include max-width(767px) {
+							font-size: 1.0em;
+						}
 
 						i {
 							margin-right: 0;

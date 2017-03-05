@@ -46,10 +46,8 @@ export default class Spotlight extends React.Component {
 
 		return (
 			<div className="spotlight-container">
-				<div className="ui grid">
-					<div className="three column row">
-						{allItems}
-					</div>
+				<div className="ui stackable three column grid">
+					{allItems}
 				</div>
 			</div>
 		);

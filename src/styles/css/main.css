@@ -4696,10 +4696,13 @@ header {
         transition: all 1s linear; }
     .product-list-element .ui.card .content {
       position: relative;
-      padding-right: 5.5em; }
+      padding-right: 100px; }
       .product-list-element .ui.card .content .header {
         text-align: left;
         text-transform: uppercase; }
+        @media (max-width: 767px) {
+          .product-list-element .ui.card .content .header {
+            font-size: 1.1em; } }
       .product-list-element .ui.card .content .sub {
         color: grey;
         text-align: left;
@@ -4715,6 +4718,9 @@ header {
           font-size: 1.2em;
           font-weight: 600;
           color: #2e435c; }
+          @media (max-width: 767px) {
+            .product-list-element .ui.card .content .price span {
+              font-size: 1.0em; } }
           .product-list-element .ui.card .content .price span i {
             margin-right: 0; }
 
