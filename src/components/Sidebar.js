@@ -8,7 +8,13 @@ export default class Sidebar extends React.Component {
 		visible: false,
 	};
 
-	componentDidMount() {
+	closeSidebar = () =>  {
+		this.setState({
+			visible: false
+		})
+	}
+
+	componentDidMount = () => {
 		let _this = this;
 
 		events.subscribe('SIDEBAR_VISIBILITY', function(obj) {
@@ -21,12 +27,9 @@ export default class Sidebar extends React.Component {
 	render() {
 		return (
 			<div>
-				<div className="sidebar-overlay"></div>
 				<div className={`ui wide sidebar visible ${this.state.visible ? 'display-on-mobile' : ''}`}>
-					<span className="close">
-						Close
-					</span>
 					<div className="sidebar-inner">
+						<button className="ui button close-sidebar" onClick={this.closeSidebar}><i className="angle double left icon"></i> Close</button>
 						<SidebarCart/>
 						<Categories/>
 					</div>

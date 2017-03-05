@@ -1,13 +1,4 @@
 
-.sidebar-overlay {
-	position: absolute;
-	top: 0;
-	left: 0;
-	z-index: 102;
-	width: 100%;
-	height: 100%;
-	background-color: rgba(0,0,0,0.5);
-}
 
 .sidebar {
 	width: 330px;
@@ -28,6 +19,18 @@
 	&.display-on-mobile {
 		@include max-width(767px) {
 			display: block;
+		}
+	}
+
+	.close-sidebar {
+		font-size: .9em;
+		@include border-radius(2px);
+		width: 100%;
+		margin-top: 1em;
+		display: none;
+
+		@include max-width(767px) {
+			display: block !important;
 		}
 	}
 

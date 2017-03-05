@@ -4352,15 +4352,6 @@ img.before-text {
       font-size: .8em;
       padding: 5px 10px; } }
 
-.sidebar-overlay {
-  position: absolute;
-  top: 0;
-  left: 0;
-  z-index: 102;
-  width: 100%;
-  height: 100%;
-  background-color: rgba(0, 0, 0, 0.5); }
-
 .sidebar {
   width: 330px;
   background-color: #ffffff;
@@ -4377,6 +4368,18 @@ img.before-text {
   @media (max-width: 767px) {
     .sidebar.display-on-mobile {
       display: block; } }
+  .sidebar .close-sidebar {
+    font-size: .9em;
+    -webkit-border-radius: 2px !important;
+    border-radius: 2px !important;
+    background-clip: padding-box;
+    /* stops bg color from leaking outside the border: */
+    width: 100%;
+    margin-top: 1em;
+    display: none; }
+    @media (max-width: 767px) {
+      .sidebar .close-sidebar {
+        display: block !important; } }
   .sidebar .sidebar-inner {
     padding: 0 1em; }
     .sidebar .sidebar-inner .sidebar-element {
