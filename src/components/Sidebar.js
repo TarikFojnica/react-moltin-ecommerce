@@ -12,7 +12,7 @@ export default class Sidebar extends React.Component {
 		this.setState({
 			visible: false
 		})
-	}
+	};
 
 	componentDidMount = () => {
 		let _this = this;
