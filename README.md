@@ -16,7 +16,7 @@ The current setup will minify all of the assets including JS and CSS files.
 
 ## How to build the project for production
 1. `npm run build`
-2. Deploy the `build` directory
+2. Deploy the `/build` directory
 
 ## TODOS
 - Replace the current CSS framework with something lighter
