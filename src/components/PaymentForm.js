@@ -450,7 +450,7 @@ export default class FormExampleOnSubmit extends Component {
 						<div className="field">
 							<div className="ui radio checkbox">
 								<input type="radio" name="fruit" defaultChecked className="hidden" />
-								<label>PayPal</label>
+								<label>Credit Card</label>
 							</div>
 						</div>
 					</div>
