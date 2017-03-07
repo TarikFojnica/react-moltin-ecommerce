@@ -19,7 +19,7 @@ The current setup will minify all of the assets including JS and CSS files.
 2. Deploy the `/build` directory
 
 ## TODOS
-- Replace the current CSS framework with something lighter
+- Remove the unused CSS framework modules
 - Organize the SCSS modules better
 - Work on smaller screen optimization
 - Use arrow functions where possible
