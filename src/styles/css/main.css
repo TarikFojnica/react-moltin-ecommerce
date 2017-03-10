@@ -4558,6 +4558,15 @@ img.before-text {
       .cart-details .total span.price {
         color: #4CAF50; }
 
+.category-page .header {
+  margin-bottom: 2em; }
+  .category-page .header h1 {
+    text-transform: uppercase;
+    color: #2e435c;
+    letter-spacing: 2px;
+    font-weight: 400;
+    border-bottom: 1px solid #2e435c; }
+
 body {
   background-color: #FFFFFF;
   overflow-y: scroll;
