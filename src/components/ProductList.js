@@ -1,16 +1,28 @@
 import React from 'react';
 import {Link} from 'react-router';
-import AddToCartButton from '../components/AddToCartButton'
+import AddToCartButton from '../components/AddToCartButton';
+import moltin from '../vendor/moltin';
 
 export default class Spotlight extends React.Component {
 	state = {
+		data: [],
 		clickedId: '',
 		adding: false,
 	};
 
+	componentDidMount() {
+		let _this = this;
+		moltin.Authenticate(function() {
+			_this.setState({
+				data: moltin.Product.List()
+			});
+		});
+	}
+
+
 	render() {
 		// Create allItems function from the props we get from Home component
-		let allItems = this.props.products.map((result, id) => {
+		let allItems = this.state.data.map((result, id) => {
 			return (
 				<div key={id} className="column product-list-element">
 					<div className="ui card" key={id}>
@@ -46,7 +58,7 @@ export default class Spotlight extends React.Component {
 
 		return (
 			<div className="spotlight-container">
-				<div className="ui stackable three column grid">
+				<div className={`ui stackable ${this.props.size} column grid`}>
 					{allItems}
 				</div>
 			</div>

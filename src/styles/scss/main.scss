@@ -194,7 +194,7 @@ header {
 		&.card {
 			width: 100%;
 			@include border-radius(0);
-			@include box-shadow(5px, 5px, 15px, 2px, rgba(0,0,0,.1));
+			@include box-shadow(2px, 2px, 15px, 2px, rgba(0,0,0,.1));
 			border: none;
 			text-align: center;
 
@@ -297,8 +297,8 @@ header {
 
 	.product-details {
 		background-color: #fff;
-		@include box-shadow(0, 0, 15px, 2px, rgba(0,0,0,.2));
 		padding: 1.2em;
+		border: 1px solid #e2e2e2;
 
 		h1 {
 			font-weight: 400;
@@ -331,6 +331,22 @@ header {
 
 	.ui.styled.accordion {
 		@include border-radius(0);
+		box-shadow: none;
+
+		.title {
+			padding-right: 0;
+			padding-left: 0;
+		}
+	}
+	
+	.bottom {
+		background: #eaeaea;
+		padding: 1em;
+		
+		h4 {
+			text-transform: uppercase;
+			letter-spacing: 2px;
+		}
 	}
 }
 .checkout-container {
@@ -352,5 +368,5 @@ footer {
 }
 
 .image-gallery-slides {
-	border: 1px solid $color-primary;
+	border: 1px solid #e2e2e2;
 }

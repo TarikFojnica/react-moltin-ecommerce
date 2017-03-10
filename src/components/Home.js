@@ -22,7 +22,7 @@ class Home extends React.Component {
 		return (
 			<div className="home-intro">
 				<Cover/>
-				<ProductList products={this.state.data}/>
+				<ProductList size="three" />
 			</div>
 		);
 	}

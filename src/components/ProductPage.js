@@ -2,9 +2,9 @@ import React from 'react'
 import moltin from '../vendor/moltin';
 import ImageGallery from 'react-image-gallery';
 import _ from 'lodash'
-import LoadingIcon from '../../public/ripple.svg';
 import { Accordion, Icon } from 'semantic-ui-react';
-import AddToCartButton from '../components/AddToCartButton'
+import AddToCartButton from '../components/AddToCartButton';
+import ProductList from '../components/ProductList';
 
 
 export default class Product extends React.Component {
@@ -124,6 +124,11 @@ export default class Product extends React.Component {
 							</div>
 						</div>
 					</div>
+				</div>
+
+				<div className="bottom mt-l">
+					<h4>More from Kanmer</h4>
+					<ProductList size="five"/>
 				</div>
 			</div>
 		);
