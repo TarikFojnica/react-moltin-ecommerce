@@ -33,6 +33,13 @@ export default class Cover extends React.Component {
 
 		// Get the featured product
 		moltin.Authenticate(() => {
+
+			moltin.Category.List(null, function(category) {
+				console.log(category);
+			}, function(error) {
+				// Something went wrong...
+			});
+
 			moltin.Product.Search({category: _this.state.featured_category, status: '1'}, function(products) {
 				_this.setState({
 					products : products, // all the products from the category

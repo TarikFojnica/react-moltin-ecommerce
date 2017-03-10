@@ -2,7 +2,6 @@
 
 # dependencies
 node_modules
-src/vendor/config.js
 
 # testing
 coverage
@@ -14,3 +13,4 @@ build
 .DS_Store
 npm-debug.log
 .idea
+src/vendor/config.js
