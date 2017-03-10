@@ -2,7 +2,6 @@ import React from 'react';
 import moltin from '../vendor/moltin';
 import {Link} from 'react-router';
 import LoadingIcon from '../../public/ripple.svg';
-import ReactCSSTransitionGroup from 'react-addons-css-transition-group';
 import AddToCartButton from '../components/AddToCartButton';
 import config from '../vendor/config'
 
@@ -33,7 +32,6 @@ export default class Cover extends React.Component {
 
 		// Get the featured product
 		moltin.Authenticate(() => {
-
 			moltin.Category.List(null, function(category) {
 				console.log(category);
 			}, function(error) {

@@ -54,9 +54,11 @@ export default class FormExampleOnSubmit extends Component {
 					first_name: _this.state.firstName,
 					last_name:  _this.state.lastName,
 					email:      _this.state.email,
+					returnUrl: 'http://facebook.com'
 				},
-				shipping: '1456721508712841263', // hardcoded shipping method. TODO: allow user to select a shipping method
-				gateway: 'stripe', // hardcoded payment method. TODO: allow user to select a payment method
+				shipping: '1467619878520226719', // hardcoded shipping method. TODO: allow user to select a shipping method
+				gateway: 'paypal-express', // hardcoded payment method. TODO: allow user to select a payment method
+
 				bill_to: {
 					first_name: _this.state.firstName,
 					last_name:  _this.state.lastName,
@@ -65,7 +67,7 @@ export default class FormExampleOnSubmit extends Component {
 					county:     'California',
 					country:    _this.state.country,
 					postcode:   _this.state.zipCode,
-					phone:      _this.state.phoneNumber
+					phone:      _this.state.phoneNumber,
 				},
 				ship_to: 'bill_to',
 			}, function(order) {
@@ -76,7 +78,7 @@ export default class FormExampleOnSubmit extends Component {
 				});
 
 			}, function(error) {
-				// Something went wrong...
+				console.log(error);
 			});
 		});
 		event.preventDefault();
@@ -96,9 +98,10 @@ export default class FormExampleOnSubmit extends Component {
 					number:       this.state.cardNumber,
 					expiry_month: this.state.expiryMonth,
 					expiry_year:  this.state.expiryYear,
-					cvv:          this.state.cvv
-				}
+					cvv:          this.state.cvv,
+				},
 			}, function(payment) {
+				console.log(payment);
 
 				// Reset the input values
 				_this.setState({
@@ -127,10 +130,10 @@ export default class FormExampleOnSubmit extends Component {
 						// Something went wrong...
 					});
 				}, function(error) {
-					// Something went wrong...
+					console.log(error);
 				});
 			}, function(error) {
-				// Something went wrong...
+				console.log(error);
 			});
 		});
 	};
