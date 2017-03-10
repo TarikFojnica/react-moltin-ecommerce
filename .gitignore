@@ -2,6 +2,7 @@
 
 # dependencies
 node_modules
+src/vendor/config.js
 
 # testing
 coverage
