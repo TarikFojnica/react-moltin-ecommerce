@@ -67,7 +67,6 @@ export default class FormExampleOnSubmit extends Component {
 					country:    _this.state.country,
 					postcode:   _this.state.zipCode,
 					phone:      _this.state.phoneNumber,
-					return_url: 'http://facebook.com',
 				},
 				ship_to: 'bill_to',
 			}, function(order) {
@@ -456,8 +455,8 @@ export default class FormExampleOnSubmit extends Component {
 						<label htmlFor="fruit">Payment Type:</label>
 						<div className="field">
 							<div className="ui radio checkbox">
-								<input type="radio" name="fruit" defaultChecked className="hidden" />
-								<label>Credit Card</label>
+								<input type="radio" name="paypal" defaultChecked className="hidden" />
+								<label>PayPal</label>
 							</div>
 						</div>
 					</div>

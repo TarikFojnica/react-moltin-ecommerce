@@ -25,7 +25,7 @@ export default class Spotlight extends React.Component {
 		let allItems = this.state.data.map((result, id) => {
 			return (
 				<div key={id} className="column product-list-element">
-					<div className="ui card" key={id}>
+					<div className={`ui card ${this.props.additionalClass} `} key={id}>
 						<div className="image">
 							{
 								(result.featured_small)
@@ -57,7 +57,7 @@ export default class Spotlight extends React.Component {
 		});
 
 		return (
-			<div className="spotlight-container">
+			<div className="product-list-container">
 				<div className={`ui stackable ${this.props.size} column grid`}>
 					{allItems}
 				</div>

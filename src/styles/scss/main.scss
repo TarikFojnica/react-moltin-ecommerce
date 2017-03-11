@@ -193,6 +193,20 @@ header {
 
 	.ui {
 		&.card {
+
+			&.small {
+				.content {
+					.header {
+						font-size: 1.1em;
+					}
+
+					.price {
+						font-size: 1em;
+						padding: .3em;
+					}
+				}
+			}
+
 			width: 100%;
 			@include border-radius(0);
 			@include box-shadow(2px, 2px, 15px, 2px, rgba(0,0,0,.1));

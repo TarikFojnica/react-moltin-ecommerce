@@ -4697,6 +4697,11 @@ header {
     box-shadow: 2px 2px 15px 2px rgba(0, 0, 0, 0.1);
     border: none;
     text-align: center; }
+    .product-list-element .ui.card.small .content .header {
+      font-size: 1.1em; }
+    .product-list-element .ui.card.small .content .price {
+      font-size: 1em;
+      padding: .3em; }
     .product-list-element .ui.card .image {
       -webkit-border-radius: 0 !important;
       border-radius: 0 !important;

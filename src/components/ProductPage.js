@@ -129,7 +129,7 @@ export default class Product extends React.Component {
 
 				<div className="bottom mt-l">
 					<h4>More from Kanmer</h4>
-					<ProductList size="five"/>
+					<ProductList size="five" additionalClass="small"/>
 				</div>
 			</div>
 		);
