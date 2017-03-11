@@ -5,6 +5,7 @@ import _ from 'lodash'
 import { Accordion, Icon } from 'semantic-ui-react';
 import AddToCartButton from '../components/AddToCartButton';
 import ProductList from '../components/ProductList';
+import events from '../vendor/pub-sub';
 
 
 export default class Product extends React.Component {

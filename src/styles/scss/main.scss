@@ -176,7 +176,7 @@ header {
 						display: block;
 						font-size: 1.5em;
 						margin-bottom: 1em;
-						color: $color-light;
+						color: #fff;
 					}
 
 					i {
@@ -209,7 +209,7 @@ header {
 
 			width: 100%;
 			@include border-radius(0);
-			@include box-shadow(2px, 2px, 15px, 2px, rgba(0,0,0,.1));
+			@include box-shadow(0, 0, 15px, 5px, rgba(0,0,0,.1));
 			border: none;
 			text-align: center;
 
@@ -384,8 +384,8 @@ footer {
 
 .image-gallery-slides {
 	border: 1px solid #e2e2e2;
+}
 
-	.image-gallery-fullscreen-button {
-		display: none;
-	}
+.image-gallery-fullscreen-button {
+	display: none !important;
 }
