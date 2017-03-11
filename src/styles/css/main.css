@@ -4828,5 +4828,7 @@ footer {
 
 .image-gallery-slides {
   border: 1px solid #e2e2e2; }
+  .image-gallery-slides .image-gallery-fullscreen-button {
+    display: none; }
 
 /*# sourceMappingURL=main.css.map */

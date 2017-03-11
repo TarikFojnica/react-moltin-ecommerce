@@ -54,7 +54,6 @@ export default class FormExampleOnSubmit extends Component {
 					first_name: _this.state.firstName,
 					last_name:  _this.state.lastName,
 					email:      _this.state.email,
-					returnUrl: 'http://facebook.com'
 				},
 				shipping: '1467619878520226719', // hardcoded shipping method. TODO: allow user to select a shipping method
 				gateway: 'paypal-express', // hardcoded payment method. TODO: allow user to select a payment method
@@ -64,10 +63,11 @@ export default class FormExampleOnSubmit extends Component {
 					last_name:  _this.state.lastName,
 					address_1:  _this.state.streetAddress,
 					city:       _this.state.city,
-					county:     'California',
+					county:     'US',
 					country:    _this.state.country,
 					postcode:   _this.state.zipCode,
 					phone:      _this.state.phoneNumber,
+					return_url: 'http://facebook.com',
 				},
 				ship_to: 'bill_to',
 			}, function(order) {
@@ -100,8 +100,9 @@ export default class FormExampleOnSubmit extends Component {
 					expiry_year:  this.state.expiryYear,
 					cvv:          this.state.cvv,
 				},
+				return_url: 'http://kanmer.de',
+				cancel_url: 'http://kanmer.de/canceled',
 			}, function(payment) {
-				console.log(payment);
 
 				// Reset the input values
 				_this.setState({
@@ -113,14 +114,17 @@ export default class FormExampleOnSubmit extends Component {
 					expiryMonth: '',
 					expiryYear: '',
 					cvv: ''
-				})
+				});
+
+				// Redirect to
+				window.location.href = payment.url;
 
 				moltin.Cart.Delete(function() {
 					// Clear the cart once the payment is successful
 					//TODO: pass the cart object manually without the API call
 					moltin.Cart.Contents(function(items) {
 						events.publish('CART_UPDATED', {
-							cart: items // any argument
+							cart: items
 						});
 
 						_this.setState({

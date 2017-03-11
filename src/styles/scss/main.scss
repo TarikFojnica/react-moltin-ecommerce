@@ -370,4 +370,8 @@ footer {
 
 .image-gallery-slides {
 	border: 1px solid #e2e2e2;
+
+	.image-gallery-fullscreen-button {
+		display: none;
+	}
 }

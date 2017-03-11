@@ -32,6 +32,7 @@ export default class Product extends React.Component {
 			_this.setState({
 				product: moltin.Product.Get(_this.state.id),
 			});
+			console.log(_this.state.product);
 		});
 	}
 
