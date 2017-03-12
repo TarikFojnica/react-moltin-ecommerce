@@ -4814,6 +4814,12 @@ header {
     .product-container .ui.styled.accordion .title {
       padding-right: 0;
       padding-left: 0; }
+    .product-container .ui.styled.accordion .dimensions {
+      margin: 0;
+      list-style-type: none;
+      padding: 0; }
+      .product-container .ui.styled.accordion .dimensions li span.value {
+        font-weight: 700; }
   .product-container .bottom {
     background: #eaeaea;
     padding: 1em; }

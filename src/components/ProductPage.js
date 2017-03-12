@@ -109,18 +109,17 @@ export default class Product extends React.Component {
 										Delivery
 									</Accordion.Title>
 									<Accordion.Content>
-										<p>
-											Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vivamus at augue et risus scelerisque finibus nec vitae velit. Praesent consectetur nibh aliquet m
-										</p>
+										<p>{this.state.product.delivery}</p>
 									</Accordion.Content>
 									<Accordion.Title>
 										<Icon name='dropdown' />
-										Components
+										Dimensions
 									</Accordion.Title>
 									<Accordion.Content>
-										<p>
-											Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vivamus at augue et risus scelerisque finibus nec vitae velit. Praesent consectetur nibh aliquet m
-										</p>
+										<ul className="dimensions">
+											<li><span className="key">Width:</span> <span className="value">{this.state.product.width}</span> cm</li>
+											<li><span className="key">Height:</span> <span className="value">{this.state.product.height}</span> cm</li>
+										</ul>
 									</Accordion.Content>
 								</Accordion>
 							</div>

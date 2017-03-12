@@ -352,6 +352,24 @@ header {
 			padding-right: 0;
 			padding-left: 0;
 		}
+
+		.dimensions {
+			margin: 0;
+			list-style-type: none;
+			padding: 0;
+
+			li {
+				span {
+					&.key {
+
+					}
+
+					&.value {
+						font-weight: 700;
+					}
+				}
+			}
+		}
 	}
 	
 	.bottom {
