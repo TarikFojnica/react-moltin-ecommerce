@@ -164,6 +164,12 @@
 			border-bottom: 1px solid #e2e2e2;
 			display: block;
 
+			&.sub {
+				padding-left: .5em;
+				font-size: .9em;
+				color: #323232 !important;
+			}
+
 			&:hover {
 				cursor: pointer;
 				border-bottom: 1px solid rgba(#3a597e, .5);

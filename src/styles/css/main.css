@@ -4473,6 +4473,10 @@ img.before-text {
     color: #3a597e !important;
     border-bottom: 1px solid #e2e2e2;
     display: block; }
+    .sidebar .categories .item.sub {
+      padding-left: .5em;
+      font-size: .9em;
+      color: #323232 !important; }
     .sidebar .categories .item:hover {
       cursor: pointer;
       border-bottom: 1px solid rgba(58, 89, 126, 0.5); }

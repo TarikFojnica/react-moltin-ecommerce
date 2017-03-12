@@ -99,8 +99,8 @@ export default class FormExampleOnSubmit extends Component {
 					expiry_year:  this.state.expiryYear,
 					cvv:          this.state.cvv,
 				},
-				return_url: 'http://kanmer.de',
-				cancel_url: 'http://kanmer.de/canceled',
+				return_url: 'https://kanmer-de.firebaseapp.com/',
+				cancel_url: 'https://kanmer-de.firebaseapp.com/category/1',
 			}, function(payment) {
 
 				// Reset the input values
