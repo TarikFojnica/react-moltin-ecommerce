@@ -4571,6 +4571,28 @@ img.before-text {
     font-weight: 400;
     border-bottom: 1px solid #2e435c; }
 
+.static-page .header {
+  margin-bottom: 2em; }
+  .static-page .header h1 {
+    text-transform: uppercase;
+    color: #2e435c;
+    letter-spacing: 2px;
+    font-weight: 400;
+    border-bottom: 1px solid #2e435c; }
+.static-page h2 {
+  text-transform: uppercase;
+  color: #2e435c;
+  letter-spacing: 2px;
+  font-weight: 400;
+  font-size: 1.5em; }
+.static-page p {
+  font-size: 1.1em; }
+  .static-page p.italic {
+    font-style: italic;
+    font-size: 1.15em;
+    background: #EDE4DF;
+    padding: .8em; }
+
 body {
   background-color: #FFFFFF;
   overflow-y: scroll;

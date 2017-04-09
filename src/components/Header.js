@@ -21,7 +21,7 @@ export default class Header extends React.Component {
 							<img src={Logo} alt=""/>
 						</Link>
 						<Link to="/" className="general item">Home</Link>
-						<a href="#" className="item">About</a>
+						<Link to="/about" className="general item">About</Link>
 						<button className="item navigation-button" onClick={this.showSidebar}><i className="list layout icon"></i> Menu</button>
 						<Cart/>
 					</div>

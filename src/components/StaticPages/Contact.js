@@ -1,7 +1,7 @@
 import React from 'react';
 import {Link} from 'react-router';
 
-export default class StaticPage extends React.Component {
+export default class ContactStaticPage extends React.Component {
 	state = {
 	};
 
