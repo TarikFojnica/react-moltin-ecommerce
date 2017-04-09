@@ -137,8 +137,7 @@ header {
 			.content {
 				width: 600px;
 				max-width: 100%;
-				height: 520px;
-				padding: 9em 1em;
+				padding: 8em 1em;
 				//@include gradient-horizontal(rgba($color-primary, .99), rgba(255,255,255,.0), 60%, 90%);
 				@include gradient-vertical(rgba($color-secondary, .5), $color-primary);
 

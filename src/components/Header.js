@@ -21,7 +21,7 @@ export default class Header extends React.Component {
 							<img src={Logo} alt=""/>
 						</Link>
 						<Link to="/" className="general item">Home</Link>
-						<a href="https://github.com/TarikFojnica/react-moltin-ecommerce" className="item"><i className="github icon"></i> Github</a>
+						<a href="#" className="item">About</a>
 						<button className="item navigation-button" onClick={this.showSidebar}><i className="list layout icon"></i> Menu</button>
 						<Cart/>
 					</div>
