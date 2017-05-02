@@ -2,7 +2,9 @@ import React from 'react';
 import {Link} from 'react-router';
 import AddToCartButton from '../components/AddToCartButton';
 import moltin from '../vendor/moltin';
+import { observer } from 'mobx-react';
 
+@observer(['products'])
 export default class Spotlight extends React.Component {
 	state = {
 		data: [],
@@ -22,7 +24,7 @@ export default class Spotlight extends React.Component {
 
 	render() {
 		// Create allItems function from the props we get from Home component
-		let allItems = this.state.data.map((result, id) => {
+		let allItems = this.props.products.products.map((result, id) => {
 			return (
 				<div key={id} className="column product-list-element">
 					<div className={`ui card ${this.props.additionalClass} `} key={id}>
