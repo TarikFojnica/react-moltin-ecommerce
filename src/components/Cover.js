@@ -3,8 +3,10 @@ import moltin from '../vendor/moltin';
 import {Link} from 'react-router';
 import LoadingIcon from '../../public/ripple.svg';
 import AddToCartButton from '../components/AddToCartButton';
-import config from '../vendor/config'
+import config from '../vendor/config';
+import { observer } from 'mobx-react';
 
+@observer(['products'])
 export default class Cover extends React.Component {
 	state = {
 		products: null,
@@ -33,7 +35,6 @@ export default class Cover extends React.Component {
 		// Get the featured product
 		moltin.Authenticate(() => {
 			moltin.Category.List(null, function(category) {
-				console.log(category);
 			}, function(error) {
 				// Something went wrong...
 			});
@@ -51,6 +52,7 @@ export default class Cover extends React.Component {
 	}
 
 	render() {
+		console.log(this.props.products.products[0]);
 
 		const backgroundImage = {
 			backgroundImage: 'url(' + this.state.lastProduct.featured_large.data.url.https + ')',

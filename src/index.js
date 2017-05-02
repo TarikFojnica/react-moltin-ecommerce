@@ -1,10 +1,13 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
-import AppRoutes from './components/AppRoutes'
+import AppRoutes from './components/AppRoutes';
+import { Provider } from 'mobx-react';
 
-
+import stores from './stores/ProductsStore';
 
 ReactDOM.render(
-  <AppRoutes />,
+  <Provider products={stores}>
+		<AppRoutes />
+	</Provider>,
   document.getElementById('root')
 );
