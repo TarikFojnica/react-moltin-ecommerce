@@ -5,9 +5,9 @@ import _ from 'lodash'
 import { Accordion, Icon } from 'semantic-ui-react';
 import AddToCartButton from '../components/AddToCartButton';
 import ProductList from '../components/ProductList';
-import events from '../vendor/pub-sub';
+import { observer } from 'mobx-react';
 
-
+@observer(['products'])
 export default class Product extends React.Component {
 	state = {
 		id: this.props.location.pathname.replace('/product/', ''), // remove string '/product/' from the url and use the id only
@@ -28,19 +28,19 @@ export default class Product extends React.Component {
 
 	componentDidMount() {
 		let _this = this;
+		let currentItem = this.props.products.products.filter (function (obj) {
+			return obj.id == _this.state.id;
+		});
 
-		moltin.Authenticate(function() {
-			_this.setState({
-				product: moltin.Product.Get(_this.state.id),
-			});
-			console.log(_this.state.product);
+		_this.setState({
+			product: currentItem[0],
 		});
 	}
 
 	render() {
+		let _this = this;
 		//initialize an empty gallery array.
 		const gallery = [];
-		let _this = this;
 
 		// If we have images uploaded
 		if (this.state.product.images.length >= 1 ) {

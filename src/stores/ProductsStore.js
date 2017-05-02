@@ -2,6 +2,7 @@ import { observable, autorun } from 'mobx';
 
 class ProductStore {
 	@observable products = [];
+	@observable currentProduct = {};
 }
 
 

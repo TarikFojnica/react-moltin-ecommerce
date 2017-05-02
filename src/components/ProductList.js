@@ -7,19 +7,9 @@ import { observer } from 'mobx-react';
 @observer(['products'])
 export default class Spotlight extends React.Component {
 	state = {
-		data: [],
 		clickedId: '',
 		adding: false,
 	};
-
-	componentDidMount() {
-		let _this = this;
-		moltin.Authenticate(function() {
-			_this.setState({
-				data: moltin.Product.List()
-			});
-		});
-	}
 
 
 	render() {
@@ -37,7 +27,6 @@ export default class Spotlight extends React.Component {
 									//put some placeholder
 									: <img src="http://placehold.it/300x380" />
 							}
-
 
 							<div className="extra content">
 								<div className="buttons-container">
