@@ -8,14 +8,23 @@ import Sidebar from './Sidebar';
 import moltin from '../vendor/moltin';
 import { observer } from 'mobx-react';
 
-@observer(['products'])
+@observer(['products', 'featured'])
 class Layout extends React.Component {
 
 	componentDidMount() {
 		let _this = this;
 		moltin.Authenticate(function() {
 			moltin.Product.List(null, function(products) {
-				_this.props.products.products = products
+				_this.props.products.products = products;
+
+				moltin.Product.Search({category: '1467586457391596428', status: '1'}, function(product) {
+					_this.props.featured.featuredObject = product[product.length - 1];
+					_this.props.featured.featuredObject.featuredAcquired = true;
+					console.log(_this.props.featured.featuredObject.featuredAcquired);
+				}, function(error) {
+					// Something went wrong...
+				});
+
 			}, function(error) {
 				// Something went wrong...
 			});
