@@ -1,10 +1,9 @@
-import { observable, autorun } from 'mobx';
+import { observable } from 'mobx';
 
 class ProductStore {
 	@observable products = [];
-	@observable currentProduct = {};
+	@observable featured = {};
 }
-
 
 let store = new ProductStore();
 export default store;

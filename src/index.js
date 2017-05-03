@@ -6,7 +6,7 @@ import { Provider } from 'mobx-react';
 import stores from './stores/ProductsStore';
 
 ReactDOM.render(
-  <Provider products={stores}>
+  <Provider featured={stores.featured} products={stores}>
 		<AppRoutes />
 	</Provider>,
   document.getElementById('root')

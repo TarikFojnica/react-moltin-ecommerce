@@ -1,13 +1,13 @@
 import React from 'react'
-import moltin from '../vendor/moltin';
 import ImageGallery from 'react-image-gallery';
 import _ from 'lodash'
 import { Accordion, Icon } from 'semantic-ui-react';
 import AddToCartButton from '../components/AddToCartButton';
 import ProductList from '../components/ProductList';
 import { observer } from 'mobx-react';
+import moltin from '../vendor/moltin';
 
-@observer(['products'])
+@observer(['products', 'featured'])
 export default class Product extends React.Component {
 	state = {
 		id: this.props.location.pathname.replace('/product/', ''), // remove string '/product/' from the url and use the id only
@@ -28,17 +28,44 @@ export default class Product extends React.Component {
 
 	componentDidMount() {
 		let _this = this;
-		let currentItem = this.props.products.products.filter (function (obj) {
-			return obj.id == _this.state.id;
-		});
 
-		_this.setState({
-			product: currentItem[0],
-		});
+		// If the products are already loaded in our global state
+		if (this.props.products.products.length >= 1) {
+			let currentItem = this.props.products.products.filter (function (obj) {
+				return obj.id == _this.state.id;
+			});
+
+			_this.setState({
+				product: currentItem[0],
+			});
+		}
+
+		// If not, make a new API request and update the global state. This will be called mostly when a product is open directly
+		else {
+			let _this = this;
+			moltin.Authenticate(function() {
+				moltin.Product.List(null, function(products) {
+					// Update the global state
+					_this.props.products.products = products;
+
+					// Extract the current item from the list of loaded items
+					let currentItem = _this.props.products.products.filter (function (obj) {
+						return obj.id == _this.state.id;
+					});
+
+					_this.setState({
+						product: currentItem[0],
+					});
+				}, function(error) {
+					// Something went wrong...
+				});
+			});
+		}
 	}
 
 	render() {
 		let _this = this;
+		console.log(this.props.featured.featured);
 		//initialize an empty gallery array.
 		const gallery = [];
 
@@ -66,7 +93,6 @@ export default class Product extends React.Component {
 				thumbnail: 'https://placehold.it/100x100'
 			}
 		}
-
 
 		return (
 			<div className="product-container">

@@ -14,7 +14,11 @@ class Layout extends React.Component {
 	componentDidMount() {
 		let _this = this;
 		moltin.Authenticate(function() {
-			_this.props.products.products = moltin.Product.List();
+			moltin.Product.List(null, function(products) {
+				_this.props.products.products = products
+			}, function(error) {
+				// Something went wrong...
+			});
 		});
 	}
 
