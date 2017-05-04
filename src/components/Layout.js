@@ -14,7 +14,7 @@ class Layout extends React.Component {
 	componentDidMount() {
 		let _this = this;
 		moltin.Authenticate(function() {
-			moltin.Product.List(null, function(products) {
+			moltin.Product.List({limit: 20}, function(products) {
 				_this.props.products.products = products;
 
 				moltin.Product.Search({category: '1467586457391596428', status: '1'}, function(product) {
