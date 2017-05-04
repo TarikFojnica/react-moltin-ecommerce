@@ -14,13 +14,21 @@ class Layout extends React.Component {
 	componentDidMount() {
 		let _this = this;
 		moltin.Authenticate(function() {
+			// Retrieve all products
 			moltin.Product.List({limit: 20}, function(products) {
 				_this.props.products.products = products;
 
+				// Retrieve the last featured product
 				moltin.Product.Search({category: '1467586457391596428', status: '1'}, function(product) {
 					_this.props.featured.featuredObject = product[product.length - 1];
 					_this.props.featured.featuredObject.featuredAcquired = true;
-					console.log(_this.props.featured.featuredObject.featuredAcquired);
+
+					moltin.Category.List(null, function(category) {
+						console.log(category);
+					}, function(error) {
+						// Something went wrong...
+					});
+
 				}, function(error) {
 					// Something went wrong...
 				});
