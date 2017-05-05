@@ -49,7 +49,7 @@ export default class Product extends React.Component {
 						product: product,
 					});
 
-					moltin.Product.List(null, function(products) {
+					moltin.Product.List({limit: 50}, function(products) {
 						// Update the global state
 						_this.props.products.products = products;
 					}, function(error) {

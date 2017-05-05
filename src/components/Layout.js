@@ -15,7 +15,7 @@ class Layout extends React.Component {
 		let _this = this;
 		moltin.Authenticate(function() {
 			// Retrieve all products
-			moltin.Product.List({limit: 20}, function(products) {
+			moltin.Product.List({limit: 50}, function(products) {
 				_this.props.products.products = products;
 
 				// Retrieve the last featured product
