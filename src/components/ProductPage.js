@@ -44,22 +44,22 @@ export default class Product extends React.Component {
 		else {
 			let _this = this;
 			moltin.Authenticate(function() {
-				moltin.Product.List(null, function(products) {
-					// Update the global state
-					_this.props.products.products = products;
-					console.log(products[0].category.data);
-
-					// Extract the current item from the list of loaded items
-					let currentItem = _this.props.products.products.filter (function (obj) {
-						return obj.id == _this.state.id;
-					});
-
+				moltin.Product.Get(_this.state.id, function(product) {
 					_this.setState({
-						product: currentItem[0],
+						product: product,
 					});
+
+					moltin.Product.List(null, function(products) {
+						// Update the global state
+						_this.props.products.products = products;
+					}, function(error) {
+						// Something went wrong...
+					});
+
 				}, function(error) {
 					// Something went wrong...
 				});
+
 			});
 		}
 	}
