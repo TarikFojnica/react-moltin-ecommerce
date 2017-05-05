@@ -23,12 +23,6 @@ class Layout extends React.Component {
 					_this.props.featured.featuredObject = product[product.length - 1];
 					_this.props.featured.featuredObject.featuredAcquired = true;
 
-					moltin.Category.List(null, function(category) {
-						console.log(category);
-					}, function(error) {
-						// Something went wrong...
-					});
-
 				}, function(error) {
 					// Something went wrong...
 				});

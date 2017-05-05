@@ -47,6 +47,7 @@ export default class Product extends React.Component {
 				moltin.Product.List(null, function(products) {
 					// Update the global state
 					_this.props.products.products = products;
+					console.log(products[0].category.data);
 
 					// Extract the current item from the list of loaded items
 					let currentItem = _this.props.products.products.filter (function (obj) {
@@ -65,7 +66,6 @@ export default class Product extends React.Component {
 
 	render() {
 		let _this = this;
-		console.log(this.props.featured.featured);
 		//initialize an empty gallery array.
 		const gallery = [];
 
@@ -155,7 +155,6 @@ export default class Product extends React.Component {
 
 				<div className="bottom mt-l">
 					<h4>More from Kanmer</h4>
-					<ProductList size="five" additionalClass="small"/>
 				</div>
 			</div>
 		);
