@@ -7,7 +7,13 @@ import { observer } from 'mobx-react';
 export default class Category extends React.Component {
 	state = {
 		id: this.props.location.pathname.replace('/category/', ''), // remove string '/product/' from the url and use the id only,
-		categoryProducts:[]
+		categoryProducts:[],
+		titles: {
+			'1467531110287147904': 'Sleeves',
+			'1468917017380651382': 'Veg. Tanned Leather Sleeves',
+			'1468916049268179317': 'Leather Sleeves',
+			'1467587096343479184': 'Bow Ties'
+		}
 	};
 
 
@@ -15,13 +21,10 @@ export default class Category extends React.Component {
 		this.setState({
 			id: this.props.location.pathname.replace('/category/', ''),
 		});
-
-		console.log('update route');
 		this.updateData();
 	}
 
 	updateData() {
-		console.log('data updated');
 		let _this = this;
 		moltin.Authenticate(function() {
 			// Retrieve the featured products
@@ -46,7 +49,7 @@ export default class Category extends React.Component {
 		return (
 			<div className="category-page">
 				<div className="header">
-					<h1>Test</h1>
+					<h1>{this.state.titles[this.state.id]}</h1>
 				</div>
 
 				<div className="body">
