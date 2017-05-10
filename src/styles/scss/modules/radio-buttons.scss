@@ -1,0 +1,64 @@
+.color-selection {
+	.title {
+		font-size: 1.2em;
+		font-weight: 700;
+		text-transform: uppercase;
+		margin-bottom: 11px;
+		display: block;
+	}
+
+	.radio-toolbar {
+
+		.border-div {
+			position: absolute;
+			top: -8px;
+			left: -8px;
+			bottom: -8px;
+			right: -8px;
+			border: 2px solid $color-primary;
+			@include border-radius(100px);
+			opacity: 0;
+		}
+
+		input[type="radio"] {
+			display: none;
+		}
+
+		label {
+			position: relative;
+			display: inline-block;
+			background-color: #ddd;
+			cursor: pointer;
+			border: 1px solid rgba(0,0,0,0);
+			padding: 5px 10px;
+			color: whitesmoke;
+			@include border-radius(100px);
+			width: 32px;
+			height: 32px;
+			margin-right: 10px;
+
+			&.brown {
+				background-color: #453424;
+			}
+
+			&.black {
+				background-color: #242520;
+			}
+
+			&.red {
+				background-color: $color-red;
+			}
+
+			&.green {
+				background-color: $color-green;
+			}
+		}
+
+		input[type="radio"]:checked+label {
+			//border: 3px solid $color-primary;
+			.border-div {
+				opacity: 1;
+			}
+		}
+	}
+}

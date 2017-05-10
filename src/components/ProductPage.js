@@ -106,12 +106,13 @@ export default class Product extends React.Component {
 							<div className="no-overflow">
 								<ImageGallery
 									thumbnailPosition={'left'}
-									showNav={false}
+									showNav={true}
 									showPlayButton={false}
 									slideOnThumbnailHover={true}
 									items={gallery}
 									slideInterval={2000}
 									onImageLoad={this.handleImageLoad}
+
 								/>
 							</div>
 						</div>
@@ -119,6 +120,17 @@ export default class Product extends React.Component {
 							<div className="product-details">
 								<h1>{this.state.product.title} <span className="price">{this.state.product.price.value}</span></h1>
 								<AddToCartButton additionalClass="fluid ui button" productId={this.state.product.id}/>
+
+								<div className="color-selection">
+									<span className="title">Color Selection</span>
+									<div className="radio-toolbar">
+										<input type="radio" id="radio1" name="radios" value="all"/>
+										<label className="btn black" htmlFor="radio1"><div className="border-div"></div></label>
+
+										<input type="radio" id="radio2" name="radios" value="false"/>
+										<label className="btn brown" htmlFor="radio2"><div className="border-div"></div></label>
+									</div>
+								</div>
 
 								<Accordion styled defaultActiveIndex={0}>
 									<Accordion.Title>

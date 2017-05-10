@@ -4593,6 +4593,52 @@ img.before-text {
     background: #EDE4DF;
     padding: .8em; }
 
+.color-selection .title {
+  font-size: 1.2em;
+  font-weight: 700;
+  text-transform: uppercase;
+  margin-bottom: 11px;
+  display: block; }
+.color-selection .radio-toolbar .border-div {
+  position: absolute;
+  top: -8px;
+  left: -8px;
+  bottom: -8px;
+  right: -8px;
+  border: 2px solid #2e435c;
+  -webkit-border-radius: 100px !important;
+  border-radius: 100px !important;
+  background-clip: padding-box;
+  /* stops bg color from leaking outside the border: */
+  opacity: 0; }
+.color-selection .radio-toolbar input[type="radio"] {
+  display: none; }
+.color-selection .radio-toolbar label {
+  position: relative;
+  display: inline-block;
+  background-color: #ddd;
+  cursor: pointer;
+  border: 1px solid transparent;
+  padding: 5px 10px;
+  color: whitesmoke;
+  -webkit-border-radius: 100px !important;
+  border-radius: 100px !important;
+  background-clip: padding-box;
+  /* stops bg color from leaking outside the border: */
+  width: 32px;
+  height: 32px;
+  margin-right: 10px; }
+  .color-selection .radio-toolbar label.brown {
+    background-color: #453424; }
+  .color-selection .radio-toolbar label.black {
+    background-color: #242520; }
+  .color-selection .radio-toolbar label.red {
+    background-color: #db2828; }
+  .color-selection .radio-toolbar label.green {
+    background-color: #4CAF50; }
+.color-selection .radio-toolbar input[type="radio"]:checked + label .border-div {
+  opacity: 1; }
+
 body {
   background-color: #FFFFFF;
   overflow-y: scroll;
