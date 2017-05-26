@@ -3,10 +3,8 @@ import ImageGallery from 'react-image-gallery';
 import _ from 'lodash'
 import { Accordion, Icon } from 'semantic-ui-react';
 import AddToCartButton from '../components/AddToCartButton';
-import ProductList from '../components/ProductList';
 import { observer } from 'mobx-react';
 import moltin from '../vendor/moltin';
-import axios from 'axios'
 
 @observer(['products', 'featured'])
 export default class Product extends React.Component {

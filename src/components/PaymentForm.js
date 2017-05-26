@@ -75,12 +75,14 @@ export default class FormExampleOnSubmit extends Component {
 				},
 				ship_to: 'bill_to',
 			}, function(order) {
-				console.log('order', order);
 				_this.setState({
-					open: true,
+					// open: true,
 					cartPreparing: false,
 					cartId: order.id
 				});
+
+				// Once the order is successfull, process the payment
+				_this.handlePayment();
 
 			}, function(error) {
 				console.log(error);
@@ -470,60 +472,14 @@ export default class FormExampleOnSubmit extends Component {
 						</div>
 					</div>
 
-					<button type="submit" className={`large ui button green ${this.state.cartPreparing ? 'loading' : ''}`}>Complete Your Order</button>
+					<button type="submit" className={`large ui button green ${this.state.cartPreparing ? 'loading' : ''}`}><i className="paypal icon"></i> Complete Your Order</button>
 				</form>
 
 				<div className={`${this.state.paymentComplete ? 'hidden' : ''}`}>
 					<Modal dimmer='blurring' open={open} onClose={this.close} size={`small`}>
 						<Modal.Header>Complete your order <br/><small>Feel free to use the provided test values</small></Modal.Header>
 
-						<Modal.Content>
-							<Modal.Description>
-								<form className="ui form" onSubmit={this.handleSubmit}>
-									<div className="field cc-field">
-										<label>
-											<i className="credit card alternative icon"></i>
-											Card Number <br/>
-											<small className="color-green">Your payment details are secure</small>
-										</label>
-
-										<div className="field">
-											<input type="email" name="email" placeholder="Card Number"  value={this.state.cardNumber}  onChange={this.handleChange}/>
-										</div>
-
-										<div className="field">
-											<label>Owner Name</label>
-											<input type="text" name="phoneNumber" placeholder="Owner Name"  value={this.state.ownerName}  onChange={this.handleChange} />
-										</div>
-									</div>
-
-									<div className="field cc-field">
-										<div className="field">
-											<div className="three fields">
-												<div className="field">
-													<label>Card Expiry Month</label>
-													<input type="text" name="phoneNumber" placeholder="Expiry Month"  value={this.state.expiryMonth}  onChange={this.handleChange} />
-												</div>
-
-												<div className="field">
-													<label>Card Expiry Year</label>
-													<input type="text" name="phoneNumber" placeholder="Expiry Year"  value={this.state.expiryYear}  onChange={this.handleChange} />
-												</div>
-
-												<div className="field">
-													<label>CVV</label>
-													<input type="text" name="zipCode" placeholder="CVV"  value={this.state.cvv}  onChange={this.handleChange}/>
-												</div>
-											</div>
-										</div>
-									</div>
-								</form>
-							</Modal.Description>
-						</Modal.Content>
 						<Modal.Actions>
-							<Button className={this.state.paymentComplete ? 'disabled' : ''} color='black' onClick={this.close}>
-								Cancel
-							</Button>
 							<Button onClick={this.handlePayment} className={`right floated ${this.state.processingPayment ? 'loading' : this.state.paymentComplete ? 'disabled' : ''}`} positive icon='checkmark' labelPosition='left' content="Order Now"/>
 						</Modal.Actions>
 

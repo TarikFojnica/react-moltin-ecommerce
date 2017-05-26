@@ -20,6 +20,8 @@ class ProductStore {
 			}
 		}
 	};
+
+	@observable selectedProductColor = ''
 }
 
 let store = new ProductStore();
