@@ -178,9 +178,9 @@ export default class Product extends React.Component {
 					</div>
 				</div>
 
-				<div className="bottom mt-l">
-					<h4>More from Kanmer</h4>
-				</div>
+				{/*<div className="bottom mt-l">*/}
+					{/*<h4>More from Kanmer</h4>*/}
+				{/*</div>*/}
 			</div>
 		);
 	}

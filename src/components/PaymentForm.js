@@ -92,6 +92,7 @@ export default class FormExampleOnSubmit extends Component {
 	};
 
 	handlePayment = () => {
+
 		let _this = this;
 		this.setState({
 			processingPayment: true,
@@ -472,30 +473,16 @@ export default class FormExampleOnSubmit extends Component {
 						</div>
 					</div>
 
-					<button type="submit" className={`large ui button green ${this.state.cartPreparing ? 'loading' : ''}`}><i className="paypal icon"></i> Complete Your Order</button>
-				</form>
+					<button type="submit" className={`large ui button green ${this.state.cartPreparing ? 'loading disabled' : this.state.processingPayment ? 'hidden' : ''}`}><i className="paypal icon"></i> Complete Your Order</button>
 
-				<div className={`${this.state.paymentComplete ? 'hidden' : ''}`}>
-					<Modal dimmer='blurring' open={open} onClose={this.close} size={`small`}>
-						<Modal.Header>Complete your order <br/><small>Feel free to use the provided test values</small></Modal.Header>
-
-						<Modal.Actions>
-							<Button onClick={this.handlePayment} className={`right floated ${this.state.processingPayment ? 'loading' : this.state.paymentComplete ? 'disabled' : ''}`} positive icon='checkmark' labelPosition='left' content="Order Now"/>
-						</Modal.Actions>
-
-						<div className={`order-successful ${!this.state.paymentComplete ? 'hidden' : ''}`}>
-							<div className="ui positive message">
-								<div className="header">
-									<div className="header">
-										Success
-									</div>
-									<p>Your order was successful. Please check your email for more details</p>
-									<Link className="ui button black" to="/">Back to our site</Link>
-								</div>
+					<div className={`mt-m ${this.state.processingPayment ? 'visible' : 'hidden'}`}>
+						<div className="ui info message">
+							<div className="header">
+								Redirecting to PayPal...
 							</div>
 						</div>
-					</Modal>
-				</div>
+					</div>
+				</form>
 			</div>
 		)
 	}
