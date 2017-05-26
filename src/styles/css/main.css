@@ -4611,6 +4611,8 @@ img.before-text {
   background-clip: padding-box;
   /* stops bg color from leaking outside the border: */
   opacity: 0; }
+.color-selection .radio-toolbar .color-element {
+  display: inline-block; }
 .color-selection .radio-toolbar input[type="radio"] {
   display: none; }
 .color-selection .radio-toolbar label {
@@ -4887,12 +4889,9 @@ header {
       padding: 0; }
       .product-container .ui.styled.accordion .dimensions li span.value {
         font-weight: 700; }
-  .product-container .bottom {
-    background: #eaeaea;
-    padding: 1em; }
-    .product-container .bottom h4 {
-      text-transform: uppercase;
-      letter-spacing: 2px; }
+  .product-container .bottom h4 {
+    text-transform: uppercase;
+    letter-spacing: 2px; }
 
 .checkout-container {
   background: #fff; }

@@ -12,14 +12,14 @@ export default class FormExampleOnSubmit extends Component {
 		processingPayment: false,
 		paymentComplete: false,
 		cartId: null,
-		email: 'test@gmail.com',
-		firstName: 'Tarik',
-		lastName: 'Fojnica',
-		streetAddress: '2477 Friendship Lane',
-		city: 'San Jose',
-		country: 'US',
-		zipCode: 'CA94040',
-		phoneNumber: '0038762123456',
+		email: '',
+		firstName: '',
+		lastName: '',
+		streetAddress: '',
+		city: '',
+		country: '',
+		zipCode: '',
+		phoneNumber: '',
 		cardNumber: '4242424242424242',
 		expiryMonth: '08',
 		expiryYear: '2020',
@@ -34,6 +34,7 @@ export default class FormExampleOnSubmit extends Component {
 	handleChange = (event) => {
 		const value = event.target.value;
 		const name = event.target.name;
+		console.log(event.target.value);
 
 		this.setState({
 			[name]: value
@@ -64,9 +65,9 @@ export default class FormExampleOnSubmit extends Component {
 					first_name: _this.state.firstName,
 					last_name:  _this.state.lastName,
 					address_1:  _this.state.streetAddress,
-					address_2: 'Not available',
+					address_2: '',
 					city:       _this.state.city,
-					county:     'DE',
+					county:     _this.state.country,
 					instructions: 'Color: red',
 					country:    _this.state.country,
 					postcode:   _this.state.zipCode,
@@ -154,15 +155,11 @@ export default class FormExampleOnSubmit extends Component {
 				<form className="ui form" onSubmit={this.handleSubmit}>
 
 					<div className="field">
-						<label>Contact Email</label>
-						<input type="text" name="email" placeholder="Email"  value={this.state.email}  onChange={this.handleChange} />
-					</div>
-
-					<div className="field">
-						<label>Shipping Information</label>
+						<label>Customer Information</label>
 						<div className="two fields">
 							<div className="field">
 								<input
+									required="required"
 									name="firstName"
 									placeholder="First Name"
 									type="text"
@@ -171,6 +168,7 @@ export default class FormExampleOnSubmit extends Component {
 							</div>
 							<div className="field">
 								<input
+									required="required"
 									name="lastName"
 									placeholder="Last Name"
 									type="text"
@@ -181,17 +179,29 @@ export default class FormExampleOnSubmit extends Component {
 					</div>
 
 					<div className="field">
-						<input type="text" name="streetAddress" placeholder="Address"  value={this.state.streetAddress} onChange={this.handleChange} />
+						<input required="required" type="email" name="email" placeholder="Email"  value={this.state.email}  onChange={this.handleChange} />
 					</div>
 
 					<div className="field">
-						<input type="text" name="city" placeholder="City"  value={this.state.city}  onChange={this.handleChange}/>
+						<input required="required" type="text" name="streetAddress" placeholder="Shipping Address"  value={this.state.streetAddress} onChange={this.handleChange} />
+					</div>
+
+					<div className="field">
+						<input required="required" type="text" name="city" placeholder="City"  value={this.state.city}  onChange={this.handleChange}/>
 					</div>
 
 					<div className="field">
 						<div className="two fields">
 							<div className="field">
-								<select className="ui fluid" name="country" value={this.state.country} onChange={this.handleChange}>
+								<select required="required" className="ui fluid" name="country" value={this.state.country} onChange={this.handleChange}>
+									<option value="AT">Austria</option>
+									<option value="DE">Germany</option>
+									<option value="FR">France</option>
+									<option value="GB">United Kingdom</option>
+									<option value="US">United States</option>
+									<option value="ES">Spain</option>
+									<option disabled>--</option>
+
 									<option value="AF">Afghanistan</option>
 									<option value="AX">Åland Islands</option>
 									<option value="AL">Albania</option>
@@ -206,7 +216,6 @@ export default class FormExampleOnSubmit extends Component {
 									<option value="AM">Armenia</option>
 									<option value="AW">Aruba</option>
 									<option value="AU">Australia</option>
-									<option value="AT">Austria</option>
 									<option value="AZ">Azerbaijan</option>
 									<option value="BS">Bahamas</option>
 									<option value="BH">Bahrain</option>
@@ -267,14 +276,12 @@ export default class FormExampleOnSubmit extends Component {
 									<option value="FO">Faroe Islands</option>
 									<option value="FJ">Fiji</option>
 									<option value="FI">Finland</option>
-									<option value="FR">France</option>
 									<option value="GF">French Guiana</option>
 									<option value="PF">French Polynesia</option>
 									<option value="TF">French Southern Territories</option>
 									<option value="GA">Gabon</option>
 									<option value="GM">Gambia</option>
 									<option value="GE">Georgia</option>
-									<option value="DE">Germany</option>
 									<option value="GH">Ghana</option>
 									<option value="GI">Gibraltar</option>
 									<option value="GR">Greece</option>
@@ -400,7 +407,6 @@ export default class FormExampleOnSubmit extends Component {
 									<option value="ZA">South Africa</option>
 									<option value="GS">South Georgia and the South Sandwich Islands</option>
 									<option value="SS">South Sudan</option>
-									<option value="ES">Spain</option>
 									<option value="LK">Sri Lanka</option>
 									<option value="SD">Sudan</option>
 									<option value="SR">Suriname</option>
@@ -411,7 +417,7 @@ export default class FormExampleOnSubmit extends Component {
 									<option value="SY">Syrian Arab Republic</option>
 									<option value="TW">Taiwan, Province of China</option>
 									<option value="TJ">Tajikistan</option>
-									<option value="TZ">Tanzania, United Republic of</option>
+									<option value="TZ">Tanzania</option>
 									<option value="TH">Thailand</option>
 									<option value="TL">Timor-Leste</option>
 									<option value="TG">Togo</option>
@@ -426,8 +432,6 @@ export default class FormExampleOnSubmit extends Component {
 									<option value="UG">Uganda</option>
 									<option value="UA">Ukraine</option>
 									<option value="AE">United Arab Emirates</option>
-									<option value="GB">United Kingdom</option>
-									<option value="US">United States</option>
 									<option value="UM">United States Minor Outlying Islands</option>
 									<option value="UY">Uruguay</option>
 									<option value="UZ">Uzbekistan</option>
@@ -445,14 +449,14 @@ export default class FormExampleOnSubmit extends Component {
 							</div>
 
 							<div className="field">
-								<input type="text" name="zipCode" placeholder="City"  value={this.state.zipCode}  onChange={this.handleChange}/>
+								<input required="required" type="text" name="zipCode" placeholder="ZIP Code"  value={this.state.zipCode}  onChange={this.handleChange}/>
 							</div>
 						</div>
 					</div>
 
 					<div className="field">
 						<div className="field">
-							<input type="text" name="phoneNumber" placeholder="Phone Number"  value={this.state.phoneNumber}  onChange={this.handleChange} />
+							<input required="required" type="text" name="phoneNumber" placeholder="Phone Number"  value={this.state.phoneNumber}  onChange={this.handleChange} />
 						</div>
 					</div>
 
