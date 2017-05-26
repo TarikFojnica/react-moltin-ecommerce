@@ -47,6 +47,7 @@
     "whatwg-fetch": "1.0.0"
   },
   "dependencies": {
+    "axios": "^0.16.1",
     "gulp": "^3.9.1",
     "lodash": "^4.17.3",
     "mobx": "^3.1.9",

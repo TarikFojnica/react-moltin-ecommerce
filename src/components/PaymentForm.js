@@ -3,6 +3,7 @@ import moltin from '../vendor/moltin';
 import { Button, Modal } from 'semantic-ui-react';
 import {Link} from 'react-router';
 import events from '../vendor/pub-sub';
+import axios from 'axios'
 
 export default class FormExampleOnSubmit extends Component {
 
@@ -39,6 +40,7 @@ export default class FormExampleOnSubmit extends Component {
 		});
 	};
 
+
 	// Triggers when the form is submitted
 	handleSubmit = (event) =>{
 		let _this = this;
@@ -56,20 +58,23 @@ export default class FormExampleOnSubmit extends Component {
 					email:      _this.state.email,
 				},
 				shipping: '1467619878520226719', // hardcoded shipping method. TODO: allow user to select a shipping method
-				gateway: 'paypal-express', // hardcoded payment method. TODO: allow user to select a payment method
+				gateway: 'paypal-express', // hardcoded payment method. TODO: allow user to select a payment method,
 
 				bill_to: {
 					first_name: _this.state.firstName,
 					last_name:  _this.state.lastName,
 					address_1:  _this.state.streetAddress,
+					address_2: 'Not available',
 					city:       _this.state.city,
-					county:     'US',
+					county:     'DE',
+					instructions: 'Color: red',
 					country:    _this.state.country,
 					postcode:   _this.state.zipCode,
 					phone:      _this.state.phoneNumber,
 				},
 				ship_to: 'bill_to',
 			}, function(order) {
+				console.log('order', order);
 				_this.setState({
 					open: true,
 					cartPreparing: false,
@@ -99,7 +104,7 @@ export default class FormExampleOnSubmit extends Component {
 					expiry_year:  this.state.expiryYear,
 					cvv:          this.state.cvv,
 				},
-				return_url: 'https://kanmer-de.firebaseapp.com/',
+				return_url: 'http://localhost:3000',
 				cancel_url: 'https://kanmer-de.firebaseapp.com/category/1',
 			}, function(payment) {
 

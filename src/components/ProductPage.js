@@ -6,6 +6,7 @@ import AddToCartButton from '../components/AddToCartButton';
 import ProductList from '../components/ProductList';
 import { observer } from 'mobx-react';
 import moltin from '../vendor/moltin';
+import axios from 'axios'
 
 @observer(['products', 'featured'])
 export default class Product extends React.Component {
@@ -64,6 +65,11 @@ export default class Product extends React.Component {
 		}
 	}
 
+	slideToImg = (index) => {
+		this._imageGallery.slideToIndex(index);
+	};
+
+
 	render() {
 		let _this = this;
 		//initialize an empty gallery array.
@@ -105,14 +111,14 @@ export default class Product extends React.Component {
 
 							<div className="no-overflow">
 								<ImageGallery
-									thumbnailPosition={'left'}
+									thumbnailPosition={'bottom'}
 									showNav={true}
 									showPlayButton={false}
 									slideOnThumbnailHover={true}
 									items={gallery}
 									slideInterval={2000}
 									onImageLoad={this.handleImageLoad}
-
+									ref={a => this._imageGallery = a}
 								/>
 							</div>
 						</div>
@@ -124,11 +130,14 @@ export default class Product extends React.Component {
 								<div className="color-selection">
 									<span className="title">Color Selection</span>
 									<div className="radio-toolbar">
-										<input type="radio" id="radio1" name="radios" value="all"/>
-										<label className="btn black" htmlFor="radio1"><div className="border-div"></div></label>
+										<input type="radio" id="color-1" name="radios" value="all" />
+										<label className="btn black" htmlFor="color-1"><div onClick={() => this.slideToImg(0)} className="border-div"></div></label>
 
-										<input type="radio" id="radio2" name="radios" value="false"/>
-										<label className="btn brown" htmlFor="radio2"><div className="border-div"></div></label>
+										<input type="radio" id="color-2" name="radios" value="false"/>
+										<label className="btn brown" htmlFor="color-2"><div onClick={() => this.slideToImg(1)} className="border-div"></div></label>
+
+										<input type="radio" id="color-3" name="radios" value="false"/>
+										<label className="btn brown" htmlFor="color-3"><div onClick={() => this.slideToImg(2)} className="border-div"></div></label>
 									</div>
 								</div>
 
