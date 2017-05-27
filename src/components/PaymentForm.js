@@ -110,7 +110,7 @@ export default class FormExampleOnSubmit extends Component {
 					cvv:          this.state.cvv,
 				},
 				return_url: 'http://localhost:3000/payment/' + orderId ,
-				cancel_url: 'https://kanmer-de.firebaseapp.com/category/1',
+				cancel_url: 'http://localhost:3000/payment/' + orderId ,
 			}, function(payment) {
 
 				// Reset the input values
