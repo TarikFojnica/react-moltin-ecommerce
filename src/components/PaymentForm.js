@@ -11,6 +11,7 @@ export default class FormExampleOnSubmit extends Component {
 		cartPreparing: false,
 		processingPayment: false,
 		paymentComplete: false,
+		cartError: false,
 		cartId: null,
 		email: '',
 		firstName: '',
@@ -86,7 +87,9 @@ export default class FormExampleOnSubmit extends Component {
 				_this.handlePayment(order.id);
 
 			}, function(error) {
-				console.log(error);
+				_this.setState({
+					cartError: true,
+				});
 			});
 		});
 		event.preventDefault();
@@ -473,6 +476,12 @@ export default class FormExampleOnSubmit extends Component {
 					</div>
 
 					<button type="submit" className={`large ui button green ${this.state.cartPreparing ? 'loading disabled' : this.state.processingPayment ? 'hidden' : ''}`}><i className="paypal icon"></i> Complete Your Order</button>
+
+					<div className={`ui negative message ${this.state.cartError ? '' : 'hidden'}`}>
+						<div className="header">
+							You can't submit an empty cart. Please add products to it first.
+						</div>
+					</div>
 
 					<div className={`mt-m ${this.state.processingPayment ? 'visible' : 'hidden'}`}>
 						<div className="ui info message">
