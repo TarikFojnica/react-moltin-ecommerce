@@ -72,7 +72,7 @@ export default class Product extends React.Component {
 							<div className="header">
 								Success
 							</div>
-							<p>Your payment was processed successfully. Please check your email for more details. If you have any questions, please contact us at <span className="email">contact@kanmer.de</span></p>
+							<p>Your payment was processed successfully. Please check your email for more details. If you have any questions, please contact us at <span className="email">info@kanmer.de</span></p>
 							<Link className="ui button" to="/">Continue Shopping</Link>
 						</div>
 					</div>
@@ -90,7 +90,7 @@ export default class Product extends React.Component {
 								<li>You came to this link by mistake</li>
 							</ul>
 
-							<p>Feel free to contact our support at <span className="email">contact@kanmer.de</span></p>
+							<p>Feel free to contact our support at <span className="email">info@kanmer.de</span></p>
 
 							<Link className="ui button" to="/">Continue Shopping</Link>
 						</div>
