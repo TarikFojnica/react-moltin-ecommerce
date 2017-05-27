@@ -129,7 +129,7 @@ export default class Product extends React.Component {
 									<span className="title">Color Selection</span>
 									<div className="radio-toolbar">
 										<div className="color-element">
-											<input type="radio" id="color-1" name="radios" value="all" />
+											<input selected="selected" type="radio" id="color-1" name="radios" value="all" />
 											<label className="btn black" htmlFor="color-1"><div onClick={() => this.slideToImg(0)} className="border-div"></div></label>
 										</div>
 

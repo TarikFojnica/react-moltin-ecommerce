@@ -478,7 +478,7 @@ export default class FormExampleOnSubmit extends Component {
 					<div className={`mt-m ${this.state.processingPayment ? 'visible' : 'hidden'}`}>
 						<div className="ui info message">
 							<div className="header">
-								Redirecting to PayPal...
+								Redirecting to PayPal. Please don't refresh or close this tab.
 							</div>
 						</div>
 					</div>
