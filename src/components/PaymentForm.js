@@ -75,14 +75,15 @@ export default class FormExampleOnSubmit extends Component {
 				},
 				ship_to: 'bill_to',
 			}, function(order) {
+
 				_this.setState({
 					// open: true,
 					cartPreparing: false,
-					cartId: order.id
+					cartId: order.id,
 				});
 
 				// Once the order is successfull, process the payment
-				_this.handlePayment();
+				_this.handlePayment(order.id);
 
 			}, function(error) {
 				console.log(error);
@@ -91,7 +92,7 @@ export default class FormExampleOnSubmit extends Component {
 		event.preventDefault();
 	};
 
-	handlePayment = () => {
+	handlePayment = (orderId) => {
 
 		let _this = this;
 		this.setState({
@@ -108,7 +109,7 @@ export default class FormExampleOnSubmit extends Component {
 					expiry_year:  this.state.expiryYear,
 					cvv:          this.state.cvv,
 				},
-				return_url: 'http://localhost:3000',
+				return_url: 'http://localhost:3000/payment/' + orderId ,
 				cancel_url: 'https://kanmer-de.firebaseapp.com/category/1',
 			}, function(payment) {
 
@@ -151,8 +152,6 @@ export default class FormExampleOnSubmit extends Component {
 	};
 
 	render() {
-		const { open } = this.state;
-
 		return (
 			<div className="payment-form">
 				<form className="ui form" onSubmit={this.handleSubmit}>

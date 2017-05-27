@@ -13,21 +13,21 @@ export default class Product extends React.Component {
 
 	componentDidMount() {
 		let _this = this;
-		console.log(this.state);
+		console.log(this.props);
 
 		moltin.Authenticate(() => {
 
 			axios({
 				method:'post',
-				url:'https://api.molt.in/v1/checkout/payment/complete_purchase/1523991005664117050?token=' + this.state.token + '&PayerID=' + this.state.payerId,
+				url:'https://api.molt.in/v1/checkout/payment/complete_purchase/'+ this.props.params.orderId + '?token=' + this.state.token + '&PayerID=' + this.state.payerId,
 				headers: {'Authorization': moltin.options.auth.token},
 				data: {'Authorization': moltin.options.auth.token}
 			})
 				.then(function(response) {
-					console.log(response);
-					if (response.status === true) {
+					if (response.status === 200) {
 						_this.setState({
-							paymentComplete: true
+							paymentComplete: true,
+							paymentInProcess: false
 						})
 					}
 

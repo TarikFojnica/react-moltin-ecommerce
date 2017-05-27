@@ -14,7 +14,7 @@ const routes = (
 		<Route path="product/:id" component={ProductPage}/>
 		<Route path="category/:id" component={Category}/>
 		<Route path="checkout" component={Checkout}/>
-		<Route path="payment" component={ProcessingPayment}/>
+		<Route path="payment/:orderId" component={ProcessingPayment}/>
 		<Route path="about" component={AboutStaticPage}/>
 		Route
 	</Route>
