@@ -1,24 +1,29 @@
-import React from 'react'
+import React from 'react';
+import axios from 'axios';
+import moltin from '../vendor/moltin';
 
 export default class Product extends React.Component {
 	state = {
-		id: this.props.location.pathname.replace('/product/', ''), // remove string '/product/' from the url and use the id only
-		loaded: false,
-		product: {
-			images: [
-				{
-					url: ''
-				}
-			],
-
-			price: {
-				value: ''
-			}
-		},
-		galleryLoaded: false
+		payerId: this.props.location.query.PayerID,
+		token: this.props.location.query.token
 	};
 
 	componentDidMount() {
+		console.log(this.state);
+
+		moltin.Authenticate(() => {
+			console.log(moltin.options.auth.token);
+
+			axios({
+				method:'post',
+				url:'https://api.molt.in/v1/checkout/payment/complete_purchase/1523986963168756022?token=' + this.state.token + '=' + this.state.payerId,
+				headers: {'Authorization': moltin.options.auth.token},
+				data: {'Authorization': moltin.options.auth.token}
+			})
+				.then(function(response) {
+					console.log(response);
+				});
+		});
 	}
 
 	render() {
