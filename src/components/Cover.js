@@ -29,7 +29,6 @@ export default class Cover extends React.Component {
 	}
 
 	render() {
-
 		const backgroundImage = {
 			backgroundImage: 'url(' + this.props.featured.featuredObject.featured_large.data.url.https + ')',
 		};
@@ -46,7 +45,7 @@ export default class Cover extends React.Component {
 								{this.props.featured.featuredObject.price.value}
 						</span>
 
-							<AddToCartButton additionalClass="inverted" productId={this.props.featured.featuredObject.id}/>
+							<AddToCartButton additionalClass="inverted" productId={this.props.featured.featuredObject.id} text="Add To Cart"/>
 							<Link className="ui inverted button" to={`/product/${this.props.featured.featuredObject.id}`}>Details</Link>
 						</div>
 					</div>

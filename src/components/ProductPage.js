@@ -110,8 +110,6 @@ export default class Product extends React.Component {
 			}
 		}
 
-		console.log('product' , _this.state.product.additional_color_1);
-
 		return (
 			<div className="product-container">
 				<Helmet>

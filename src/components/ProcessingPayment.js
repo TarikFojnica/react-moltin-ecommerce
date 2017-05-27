@@ -1,6 +1,7 @@
 import React from 'react';
 import axios from 'axios';
 import moltin from '../vendor/moltin';
+import {Link} from 'react-router';
 
 export default class Product extends React.Component {
 	state = {
@@ -72,6 +73,7 @@ export default class Product extends React.Component {
 								Success
 							</div>
 							<p>Your payment was processed successfully. Please check your email for more details. If you have any questions, please contact us at <span className="email">contact@kanmer.de</span></p>
+							<Link className="ui button" to="/">Continue Shopping</Link>
 						</div>
 					</div>
 				</div>
@@ -89,6 +91,8 @@ export default class Product extends React.Component {
 							</ul>
 
 							<p>Feel free to contact our support at <span className="email">contact@kanmer.de</span></p>
+
+							<Link className="ui button" to="/">Continue Shopping</Link>
 						</div>
 					</div>
 				</div>

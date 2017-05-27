@@ -15,14 +15,21 @@
 				a {
 					background-color: #3B5998;
 					color: white;
+
+					&:hover {
+						background-color: lighten(#3B5998, 10%);
+					}
 				}
 			}
 			
 			&:nth-child(2) {
 				a {
 					@include gradient-horizontal(#423ADD, #EF5530);
-
 					color: white;
+
+					&:hover {
+						@include gradient-horizontal(lighten(#423ADD, 10%), lighten(#EF5530, 10%));
+					}
 				}
 			}
 
@@ -30,6 +37,7 @@
 				display: block;
 				background-color: red;
 				padding: 7px 5px;
+				@include border-radius(2px);
 			}
 		}
 	}

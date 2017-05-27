@@ -31,6 +31,14 @@ export default class AboutStaticPage extends React.Component {
 					<p className="italic">
 						KanMer is a unique blend of rustic, elegant yet modern lines. It's timeless style reflects timeless values - strength, self confidence, courage, masculinity... Experience an old fashion the new way. Walk with courage, strength and confidence. Walk with KanMer.
 					</p>
+
+					<h2>
+						<i className="mail icon"></i> Contact
+					</h2>
+
+					<p className="italic">
+						info@kanmer.de
+					</p>
 				</article>
 			</div>
 		);

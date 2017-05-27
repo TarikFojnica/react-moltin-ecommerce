@@ -18,7 +18,7 @@ class Home extends React.Component {
 					<title>Kanmer | Experience an old fashion the new way</title>
 				</Helmet>
 
-				<Cover/>
+				<Cover />
 				<ProductList size="three" data={this.props.products.products} />
 			</div>
 		);
