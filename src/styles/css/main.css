@@ -687,7 +687,7 @@ img.before-text {
     left: 250px; }
 
 .hidden {
-  display: none; }
+  display: none !important; }
 
 /*!
  * # Semantic UI 2.2.7 - Button
@@ -4630,13 +4630,19 @@ img.before-text {
   width: 32px;
   height: 32px;
   margin-right: 10px; }
-  .color-selection .radio-toolbar label.brown {
-    background-color: #453424; }
-  .color-selection .radio-toolbar label.black {
-    background-color: #242520; }
-  .color-selection .radio-toolbar label.red {
-    background-color: #db2828; }
-  .color-selection .radio-toolbar label.green {
+  .color-selection .radio-toolbar label.Black {
+    background-color: #1A1819; }
+  .color-selection .radio-toolbar label.Brown {
+    background-color: #5f402d; }
+  .color-selection .radio-toolbar label.Whisky {
+    background-color: #D97803; }
+  .color-selection .radio-toolbar label.Caramel {
+    background-color: #D08C52; }
+  .color-selection .radio-toolbar label.Domino {
+    background-color: #CE762F; }
+  .color-selection .radio-toolbar label.Space {
+    background-color: blue; }
+  .color-selection .radio-toolbar label.Burgundi {
     background-color: #4CAF50; }
 .color-selection .radio-toolbar input[type="radio"]:checked + label .border-div {
   opacity: 1; }

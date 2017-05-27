@@ -39,19 +39,31 @@
 			height: 32px;
 			margin-right: 10px;
 
-			&.brown {
-				background-color: #453424;
+			&.Black {
+				background-color: #1A1819;
 			}
 
-			&.black {
-				background-color: #242520;
+			&.Brown {
+				background-color: #5f402d;
 			}
 
-			&.red {
-				background-color: $color-red;
+			&.Whisky {
+				background-color: #D97803;
 			}
 
-			&.green {
+			&.Caramel {
+				background-color: #D08C52;
+			}
+
+			&.Domino {
+				background-color: #CE762F;
+			}
+
+			&.Space {
+				background-color: blue;
+			}
+
+			&.Burgundi {
 				background-color: $color-green;
 			}
 		}

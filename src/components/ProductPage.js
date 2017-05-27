@@ -18,6 +18,18 @@ export default class Product extends React.Component {
 				}
 			],
 
+			default_color2: {
+				value: ''
+			},
+
+			additional_color_1: {
+				value: ''
+			},
+
+			additional_color_2: {
+				value: ''
+			},
+
 			price: {
 				value: ''
 			}
@@ -98,6 +110,8 @@ export default class Product extends React.Component {
 			}
 		}
 
+		console.log('product' , _this.state.product.additional_color_1);
+
 		return (
 			<div className="product-container">
 				<div className="top">
@@ -128,19 +142,19 @@ export default class Product extends React.Component {
 								<div className="color-selection">
 									<span className="title">Color Selection</span>
 									<div className="radio-toolbar">
-										<div className="color-element">
-											<input selected="selected" type="radio" id="color-1" name="radios" value="all" />
-											<label className="btn black" htmlFor="color-1"><div onClick={() => this.slideToImg(0)} className="border-div"></div></label>
+										<div className={`color-element ${this.state.product.default_color2.value === null || this.state.product.default_color2.value === 'None' ? 'hidden' : ''}`}>
+											<input type="radio" id="color-1" name="radios" value="all" />
+											<label className={`btn ${this.state.product.default_color2.value}`} htmlFor="color-1"><div onClick={() => this.slideToImg(0)} className="border-div"></div></label>
 										</div>
 
-										<div className="color-element">
+										<div className={`color-element ${this.state.product.additional_color_1.value === null || this.state.product.additional_color_1.value === 'None' ? 'hidden' : 'none'}`}>
 											<input type="radio" id="color-2" name="radios" value="false"/>
-											<label className="btn brown" htmlFor="color-2"><div onClick={() => this.slideToImg(1)} className="border-div"></div></label>
+											<label className={`btn ${this.state.product.additional_color_1.value}`} htmlFor="color-2"><div onClick={() => this.slideToImg(1)} className="border-div"></div></label>
 										</div>
 
-										<div className="color-element">
+										<div className={`color-element ${this.state.product.additional_color_2.value === null || this.state.product.additional_color_2.value === 'None' ? 'hidden' : ''}`}>
 											<input type="radio" id="color-3" name="radios" value="false"/>
-											<label className="btn brown" htmlFor="color-3"><div onClick={() => this.slideToImg(2)} className="border-div"></div></label>
+											<label className={`btn ${this.state.product.additional_color_2.value}`} htmlFor="color-3"><div onClick={() => this.slideToImg(2)} className="border-div"></div></label>
 										</div>
 									</div>
 								</div>
@@ -177,10 +191,6 @@ export default class Product extends React.Component {
 						</div>
 					</div>
 				</div>
-
-				{/*<div className="bottom mt-l">*/}
-					{/*<h4>More from Kanmer</h4>*/}
-				{/*</div>*/}
 			</div>
 		);
 	}
