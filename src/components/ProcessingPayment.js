@@ -16,7 +16,6 @@ export default class Product extends React.Component {
 		console.log(this.state);
 
 		moltin.Authenticate(() => {
-			console.log(moltin.options.auth.token);
 
 			axios({
 				method:'post',
@@ -34,13 +33,15 @@ export default class Product extends React.Component {
 
 					else {
 						_this.setState({
-							paymentError: true
+							paymentError: true,
+							paymentInProcess: false
 						})
 					}
 				})
 
 				.catch(function (error) {
 					_this.setState({
+						paymentInProcess: false,
 						paymentError: true,
 					})
 				});
