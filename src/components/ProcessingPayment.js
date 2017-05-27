@@ -59,7 +59,7 @@ export default class Product extends React.Component {
 							<div className="header">
 								Just one second
 							</div>
-							<p>We processing your PayPal payment. Please don't close or refresh this tab</p>
+							<p>We are processing your PayPal payment. Please don't close or refresh this tab</p>
 						</div>
 					</div>
 				</div>
@@ -80,9 +80,15 @@ export default class Product extends React.Component {
 					<div className="ui error message">
 						<div className="content">
 							<div className="header">
-								There was an error with your payment.
+								There was an error with your payment. Please check one of the following.
 							</div>
-							<p>Please try again or contact us at <span className="email">contact@kanmer.de</span></p>
+							<ul className="list">
+								<li>You don't have enough funds on your PayPal account</li>
+								<li>The technical error occurs</li>
+								<li>You came to this link by mistake</li>
+							</ul>
+
+							<p>Feel free to contact our support at <span className="email">contact@kanmer.de</span></p>
 						</div>
 					</div>
 				</div>
