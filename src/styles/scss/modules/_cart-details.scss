@@ -41,6 +41,9 @@
 				font-weight: 400;
 				display: block;
 				font-size: 1.4em;
+				@include max-width(767px) {
+					text-align: center;
+				}
 			}
 
 			.image {
@@ -48,8 +51,16 @@
 				height: 70px;
 				overflow: hidden;
 
+				@include max-width(767px) {
+					height: auto;
+				}
+
 				img {
 					margin-top: -30px;
+
+					@include max-width(767px) {
+						margin-top: 0;
+					}
 				}
 			}
 

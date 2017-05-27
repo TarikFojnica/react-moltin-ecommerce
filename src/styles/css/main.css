@@ -4531,12 +4531,21 @@ img.before-text {
       font-weight: 400;
       display: block;
       font-size: 1.4em; }
+      @media (max-width: 767px) {
+        .cart-details .ui.items .item .header {
+          text-align: center; } }
     .cart-details .ui.items .item .image {
       width: 100px;
       height: 70px;
       overflow: hidden; }
+      @media (max-width: 767px) {
+        .cart-details .ui.items .item .image {
+          height: auto; } }
       .cart-details .ui.items .item .image img {
         margin-top: -30px; }
+        @media (max-width: 767px) {
+          .cart-details .ui.items .item .image img {
+            margin-top: 0; } }
     .cart-details .ui.items .item .price {
       margin-top: 1em;
       display: block;
@@ -4723,6 +4732,12 @@ header {
   background-size: 100% auto;
   background-position: center;
   position: relative; }
+  @media (max-width: 767px) {
+    .home-intro .cover {
+      -webkit-background-size: cover;
+      -moz-background-size: cover;
+      -o-background-size: cover;
+      background-size: cover; } }
   .home-intro .cover .cover-inner .content {
     width: 600px;
     max-width: 100%;
@@ -4732,6 +4747,9 @@ header {
     background-image: linear-gradient(to bottom, rgba(37, 26, 34, 0.5) 0%, #2e435c 100%);
     background-repeat: repeat-x;
     filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#80251A22', endColorstr='#FF2E435C', GradientType=0); }
+    @media (max-width: 1100px) {
+      .home-intro .cover .cover-inner .content {
+        padding: 1em; } }
     .home-intro .cover .cover-inner .content .inner {
       border: 1px solid #EDE4DF;
       padding: 1.5em; }

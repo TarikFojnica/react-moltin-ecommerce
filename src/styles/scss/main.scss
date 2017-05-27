@@ -135,6 +135,13 @@ header {
 		background-position: center;
 		position: relative;
 
+		@include max-width(767px) {
+			-webkit-background-size: cover;
+			-moz-background-size: cover;
+			-o-background-size: cover;
+			background-size: cover;
+		}
+
 		.cover-inner {
 			.content {
 				width: 600px;
@@ -142,6 +149,10 @@ header {
 				padding: 8em 1em;
 				//@include gradient-horizontal(rgba($color-primary, .99), rgba(255,255,255,.0), 60%, 90%);
 				@include gradient-vertical(rgba($color-secondary, .5), $color-primary);
+
+				@include max-width(1100px) {
+					padding: 1em;
+				}
 
 				.inner {
 					border: 1px solid $color-light;

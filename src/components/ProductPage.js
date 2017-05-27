@@ -80,7 +80,6 @@ export default class Product extends React.Component {
 		this._imageGallery.slideToIndex(index);
 	};
 
-
 	render() {
 		let _this = this;
 		//initialize an empty gallery array.
@@ -120,7 +119,7 @@ export default class Product extends React.Component {
 				</Helmet>
 
 				<div className="top">
-					<div className="ui grid">
+					<div className="ui grid stackable">
 						<div className="ten wide column">
 							{/*<div className="overlay">*/}
 							{/*<img src={LoadingIcon} alt="Loading"/>*/}
