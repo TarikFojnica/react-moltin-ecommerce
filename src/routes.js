@@ -5,7 +5,8 @@ import Home from './components/Home';
 import ProductPage from './components/ProductPage';
 import Checkout from './components/Checkout';
 import Category from './components/Category';
-import AboutStaticPage from './components/StaticPages/About'
+import AboutStaticPage from './components/StaticPages/About';
+import ProcessingPayment from './components/ProcessingPayment'
 
 const routes = (
 	<Route path="/" component={Layout}>
@@ -13,7 +14,9 @@ const routes = (
 		<Route path="product/:id" component={ProductPage}/>
 		<Route path="category/:id" component={Category}/>
 		<Route path="checkout" component={Checkout}/>
+		<Route path="payment" component={ProcessingPayment}/>
 		<Route path="about" component={AboutStaticPage}/>
+		Route
 	</Route>
 );
 
