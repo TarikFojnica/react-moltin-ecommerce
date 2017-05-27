@@ -4505,13 +4505,10 @@ img.before-text {
   min-width: 250px; }
 
 .cart-details {
-  border-left: 1px solid #d7d7d7;
-  min-height: 500px;
   position: relative; }
   .cart-details .ui.items span.empty {
     font-size: 1.2em;
     display: block;
-    margin-left: 1em;
     color: #db2828;
     font-weight: 700;
     margin-bottom: 1em; }
@@ -4556,7 +4553,6 @@ img.before-text {
         background-color: #db2828;
         color: white; }
   .cart-details .total {
-    margin-left: 1em;
     border-top: 2px solid #5d5d5d;
     padding-top: 1em; }
     .cart-details .total span {

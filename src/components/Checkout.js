@@ -13,12 +13,13 @@ export default class Checkout extends React.Component {
 					<title>Kanmer | Checkout</title>
 				</Helmet>
 
-				<div className="ui grid">
-					<div className="seven wide column">
-						<PaymentForm/>
-					</div>
-					<div className="nine wide column pt-n pb-n">
+				<div className="ui stackable grid ">
+					<div className="nine wide column pt-n pb-n right floated">
 						<CartDetails/>
+					</div>
+
+					<div className="seven wide column right floated">
+						<PaymentForm/>
 					</div>
 				</div>
 			</div>
