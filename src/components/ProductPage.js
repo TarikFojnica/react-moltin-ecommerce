@@ -137,7 +137,7 @@ export default class Product extends React.Component {
 						<div className="six wide column">
 							<div className="product-details">
 								<h1>{this.state.product.title} <span className="price">{this.state.product.price.value}</span></h1>
-								<AddToCartButton additionalClass="fluid ui button" productId={this.state.product.id}/>
+								<AddToCartButton text={this.state.product.stock_level === 0 ? 'Out of Stock' : 'Add To Cart'} additionalClass={`fluid ui button ${this.state.product.stock_level === 0 ? 'disabled' : ''}`} productId={this.state.product.id}/>
 
 								<div className="color-selection">
 									<span className="title">Color Selection</span>

@@ -28,7 +28,7 @@ export default class Spotlight extends React.Component {
 
 							<div className="extra content">
 								<div className="buttons-container">
-									<AddToCartButton productId={result.id} additionalClass="inverted"/>
+									<AddToCartButton text={result.stock_level === 0 ? 'Out of Stock' : 'Add To Cart'} productId={result.id} additionalClass={`inverted ${result.stock_level === 0 ? 'disabled' : ''}`}/>
 									<Link className="ui inverted button" to={`/product/${result.id}`}>Details</Link>
 								</div>
 							</div>

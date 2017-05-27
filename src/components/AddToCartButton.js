@@ -47,7 +47,7 @@ export default class AddToCart extends React.Component {
 	render() {
 		return (
 			<button className={`ui button ${this.props.additionalClass} ${this.state.adding ? 'disabled' : ''}`} onClick={() => { this.addToCart(this.props.productId)}}>
-				<i className="add to cart icon"></i> Add to Cart
+				<i className="add to cart icon"></i> {this.props.text}
 			</button>
 		);
 	}
