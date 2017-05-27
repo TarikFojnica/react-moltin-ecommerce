@@ -1,0 +1,36 @@
+.social {
+	ul {
+		list-style-type: none;
+		margin: 0;
+		padding: 0;
+
+		li {
+			display: inline-block;
+			width: 47.5%;
+			font-size: 1.1em;
+
+			&:first-child {
+				margin-right: 5%;
+
+				a {
+					background-color: #3B5998;
+					color: white;
+				}
+			}
+			
+			&:nth-child(2) {
+				a {
+					@include gradient-horizontal(#423ADD, #EF5530);
+
+					color: white;
+				}
+			}
+
+			a {
+				display: block;
+				background-color: red;
+				padding: 7px 5px;
+			}
+		}
+	}
+}

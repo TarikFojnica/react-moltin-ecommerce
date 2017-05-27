@@ -2,6 +2,7 @@ import React from 'react';
 import Categories from './Categories';
 import SidebarCart from './SidebarCart';
 import events from '../vendor/pub-sub';
+import Social from './Social'
 
 export default class Sidebar extends React.Component {
 	state = {
@@ -32,6 +33,7 @@ export default class Sidebar extends React.Component {
 						<button className="ui button close-sidebar" onClick={this.closeSidebar}><i className="angle double left icon"></i> Close</button>
 						<SidebarCart/>
 						<Categories/>
+						<Social/>
 					</div>
 				</div>
 			</div>
