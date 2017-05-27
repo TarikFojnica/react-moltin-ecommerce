@@ -12,6 +12,7 @@ export default class Spotlight extends React.Component {
 	render() {
 		// Create allItems function from the props we get from Home component
 		let allItems = this.props.data.map((result, id) => {
+			console.log(result)
 			return (
 				<div key={id} className="column product-list-element">
 					<div className={`ui card`} key={id}>
@@ -34,7 +35,7 @@ export default class Spotlight extends React.Component {
 						</div>
 						<div className="content">
 							<span className="header">{result.title}</span>
-							<span className="sub">Collection Name</span>
+							<span className="sub">Kanmer Collection</span>
 							<div className="price">
 								<span>{result.price.value}</span>
 							</div>
