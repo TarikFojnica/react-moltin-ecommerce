@@ -112,8 +112,8 @@ export default class FormExampleOnSubmit extends Component {
 					expiry_year:  this.state.expiryYear,
 					cvv:          this.state.cvv,
 				},
-				return_url: 'http://localhost:3000/payment/' + orderId ,
-				cancel_url: 'http://localhost:3000/payment/' + orderId ,
+				return_url: 'https://kanmer.de/payment/' + orderId ,
+				cancel_url: 'https://kanmer.de/payment/' + orderId ,
 			}, function(payment) {
 
 				// Reset the input values
