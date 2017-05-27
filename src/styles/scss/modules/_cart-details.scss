@@ -44,16 +44,21 @@
 			.header {
 				font-weight: 400;
 				display: block;
+				font-size: 1.4em;
 			}
 
 			.image {
 				width: 100px;
 				height: 70px;
 				overflow: hidden;
+
+				img {
+					margin-top: -30px;
+				}
 			}
 
 			.price {
-				margin-top: .5em;
+				margin-top: 1em;
 				display: block;
 				color: $color-green;
 			}

@@ -4532,13 +4532,16 @@ img.before-text {
       font-size: 1.2em; }
     .cart-details .ui.items .item .header {
       font-weight: 400;
-      display: block; }
+      display: block;
+      font-size: 1.4em; }
     .cart-details .ui.items .item .image {
       width: 100px;
       height: 70px;
       overflow: hidden; }
+      .cart-details .ui.items .item .image img {
+        margin-top: -30px; }
     .cart-details .ui.items .item .price {
-      margin-top: .5em;
+      margin-top: 1em;
       display: block;
       color: #4CAF50; }
     .cart-details .ui.items .item button.remove {
