@@ -5,6 +5,7 @@ import { Accordion, Icon } from 'semantic-ui-react';
 import AddToCartButton from '../components/AddToCartButton';
 import { observer } from 'mobx-react';
 import moltin from '../vendor/moltin';
+import {Helmet} from "react-helmet";
 
 @observer(['products', 'featured'])
 export default class Product extends React.Component {
@@ -114,6 +115,10 @@ export default class Product extends React.Component {
 
 		return (
 			<div className="product-container">
+				<Helmet>
+					<title>{`Kanmer | ${this.state.product.title}`}</title>
+				</Helmet>
+
 				<div className="top">
 					<div className="ui grid">
 						<div className="ten wide column">

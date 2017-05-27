@@ -2,6 +2,7 @@ import React from 'react';
 import ProductList from '../components/ProductList';
 import moltin from '../vendor/moltin';
 import { observer } from 'mobx-react';
+import {Helmet} from "react-helmet";
 
 @observer(['products'])
 export default class Category extends React.Component {
@@ -44,6 +45,10 @@ export default class Category extends React.Component {
 
 		return (
 			<div className="category-page">
+				<Helmet>
+					<title>{`Kanmer | ${this.state.titles[this.props.location.pathname.replace('/category/', '')]}`}</title>
+				</Helmet>
+
 				<div className="header">
 					<h1>{this.state.titles[this.props.location.pathname.replace('/category/', '')]}</h1>
 				</div>

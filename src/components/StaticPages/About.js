@@ -1,17 +1,15 @@
 import React from 'react';
-import {Link} from 'react-router';
+import {Helmet} from "react-helmet";
 
 export default class AboutStaticPage extends React.Component {
-	state = {
-	};
-
-	componentDidMount() {
-
-	}
 
 	render() {
 		return (
 			<div className="static-page about">
+				<Helmet>
+					<title>Kanmer | About</title>
+				</Helmet>
+
 				<article>
 					<div className="header">
 						<h1>About Us</h1>
