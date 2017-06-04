@@ -26,7 +26,6 @@ export default class Category extends React.Component {
 		moltin.Authenticate(function() {
 			// Retrieve the featured products
 			moltin.Product.Search({category: _this.props.location.pathname.replace('/category/', ''), status: '1'}, function(products) {
-
 				_this.setState({
 					categoryProducts: products
 				});

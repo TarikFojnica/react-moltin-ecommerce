@@ -41,6 +41,16 @@ export default class Product extends React.Component {
 		return allItems;
 	}
 
+	componentWillReceiveProps() {
+		this.updateData();
+	}
+
+	updateUrl(id) {
+		this.props.router.push(id);
+		this.forceUpdate();
+		console.log('abcdeee');
+	}
+
 	componentDidMount() {
 		let _this = this;
 
@@ -129,7 +139,7 @@ export default class Product extends React.Component {
 			return(
 				<div key={id} className={`color-element ${result.default_color.data.key}`}>
 					<input type="radio" id={`color-${id}`} name="radios" value={`value-${id}`} />
-					<label className={`btn ${result.default_color.data.key}`} htmlFor={`color-${id}`}><div onClick={() => this.slideToImg(0)} className="border-div"></div></label>
+					<label className={`btn ${result.default_color.data.key}`} htmlFor={`color-${id}`}><div onClick={() => this.updateUrl(result.id)} className="border-div"></div></label>
 				</div>
 			)
 		});
