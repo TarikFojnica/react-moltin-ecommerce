@@ -4638,20 +4638,16 @@ img.before-text {
   width: 32px;
   height: 32px;
   margin-right: 10px; }
-  .color-selection .radio-toolbar label.Black {
+  .color-selection .radio-toolbar label.black {
     background-color: #1A1819; }
-  .color-selection .radio-toolbar label.Brown {
-    background-color: #5f402d; }
-  .color-selection .radio-toolbar label.Whisky {
-    background-color: #D97803; }
-  .color-selection .radio-toolbar label.Caramel {
-    background-color: #D08C52; }
-  .color-selection .radio-toolbar label.Domino {
-    background-color: #CE762F; }
-  .color-selection .radio-toolbar label.Space {
-    background-color: blue; }
-  .color-selection .radio-toolbar label.Burgundi {
-    background-color: #4CAF50; }
+  .color-selection .radio-toolbar label.orange {
+    background-color: #EA7201; }
+  .color-selection .radio-toolbar label.brown {
+    background-color: #55442A; }
+  .color-selection .radio-toolbar label.green {
+    background-color: #3F4F32; }
+  .color-selection .radio-toolbar label.burgundi {
+    background-color: #742D27; }
 .color-selection .radio-toolbar input[type="radio"]:checked + label .border-div {
   opacity: 1; }
 
