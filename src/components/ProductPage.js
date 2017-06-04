@@ -19,24 +19,27 @@ export default class Product extends React.Component {
 				}
 			],
 
-			default_color2: {
-				value: ''
-			},
-
-			additional_color_1: {
-				value: ''
-			},
-
-			additional_color_2: {
-				value: ''
-			},
-
 			price: {
 				value: ''
 			}
 		},
+		productsByTag: [],
 		galleryLoaded: false
 	};
+
+	// Retrieve all the products with common tag. Used for displaying all the possible color options
+	getAllByColor(tag) {
+		let allItems = 0;
+		let  _this;
+
+		moltin.Authenticate(function() {
+			allItems = _this.props.products.products.filter (function (obj) {
+				return obj.tag == tag;
+			});
+		});
+
+		return allItems;
+	}
 
 	componentDidMount() {
 		let _this = this;
@@ -50,9 +53,20 @@ export default class Product extends React.Component {
 			_this.setState({
 				product: currentItem[0],
 			});
+
+			setTimeout(() => {
+				moltin.Authenticate(function() {
+					_this.setState({
+						productsByTag: _this.props.products.products.filter (function (obj) {
+							return obj.tag == _this.state.product.tag
+						})
+					})
+				});
+			}, 100)
 		}
 
 		// If not, make a new API request and update the global state. This will be called mostly when a product is open directly
+		// from a url
 		else {
 			let _this = this;
 			moltin.Authenticate(function() {
@@ -110,6 +124,16 @@ export default class Product extends React.Component {
 			}
 		}
 
+		let productsByTag = this.state.productsByTag.map((result, id) => {
+			console.log(result);
+			return(
+				<div key={id} className={`color-element ${result.default_color.data.key}`}>
+					<input type="radio" id={`color-${id}`} name="radios" value={`value-${id}`} />
+					<label className={`btn ${result.default_color.data.key}`} htmlFor={`color-${id}`}><div onClick={() => this.slideToImg(0)} className="border-div"></div></label>
+				</div>
+			)
+		});
+
 		return (
 			<div className="product-container">
 				<Helmet>
@@ -144,23 +168,9 @@ export default class Product extends React.Component {
 								<div className="color-selection">
 									<span className="title">Color Selection</span>
 									<div className="radio-toolbar">
-										<div className={`color-element ${this.state.product.default_color2.value === null || this.state.product.default_color2.value === 'None' ? 'hidden' : ''}`}>
-											<input type="radio" id="color-1" name="radios" value="all" />
-											<label className={`btn ${this.state.product.default_color2.value}`} htmlFor="color-1"><div onClick={() => this.slideToImg(0)} className="border-div"></div></label>
-										</div>
-
-										<div className={`color-element ${this.state.product.additional_color_1.value === null || this.state.product.additional_color_1.value === 'None' ? 'hidden' : 'none'}`}>
-											<input type="radio" id="color-2" name="radios" value="false"/>
-											<label className={`btn ${this.state.product.additional_color_1.value}`} htmlFor="color-2"><div onClick={() => this.slideToImg(1)} className="border-div"></div></label>
-										</div>
-
-										<div className={`color-element ${this.state.product.additional_color_2.value === null || this.state.product.additional_color_2.value === 'None' ? 'hidden' : ''}`}>
-											<input type="radio" id="color-3" name="radios" value="false"/>
-											<label className={`btn ${this.state.product.additional_color_2.value}`} htmlFor="color-3"><div onClick={() => this.slideToImg(2)} className="border-div"></div></label>
-										</div>
+										{productsByTag}
 									</div>
 								</div>
-
 								<Accordion styled defaultActiveIndex={0}>
 									<Accordion.Title>
 										<Icon name='dropdown' />

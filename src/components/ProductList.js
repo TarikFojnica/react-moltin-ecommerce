@@ -12,7 +12,6 @@ export default class Spotlight extends React.Component {
 	render() {
 		// Create allItems function from the props we get from Home component
 		let allItems = this.props.data.map((result, id) => {
-			console.log(result)
 			return (
 				<div key={id} className="column product-list-element">
 					<div className={`ui card`} key={id}>
