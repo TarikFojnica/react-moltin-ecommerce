@@ -6,6 +6,7 @@ import AddToCartButton from '../components/AddToCartButton';
 import { observer } from 'mobx-react';
 import moltin from '../vendor/moltin';
 import {Helmet} from "react-helmet";
+import {Link} from 'react-router';
 
 @observer(['products', 'featured'])
 export default class Product extends React.Component {
@@ -42,22 +43,19 @@ export default class Product extends React.Component {
 	}
 
 	componentWillReceiveProps() {
-		this.updateData();
+		console.log(this.state);
+		setTimeout(() => {
+			this.showData();
+		}, 1000)
 	}
 
-	updateUrl(id) {
-		this.props.router.push(id);
-		this.forceUpdate();
-		console.log('abcdeee');
-	}
-
-	componentDidMount() {
+	showData() {
 		let _this = this;
 
 		// If the products are already loaded in our global state
 		if (this.props.products.products.length >= 1) {
 			let currentItem = this.props.products.products.filter (function (obj) {
-				return obj.id == _this.state.id;
+				return obj.id == _this.props.location.pathname.replace('/product/', '');
 			});
 
 			_this.setState({
@@ -100,6 +98,10 @@ export default class Product extends React.Component {
 		}
 	}
 
+	componentDidMount() {
+		this.showData();
+	}
+
 	slideToImg = (index) => {
 		this._imageGallery.slideToIndex(index);
 	};
@@ -135,11 +137,11 @@ export default class Product extends React.Component {
 		}
 
 		let productsByTag = this.state.productsByTag.map((result, id) => {
-			console.log(result);
 			return(
 				<div key={id} className={`color-element ${result.default_color.data.key}`}>
+					<Link className={`btn ${result.default_color.data.key}`} to={`/product/${result.id}`}/>
 					<input type="radio" id={`color-${id}`} name="radios" value={`value-${id}`} />
-					<label className={`btn ${result.default_color.data.key}`} htmlFor={`color-${id}`}><div onClick={() => this.updateUrl(result.id)} className="border-div"></div></label>
+					<label className={`btn ${result.default_color.data.key}`} htmlFor={`color-${id}`}><div className="border-div"></div></label>
 				</div>
 			)
 		});

@@ -4607,6 +4607,31 @@ img.before-text {
   text-transform: uppercase;
   margin-bottom: 11px;
   display: block; }
+.color-selection .radio-toolbar .btn {
+  position: relative;
+  display: inline-block;
+  background-color: #ddd;
+  cursor: pointer;
+  border: 1px solid transparent;
+  padding: 5px 10px;
+  color: whitesmoke;
+  -webkit-border-radius: 100px !important;
+  border-radius: 100px !important;
+  background-clip: padding-box;
+  /* stops bg color from leaking outside the border: */
+  width: 32px;
+  height: 32px;
+  margin-right: 10px; }
+  .color-selection .radio-toolbar .btn.black {
+    background-color: #1A1819; }
+  .color-selection .radio-toolbar .btn.orange {
+    background-color: #EA7201; }
+  .color-selection .radio-toolbar .btn.brown {
+    background-color: #55442A; }
+  .color-selection .radio-toolbar .btn.green {
+    background-color: #3F4F32; }
+  .color-selection .radio-toolbar .btn.burgundi {
+    background-color: #742D27; }
 .color-selection .radio-toolbar .border-div {
   position: absolute;
   top: -8px;
