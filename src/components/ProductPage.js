@@ -43,10 +43,10 @@ export default class Product extends React.Component {
 	}
 
 	componentWillReceiveProps() {
-		console.log(this.state);
+		// If url i.e. product id changes, update the component data
 		setTimeout(() => {
 			this.showData();
-		}, 1000)
+		}, 100)
 	}
 
 	showData() {
@@ -139,9 +139,7 @@ export default class Product extends React.Component {
 		let productsByTag = this.state.productsByTag.map((result, id) => {
 			return(
 				<div key={id} className={`color-element ${result.default_color.data.key}`}>
-					<Link className={`btn ${result.default_color.data.key}`} to={`/product/${result.id}`}/>
-					<input type="radio" id={`color-${id}`} name="radios" value={`value-${id}`} />
-					<label className={`btn ${result.default_color.data.key}`} htmlFor={`color-${id}`}><div className="border-div"></div></label>
+					<Link className={`btn ${result.default_color.data.key}`} to={`/product/${result.id}`}><div className={`border-div ${this.state.product.id === result.id ? '' : 'hidden'}`}></div></Link>
 				</div>
 			)
 		});
@@ -155,10 +153,6 @@ export default class Product extends React.Component {
 				<div className="top">
 					<div className="ui grid stackable">
 						<div className="ten wide column">
-							{/*<div className="overlay">*/}
-							{/*<img src={LoadingIcon} alt="Loading"/>*/}
-							{/*</div>*/}
-
 							<div className="no-overflow">
 								<ImageGallery
 									thumbnailPosition={'bottom'}

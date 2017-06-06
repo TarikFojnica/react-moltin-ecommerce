@@ -4621,7 +4621,7 @@ img.before-text {
   /* stops bg color from leaking outside the border: */
   width: 32px;
   height: 32px;
-  margin-right: 10px; }
+  margin-right: 17px; }
   .color-selection .radio-toolbar .btn.black {
     background-color: #1A1819; }
   .color-selection .radio-toolbar .btn.orange {
@@ -4643,7 +4643,7 @@ img.before-text {
   border-radius: 100px !important;
   background-clip: padding-box;
   /* stops bg color from leaking outside the border: */
-  opacity: 0; }
+  opacity: 1; }
 .color-selection .radio-toolbar .color-element {
   display: inline-block; }
 .color-selection .radio-toolbar input[type="radio"] {
