@@ -46,7 +46,7 @@ export default class Product extends React.Component {
 		// If url i.e. product id changes, update the component data
 		setTimeout(() => {
 			this.showData();
-		}, 100)
+		}, 100); // TODO: do it the proper way without setTimout hack
 	}
 
 	showData() {
@@ -70,7 +70,7 @@ export default class Product extends React.Component {
 						})
 					})
 				});
-			}, 100)
+			}, 100); // TODO: do it the proper way without setTimout hack
 		}
 
 		// If not, make a new API request and update the global state. This will be called mostly when a product is open directly
@@ -173,7 +173,7 @@ export default class Product extends React.Component {
 
 								<div className="color-selection">
 									<span className="title">Color Selection</span>
-									<div className="radio-toolbar">
+									<div className={`radio-toolbar ${this.state.product.tag != null ? '' : 'hidden'}`}>
 										{productsByTag}
 									</div>
 								</div>
