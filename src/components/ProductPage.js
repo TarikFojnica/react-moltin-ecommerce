@@ -86,6 +86,17 @@ export default class Product extends React.Component {
 					moltin.Product.List({limit: 50}, function(products) {
 						// Update the global state
 						_this.props.products.products = products;
+
+						setTimeout(() => {
+							moltin.Authenticate(function() {
+								_this.setState({
+									productsByTag: _this.props.products.products.filter (function (obj) {
+										return obj.tag == _this.state.product.tag
+									})
+								})
+							});
+						}, 100); // TODO: do it the proper way without setTimout hack
+
 					}, function(error) {
 						// Something went wrong...
 					});
