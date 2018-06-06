@@ -1,3 +1,6 @@
+## DEPRECIATED
+The project is based on Moltin API v1 which was depreciated and shut down in the mean time. Please use this repo as a reference only.
+
 React Moltin Ecommerce is an app demonstrating the usage of Moltin Javascript API and React
 
 ## How to run the app
