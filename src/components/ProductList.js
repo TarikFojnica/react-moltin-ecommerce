@@ -1,6 +1,6 @@
 import React from 'react';
 import {Link} from 'react-router';
-import AddToCartButton from '../components/AddToCartButton'
+import AddToCartButton from '../components/AddToCartButton';
 
 export default class Spotlight extends React.Component {
 	state = {
@@ -8,12 +8,13 @@ export default class Spotlight extends React.Component {
 		adding: false,
 	};
 
+
 	render() {
 		// Create allItems function from the props we get from Home component
-		let allItems = this.props.products.map((result, id) => {
+		let allItems = this.props.data.map((result, id) => {
 			return (
 				<div key={id} className="column product-list-element">
-					<div className="ui card" key={id}>
+					<div className={`ui card`} key={id}>
 						<div className="image">
 							{
 								(result.featured_small)
@@ -24,17 +25,16 @@ export default class Spotlight extends React.Component {
 									: <img src="http://placehold.it/300x380" />
 							}
 
-
 							<div className="extra content">
 								<div className="buttons-container">
-									<AddToCartButton productId={result.id} additionalClass="inverted"/>
+									<AddToCartButton text={result.stock_level === 0 ? 'Out of Stock' : 'Add To Cart'} productId={result.id} additionalClass={`inverted ${result.stock_level === 0 ? 'disabled' : ''}`}/>
 									<Link className="ui inverted button" to={`/product/${result.id}`}>Details</Link>
 								</div>
 							</div>
 						</div>
 						<div className="content">
 							<span className="header">{result.title}</span>
-							<span className="sub">Collection Name</span>
+							<span className="sub">Kanmer Collection</span>
 							<div className="price">
 								<span>{result.price.value}</span>
 							</div>
@@ -45,8 +45,8 @@ export default class Spotlight extends React.Component {
 		});
 
 		return (
-			<div className="spotlight-container">
-				<div className="ui stackable three column grid">
+			<div className="product-list-container">
+				<div className={`ui stackable ${this.props.size} column grid`}>
 					{allItems}
 				</div>
 			</div>

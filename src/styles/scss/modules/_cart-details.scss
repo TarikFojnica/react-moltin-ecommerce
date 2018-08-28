@@ -1,6 +1,4 @@
 .cart-details {
-	border-left: 1px solid #d7d7d7;
-	min-height: 500px;
 	position: relative;
 
 	.ui.items {
@@ -8,7 +6,6 @@
 			&.empty {
 				font-size: 1.2em;
 				display: block;
-				margin-left: 1em;
 				color: $color-red;
 				font-weight: 700;
 				margin-bottom: 1em;
@@ -22,7 +19,6 @@
 
 			&:last-child {
 				margin-bottom: 0 !important;
-
 			}
 
 			&:hover {
@@ -44,16 +40,32 @@
 			.header {
 				font-weight: 400;
 				display: block;
+				font-size: 1.4em;
+				@include max-width(767px) {
+					text-align: center;
+				}
 			}
 
 			.image {
 				width: 100px;
 				height: 70px;
 				overflow: hidden;
+
+				@include max-width(767px) {
+					height: auto;
+				}
+
+				img {
+					margin-top: -30px;
+
+					@include max-width(767px) {
+						margin-top: 0;
+					}
+				}
 			}
 
 			.price {
-				margin-top: .5em;
+				margin-top: 1em;
 				display: block;
 				color: $color-green;
 			}
@@ -80,7 +92,6 @@
 	}
 	
 	.total {
-		margin-left: 1em;
 		border-top: 2px solid #5d5d5d;
 		padding-top: 1em;
 

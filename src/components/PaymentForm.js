@@ -3,6 +3,7 @@ import moltin from '../vendor/moltin';
 import { Button, Modal } from 'semantic-ui-react';
 import {Link} from 'react-router';
 import events from '../vendor/pub-sub';
+import axios from 'axios'
 
 export default class FormExampleOnSubmit extends Component {
 
@@ -10,15 +11,16 @@ export default class FormExampleOnSubmit extends Component {
 		cartPreparing: false,
 		processingPayment: false,
 		paymentComplete: false,
+		cartError: false,
 		cartId: null,
-		email: 'test@gmail.com',
-		firstName: 'Tarik',
-		lastName: 'Fojnica',
-		streetAddress: '2477 Friendship Lane',
-		city: 'San Jose',
-		country: 'US',
-		zipCode: 'CA94040',
-		phoneNumber: '0038762123456',
+		email: '',
+		firstName: '',
+		lastName: '',
+		streetAddress: '',
+		city: '',
+		country: '',
+		zipCode: '',
+		phoneNumber: '',
 		cardNumber: '4242424242424242',
 		expiryMonth: '08',
 		expiryYear: '2020',
@@ -33,11 +35,13 @@ export default class FormExampleOnSubmit extends Component {
 	handleChange = (event) => {
 		const value = event.target.value;
 		const name = event.target.name;
+		console.log(event.target.value);
 
 		this.setState({
 			[name]: value
 		});
 	};
+
 
 	// Triggers when the form is submitted
 	handleSubmit = (event) =>{
@@ -55,34 +59,44 @@ export default class FormExampleOnSubmit extends Component {
 					last_name:  _this.state.lastName,
 					email:      _this.state.email,
 				},
-				shipping: '1456721508712841263', // hardcoded shipping method. TODO: allow user to select a shipping method
-				gateway: 'stripe', // hardcoded payment method. TODO: allow user to select a payment method
+				shipping: '1467619878520226719', // hardcoded shipping method. TODO: allow user to select a shipping method
+				gateway: 'paypal-express', // hardcoded payment method. TODO: allow user to select a payment method,
+
 				bill_to: {
 					first_name: _this.state.firstName,
 					last_name:  _this.state.lastName,
 					address_1:  _this.state.streetAddress,
+					address_2: '',
 					city:       _this.state.city,
-					county:     'California',
+					county:     _this.state.country,
+					instructions: 'Color: red',
 					country:    _this.state.country,
 					postcode:   _this.state.zipCode,
-					phone:      _this.state.phoneNumber
+					phone:      _this.state.phoneNumber,
 				},
 				ship_to: 'bill_to',
 			}, function(order) {
+
 				_this.setState({
-					open: true,
+					// open: true,
 					cartPreparing: false,
-					cartId: order.id
+					cartId: order.id,
 				});
 
+				// Once the order is successfull, process the payment
+				_this.handlePayment(order.id);
+
 			}, function(error) {
-				// Something went wrong...
+				_this.setState({
+					cartError: true,
+				});
 			});
 		});
 		event.preventDefault();
 	};
 
-	handlePayment = () => {
+	handlePayment = (orderId) => {
+
 		let _this = this;
 		this.setState({
 			processingPayment: true,
@@ -96,8 +110,10 @@ export default class FormExampleOnSubmit extends Component {
 					number:       this.state.cardNumber,
 					expiry_month: this.state.expiryMonth,
 					expiry_year:  this.state.expiryYear,
-					cvv:          this.state.cvv
-				}
+					cvv:          this.state.cvv,
+				},
+				return_url: 'https://kanmer.de/payment/' + orderId ,
+				cancel_url: 'https://kanmer.de/payment/' + orderId ,
 			}, function(payment) {
 
 				// Reset the input values
@@ -110,14 +126,17 @@ export default class FormExampleOnSubmit extends Component {
 					expiryMonth: '',
 					expiryYear: '',
 					cvv: ''
-				})
+				});
+
+				// Redirect to
+				window.location.href = payment.url;
 
 				moltin.Cart.Delete(function() {
 					// Clear the cart once the payment is successful
 					//TODO: pass the cart object manually without the API call
 					moltin.Cart.Contents(function(items) {
 						events.publish('CART_UPDATED', {
-							cart: items // any argument
+							cart: items
 						});
 
 						_this.setState({
@@ -127,31 +146,25 @@ export default class FormExampleOnSubmit extends Component {
 						// Something went wrong...
 					});
 				}, function(error) {
-					// Something went wrong...
+					console.log(error);
 				});
 			}, function(error) {
-				// Something went wrong...
+				console.log(error);
 			});
 		});
 	};
 
 	render() {
-		const { open } = this.state;
-
 		return (
 			<div className="payment-form">
 				<form className="ui form" onSubmit={this.handleSubmit}>
 
 					<div className="field">
-						<label>Contact Email</label>
-						<input type="text" name="email" placeholder="Email"  value={this.state.email}  onChange={this.handleChange} />
-					</div>
-
-					<div className="field">
-						<label>Shipping Information</label>
+						<label>Customer Information</label>
 						<div className="two fields">
 							<div className="field">
 								<input
+									required="required"
 									name="firstName"
 									placeholder="First Name"
 									type="text"
@@ -160,6 +173,7 @@ export default class FormExampleOnSubmit extends Component {
 							</div>
 							<div className="field">
 								<input
+									required="required"
 									name="lastName"
 									placeholder="Last Name"
 									type="text"
@@ -170,17 +184,29 @@ export default class FormExampleOnSubmit extends Component {
 					</div>
 
 					<div className="field">
-						<input type="text" name="streetAddress" placeholder="Address"  value={this.state.streetAddress} onChange={this.handleChange} />
+						<input required="required" type="email" name="email" placeholder="Email"  value={this.state.email}  onChange={this.handleChange} />
 					</div>
 
 					<div className="field">
-						<input type="text" name="city" placeholder="City"  value={this.state.city}  onChange={this.handleChange}/>
+						<input required="required" type="text" name="streetAddress" placeholder="Shipping Address"  value={this.state.streetAddress} onChange={this.handleChange} />
+					</div>
+
+					<div className="field">
+						<input required="required" type="text" name="city" placeholder="City"  value={this.state.city}  onChange={this.handleChange}/>
 					</div>
 
 					<div className="field">
 						<div className="two fields">
 							<div className="field">
-								<select className="ui fluid" name="country" value={this.state.country} onChange={this.handleChange}>
+								<select required="required" className="ui fluid" name="country" value={this.state.country} onChange={this.handleChange}>
+									<option value="AT">Austria</option>
+									<option value="DE">Germany</option>
+									<option value="FR">France</option>
+									<option value="GB">United Kingdom</option>
+									<option value="US">United States</option>
+									<option value="ES">Spain</option>
+									<option disabled>--</option>
+
 									<option value="AF">Afghanistan</option>
 									<option value="AX">Åland Islands</option>
 									<option value="AL">Albania</option>
@@ -195,7 +221,6 @@ export default class FormExampleOnSubmit extends Component {
 									<option value="AM">Armenia</option>
 									<option value="AW">Aruba</option>
 									<option value="AU">Australia</option>
-									<option value="AT">Austria</option>
 									<option value="AZ">Azerbaijan</option>
 									<option value="BS">Bahamas</option>
 									<option value="BH">Bahrain</option>
@@ -256,14 +281,12 @@ export default class FormExampleOnSubmit extends Component {
 									<option value="FO">Faroe Islands</option>
 									<option value="FJ">Fiji</option>
 									<option value="FI">Finland</option>
-									<option value="FR">France</option>
 									<option value="GF">French Guiana</option>
 									<option value="PF">French Polynesia</option>
 									<option value="TF">French Southern Territories</option>
 									<option value="GA">Gabon</option>
 									<option value="GM">Gambia</option>
 									<option value="GE">Georgia</option>
-									<option value="DE">Germany</option>
 									<option value="GH">Ghana</option>
 									<option value="GI">Gibraltar</option>
 									<option value="GR">Greece</option>
@@ -389,7 +412,6 @@ export default class FormExampleOnSubmit extends Component {
 									<option value="ZA">South Africa</option>
 									<option value="GS">South Georgia and the South Sandwich Islands</option>
 									<option value="SS">South Sudan</option>
-									<option value="ES">Spain</option>
 									<option value="LK">Sri Lanka</option>
 									<option value="SD">Sudan</option>
 									<option value="SR">Suriname</option>
@@ -400,7 +422,7 @@ export default class FormExampleOnSubmit extends Component {
 									<option value="SY">Syrian Arab Republic</option>
 									<option value="TW">Taiwan, Province of China</option>
 									<option value="TJ">Tajikistan</option>
-									<option value="TZ">Tanzania, United Republic of</option>
+									<option value="TZ">Tanzania</option>
 									<option value="TH">Thailand</option>
 									<option value="TL">Timor-Leste</option>
 									<option value="TG">Togo</option>
@@ -415,8 +437,6 @@ export default class FormExampleOnSubmit extends Component {
 									<option value="UG">Uganda</option>
 									<option value="UA">Ukraine</option>
 									<option value="AE">United Arab Emirates</option>
-									<option value="GB">United Kingdom</option>
-									<option value="US">United States</option>
 									<option value="UM">United States Minor Outlying Islands</option>
 									<option value="UY">Uruguay</option>
 									<option value="UZ">Uzbekistan</option>
@@ -434,14 +454,14 @@ export default class FormExampleOnSubmit extends Component {
 							</div>
 
 							<div className="field">
-								<input type="text" name="zipCode" placeholder="City"  value={this.state.zipCode}  onChange={this.handleChange}/>
+								<input required="required" type="text" name="zipCode" placeholder="ZIP Code"  value={this.state.zipCode}  onChange={this.handleChange}/>
 							</div>
 						</div>
 					</div>
 
 					<div className="field">
 						<div className="field">
-							<input type="text" name="phoneNumber" placeholder="Phone Number"  value={this.state.phoneNumber}  onChange={this.handleChange} />
+							<input required="required" type="text" name="phoneNumber" placeholder="Phone Number"  value={this.state.phoneNumber}  onChange={this.handleChange} />
 						</div>
 					</div>
 
@@ -449,82 +469,28 @@ export default class FormExampleOnSubmit extends Component {
 						<label htmlFor="fruit">Payment Type:</label>
 						<div className="field">
 							<div className="ui radio checkbox">
-								<input type="radio" name="fruit" defaultChecked className="hidden" />
-								<label>Credit Card</label>
+								<input type="radio" name="paypal" defaultChecked className="hidden" />
+								<label>PayPal</label>
 							</div>
 						</div>
 					</div>
 
-					<button type="submit" className={`large ui button green ${this.state.cartPreparing ? 'loading' : ''}`}>Complete Your Order</button>
-				</form>
+					<button type="submit" className={`large ui button green ${this.state.cartPreparing ? 'loading disabled' : this.state.processingPayment ? 'hidden' : ''}`}><i className="paypal icon"></i> Complete Your Order</button>
 
-				<div className={`${this.state.paymentComplete ? 'hidden' : ''}`}>
-					<Modal dimmer='blurring' open={open} onClose={this.close} size={`small`}>
-						<Modal.Header>Complete your order <br/><small>Feel free to use the provided test values</small></Modal.Header>
+					<div className={`ui negative message ${this.state.cartError ? '' : 'hidden'}`}>
+						<div className="header">
+							You can't submit an empty cart. Please add products to it first.
+						</div>
+					</div>
 
-						<Modal.Content>
-							<Modal.Description>
-								<form className="ui form" onSubmit={this.handleSubmit}>
-									<div className="field cc-field">
-										<label>
-											<i className="credit card alternative icon"></i>
-											Card Number <br/>
-											<small className="color-green">Your payment details are secure</small>
-										</label>
-
-										<div className="field">
-											<input type="email" name="email" placeholder="Card Number"  value={this.state.cardNumber}  onChange={this.handleChange}/>
-										</div>
-
-										<div className="field">
-											<label>Owner Name</label>
-											<input type="text" name="phoneNumber" placeholder="Owner Name"  value={this.state.ownerName}  onChange={this.handleChange} />
-										</div>
-									</div>
-
-									<div className="field cc-field">
-										<div className="field">
-											<div className="three fields">
-												<div className="field">
-													<label>Card Expiry Month</label>
-													<input type="text" name="phoneNumber" placeholder="Expiry Month"  value={this.state.expiryMonth}  onChange={this.handleChange} />
-												</div>
-
-												<div className="field">
-													<label>Card Expiry Year</label>
-													<input type="text" name="phoneNumber" placeholder="Expiry Year"  value={this.state.expiryYear}  onChange={this.handleChange} />
-												</div>
-
-												<div className="field">
-													<label>CVV</label>
-													<input type="text" name="zipCode" placeholder="CVV"  value={this.state.cvv}  onChange={this.handleChange}/>
-												</div>
-											</div>
-										</div>
-									</div>
-								</form>
-							</Modal.Description>
-						</Modal.Content>
-						<Modal.Actions>
-							<Button className={this.state.paymentComplete ? 'disabled' : ''} color='black' onClick={this.close}>
-								Cancel
-							</Button>
-							<Button onClick={this.handlePayment} className={`right floated ${this.state.processingPayment ? 'loading' : this.state.paymentComplete ? 'disabled' : ''}`} positive icon='checkmark' labelPosition='left' content="Order Now"/>
-						</Modal.Actions>
-
-						<div className={`order-successful ${!this.state.paymentComplete ? 'hidden' : ''}`}>
-							<div className="ui positive message">
-								<div className="header">
-									<div className="header">
-										Success
-									</div>
-									<p>Your order was successful. Please check your email for more details</p>
-									<Link className="ui button black" to="/">Back to our site</Link>
-								</div>
+					<div className={`mt-m ${this.state.processingPayment ? 'visible' : 'hidden'}`}>
+						<div className="ui info message">
+							<div className="header">
+								Redirecting to PayPal. Please don't refresh or close this tab.
 							</div>
 						</div>
-					</Modal>
-				</div>
+					</div>
+				</form>
 			</div>
 		)
 	}

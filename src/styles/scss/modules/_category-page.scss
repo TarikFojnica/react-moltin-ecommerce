@@ -1,0 +1,12 @@
+.category-page {
+	.header {
+		margin-bottom: 2em;
+		h1 {
+			text-transform: uppercase;
+			color: $color-primary;
+			letter-spacing: 2px;
+			font-weight: 400;
+			border-bottom: 1px solid $color-primary;
+		}
+	}
+}

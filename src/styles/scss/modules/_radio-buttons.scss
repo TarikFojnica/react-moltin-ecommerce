@@ -1,0 +1,106 @@
+.color-selection {
+	margin-bottom: 15px;
+
+	.title {
+		font-size: 1.2em;
+		font-weight: 700;
+		text-transform: uppercase;
+		margin-bottom: 11px;
+		display: block;
+	}
+	.radio-toolbar {
+		.btn {
+			position: relative;
+			display: inline-block;
+			background-color: #ddd;
+			cursor: pointer;
+			border: 1px solid rgba(0,0,0,0);
+			padding: 5px 10px;
+			color: whitesmoke;
+			@include border-radius(100px);
+			width: 32px;
+			height: 32px;
+			margin-right: 17px;
+
+			&.black {
+				background-color: #1A1819;
+			}
+
+			&.orange {
+				background-color: #EA7201;
+			}
+
+			&.brown {
+				background-color: #55442A;
+			}
+
+			&.green {
+				background-color: #3F4F32 ;
+			}
+
+			&.burgundi {
+				background-color: #742D27;
+			}
+		}
+
+		.border-div {
+			position: absolute;
+			top: -8px;
+			left: -8px;
+			bottom: -8px;
+			right: -8px;
+			border: 2px solid $color-primary;
+			@include border-radius(100px);
+			opacity: 1;
+		}
+
+		.color-element {
+			display: inline-block;
+		}
+
+		input[type="radio"] {
+			display: none;
+		}
+
+		label {
+			position: relative;
+			display: inline-block;
+			background-color: #ddd;
+			cursor: pointer;
+			border: 1px solid rgba(0,0,0,0);
+			padding: 5px 10px;
+			color: whitesmoke;
+			@include border-radius(100px);
+			width: 32px;
+			height: 32px;
+			margin-right: 10px;
+
+			&.black {
+				background-color: #1A1819;
+			}
+
+			&.orange {
+				background-color: #EA7201;
+			}
+
+			&.brown {
+				background-color: #55442A;
+			}
+
+			&.green {
+				background-color: #3F4F32 ;
+			}
+
+			&.burgundi {
+				background-color: #742D27;
+			}
+		}
+
+		input[type="radio"]:checked+label {
+			//border: 3px solid $color-primary;
+			.border-div {
+				opacity: 1;
+			}
+		}
+	}
+}

@@ -1,12 +1,14 @@
 import React from 'react'
-import moltin from '../vendor/moltin';
 import ImageGallery from 'react-image-gallery';
 import _ from 'lodash'
-import LoadingIcon from '../../public/ripple.svg';
 import { Accordion, Icon } from 'semantic-ui-react';
-import AddToCartButton from '../components/AddToCartButton'
+import AddToCartButton from '../components/AddToCartButton';
+import { observer } from 'mobx-react';
+import moltin from '../vendor/moltin';
+import {Helmet} from "react-helmet";
+import {Link} from 'react-router';
 
-
+@observer(['products', 'featured'])
 export default class Product extends React.Component {
 	state = {
 		id: this.props.location.pathname.replace('/product/', ''), // remove string '/product/' from the url and use the id only
@@ -22,23 +24,103 @@ export default class Product extends React.Component {
 				value: ''
 			}
 		},
+		productsByTag: [],
 		galleryLoaded: false
 	};
 
-	componentDidMount() {
-		let _this = this;
+	// Retrieve all the products with common tag. Used for displaying all the possible color options
+	getAllByColor(tag) {
+		let allItems = 0;
+		let  _this;
 
 		moltin.Authenticate(function() {
-			_this.setState({
-				product: moltin.Product.Get(_this.state.id),
+			allItems = _this.props.products.products.filter (function (obj) {
+				return obj.tag == tag;
 			});
 		});
+
+		return allItems;
 	}
 
+	componentWillReceiveProps() {
+		// If url i.e. product id changes, update the component data
+		setTimeout(() => {
+			this.showData();
+		}, 100); // TODO: do it the proper way without setTimout hack
+	}
+
+	showData() {
+		let _this = this;
+
+		// If the products are already loaded in our global state
+		if (this.props.products.products.length >= 1) {
+			let currentItem = this.props.products.products.filter (function (obj) {
+				return obj.id == _this.props.location.pathname.replace('/product/', '');
+			});
+
+			_this.setState({
+				product: currentItem[0],
+			});
+
+			setTimeout(() => {
+				moltin.Authenticate(function() {
+					_this.setState({
+						productsByTag: _this.props.products.products.filter (function (obj) {
+							return obj.tag == _this.state.product.tag
+						})
+					})
+				});
+			}, 100); // TODO: do it the proper way without setTimout hack
+		}
+
+		// If not, make a new API request and update the global state. This will be called mostly when a product is open directly
+		// from a url
+		else {
+			let _this = this;
+			moltin.Authenticate(function() {
+				moltin.Product.Get(_this.state.id, function(product) {
+					_this.setState({
+						product: product,
+					});
+
+					moltin.Product.List({limit: 50}, function(products) {
+						// Update the global state
+						_this.props.products.products = products;
+
+						setTimeout(() => {
+							moltin.Authenticate(function() {
+								_this.setState({
+									productsByTag: _this.props.products.products.filter (function (obj) {
+										return obj.tag == _this.state.product.tag
+									})
+								})
+							});
+						}, 100); // TODO: do it the proper way without setTimout hack
+
+					}, function(error) {
+						// Something went wrong...
+					});
+
+				}, function(error) {
+					// Something went wrong...
+				});
+
+			});
+		}
+	}
+
+	componentDidMount() {
+		this.showData();
+	}
+
+	slideToImg = (index) => {
+		this._imageGallery.slideToIndex(index);
+	};
+
 	render() {
+		let _this = this;
 		//initialize an empty gallery array.
 		const gallery = [];
-		let _this = this;
 
 		// If we have images uploaded
 		if (this.state.product.images.length >= 1 ) {
@@ -65,33 +147,47 @@ export default class Product extends React.Component {
 			}
 		}
 
+		let productsByTag = this.state.productsByTag.map((result, id) => {
+			return(
+				<div key={id} className={`color-element ${result.default_color.data.key}`}>
+					<Link className={`btn ${result.default_color.data.key}`} to={`/product/${result.id}`}><div className={`border-div ${this.state.product.id === result.id ? '' : 'hidden'}`}></div></Link>
+				</div>
+			)
+		});
 
 		return (
 			<div className="product-container">
-				<div className="top">
-					<div className="ui grid">
-						<div className="ten wide column">
-							{/*<div className="overlay">*/}
-							{/*<img src={LoadingIcon} alt="Loading"/>*/}
-							{/*</div>*/}
+				<Helmet>
+					<title>{`Kanmer | ${this.state.product.title}`}</title>
+				</Helmet>
 
+				<div className="top">
+					<div className="ui grid stackable">
+						<div className="ten wide column">
 							<div className="no-overflow">
 								<ImageGallery
-									thumbnailPosition={'left'}
-									showNav={false}
+									thumbnailPosition={'bottom'}
+									showNav={true}
 									showPlayButton={false}
 									slideOnThumbnailHover={true}
 									items={gallery}
 									slideInterval={2000}
 									onImageLoad={this.handleImageLoad}
+									ref={a => this._imageGallery = a}
 								/>
 							</div>
 						</div>
 						<div className="six wide column">
 							<div className="product-details">
 								<h1>{this.state.product.title} <span className="price">{this.state.product.price.value}</span></h1>
-								<AddToCartButton additionalClass="fluid ui button" productId={this.state.product.id}/>
+								<AddToCartButton text={this.state.product.stock_level === 0 ? 'Out of Stock' : 'Add To Cart'} additionalClass={`fluid ui button ${this.state.product.stock_level === 0 ? 'disabled' : ''}`} productId={this.state.product.id}/>
 
+								<div className="color-selection">
+									<span className="title">Color Selection</span>
+									<div className={`radio-toolbar ${this.state.product.tag != null ? '' : 'hidden'}`}>
+										{productsByTag}
+									</div>
+								</div>
 								<Accordion styled defaultActiveIndex={0}>
 									<Accordion.Title>
 										<Icon name='dropdown' />
@@ -107,18 +203,17 @@ export default class Product extends React.Component {
 										Delivery
 									</Accordion.Title>
 									<Accordion.Content>
-										<p>
-											Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vivamus at augue et risus scelerisque finibus nec vitae velit. Praesent consectetur nibh aliquet m
-										</p>
+										<p>{this.state.product.delivery}</p>
 									</Accordion.Content>
 									<Accordion.Title>
 										<Icon name='dropdown' />
-										Components
+										Dimensions
 									</Accordion.Title>
 									<Accordion.Content>
-										<p>
-											Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vivamus at augue et risus scelerisque finibus nec vitae velit. Praesent consectetur nibh aliquet m
-										</p>
+										<ul className="dimensions">
+											<li><span className="key">Width:</span> <span className="value">{this.state.product.width}</span> cm</li>
+											<li><span className="key">Height:</span> <span className="value">{this.state.product.height}</span> cm</li>
+										</ul>
 									</Accordion.Content>
 								</Accordion>
 							</div>

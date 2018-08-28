@@ -13,3 +13,4 @@ build
 .DS_Store
 npm-debug.log
 .idea
+src/vendor/config.js
